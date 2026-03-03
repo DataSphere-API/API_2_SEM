@@ -22,11 +22,20 @@ Desenvolver um software de...
 
 ---
 ### 📋 Backlog do Produto <a id="backlog"></a>
-                         User Stories          |                                    Prioridade                                                 |                               Estimativa
-  Frase - No formato Como "participante", desejo
-"funcionalidade" para "motivação de negócio"           |  Prioridade - No formato alta/média/baixa ou numérico, onde 1
-representa maior prioridade |  Estimativa - Uma estimativa de esforço Geralmente utiliza Planning Poker (https://www.scrumpoker-
-online.org/pt/ )
+<div align="center">
+  <table>
+    <tr>
+      <th>User Stories</th>
+      <th>Prioridade</th>
+      <th>Estimativa</th>
+    </tr>
+    <tr>
+      <td>Frase - No formato Como "participante", desejo "funcionalidade" para "motivação de negócio"</td>
+      <td>No formato alta/média/baixa ou numérico, onde 1 representa maior prioridade</td>
+      <td>Uma estimativa de esforço Geralmente utiliza Planning Poker (https://www.scrumpoker-online.org/pt/ )</td>
+    </tr>
+  </table>
+</div> 
 
 ---
 
@@ -92,3 +101,6 @@ online.org/pt/ )
       <td><a href="https://github.com/vncssd"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/vncssd?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
+  </table>
+</div>
+
