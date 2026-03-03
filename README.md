@@ -50,7 +50,7 @@ Desenvolver um software de...
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
 
--   **Versionador:** Github <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" width="40" height="40"/>
+-   **Versionador:** Github <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
 -   **Ferramenta de gestão**: Jira(?) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="40" height="40"/>
 -   **Linguagem:** JAVA <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40"/>
 -   **Plataforma:** IntelliJ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="40" height="40"/>
