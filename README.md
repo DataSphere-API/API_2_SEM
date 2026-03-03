@@ -22,11 +22,10 @@ Desenvolver um software de...
 
 ---
 ### 📋 Backlog do Produto <a id="backlog"></a>
-                         User Stories                                    |                                                            Prioridade                                                 |                               Estimativa
-:--: | :--------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----:
+                         User Stories          |                                    Prioridade                                                 |                               Estimativa
   Frase - No formato Como "participante", desejo
-"funcionalidade" para "motivação de negócio"           | Prioridade - No formato alta/média/baixa ou numérico, onde 1
-representa maior prioridade | Estimativa - Uma estimativa de esforço Geralmente utiliza Planning Poker (https://www.scrumpoker-
+"funcionalidade" para "motivação de negócio"           |  Prioridade - No formato alta/média/baixa ou numérico, onde 1
+representa maior prioridade |  Estimativa - Uma estimativa de esforço Geralmente utiliza Planning Poker (https://www.scrumpoker-
 online.org/pt/ )
 
 ---
