@@ -50,10 +50,10 @@ Desenvolver um software de...
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
 
--   **Versionador:** Github <!-- GitHub --> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40" height="40"/>
--   **Ferramenta de gestão: Jira(?) <!-- Jira --> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="40" height="40"/>
--   **Linguagem:** JAVA <!-- Java --> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40"/>
--   **Plataforma:** IntelliJ <!-- IntelliJ --> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="40" height="40"/>
+-   **Versionador:** Github <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" width="40" height="40"/>
+-   **Ferramenta de gestão**: Jira(?) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="40" height="40"/>
+-   **Linguagem:** JAVA <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40"/>
+-   **Plataforma:** IntelliJ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="40" height="40"/>
 
 ---
 
