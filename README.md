@@ -11,12 +11,13 @@
     <a href ="#tecnologias"> Tecnologias</a> |
 </p>
 
+---
 
 > Status do projeto: Em Análise
 
 
 ### Desafio 🎯 <a id="desafio"></a>
-Desenvolver um software de...
+Desenvolver um software de Planejamento de aulas para que 
 
 ### Solução 💡
 
@@ -41,19 +42,19 @@ Desenvolver um software de...
 
 ### 📆 Cronograma das Sprints <a id="sprints"></a>
 
-|  Sprint  |    Período    | Status | Doc. Sprints | 
-| :------: | :-----------: | :----: | :----------: |
-| Sprint 1 | 16/03 a 05/04 |        |              |
-| Sprint 2 | 13/04 a 03/05 |        |              |
-| Sprint 3 | 11/05 a 31/05 |        |              |
+|  Sprint  |          Período        | Status | Doc. Sprints | 
+| :------: | :---------------------: | :----: | :----------: |
+| Sprint 1 | 16/03/2026 a 05/04/2026 |        |              |
+| Sprint 2 | 13/04/2026 a 03/05/2026 |        |              |
+| Sprint 3 | 11/05/2026 a 31/05/2026 |        |              |
 
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
 
--   **Versionador:** Github <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
--   **Ferramenta de gestão**: Jira(?) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="40" height="40"/>
--   **Linguagem:** JAVA <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40"/>
--   **Plataforma:** IntelliJ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="40" height="40"/>
+-   **Versionador:** <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+-   **Ferramenta de gestão:** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="40" height="40"/>
+-   **Linguagem:** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40"/>
+-   **Plataforma:** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="40" height="40"/>
 
 ---
 
@@ -65,14 +66,15 @@ Desenvolver um software de...
       <th>Github</th>
       <th>Linkedin</th>
     </tr>
-    <tr>
-      <td>Ieda Moretini</td>
+     <tr>
+      <td>Vinicius Santos</td>
       <td>Product Owner</td>
-      <td><a href="https://github.com/imoretini"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
-      <td><a href="https://www.linkedin.com/in/imoretini/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+      <td><a href="https://github.com/vncssd"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/vncssd?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
+  </table>
     <tr>
-      <td>Maria Carolina</td>
+      <td>Carolina Medeiros</td>
       <td>Scrum Master</td>
       <td><a href="https://github.com/mcarolinamedeiros"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://br.linkedin.com/in/mcarolinamedeiros"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
@@ -83,6 +85,12 @@ Desenvolver um software de...
       <td><a href="https://github.com/mouradaiane"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/daiane-moura-189987106/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
+   <tr>
+      <td>Ieda Moretini</td>
+      <td>Desenvolvedor</td>
+      <td><a href="https://github.com/imoretini"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/imoretini/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+    </tr>
     <tr>
       <td>Lucas Nathan</td>
       <td>Desenvolvedor</td>
@@ -90,17 +98,11 @@ Desenvolver um software de...
       <td><a href="https://www.linkedin.com/in/lucasconsolo/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
-      <td>Luiz Felipe</td>
+      <td>Luiz Felipe Andrade</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/luiz-andrade1"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/luiz-felipe-queir%C3%B3s/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
-    <tr>
-      <td>Vinicius Santos</td>
-      <td>Desenvolvedor</td>
-      <td><a href="https://github.com/vncssd"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
-      <td><a href="https://www.linkedin.com/in/vncssd?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
-    </tr>
-  </table>
+   
 </div>
 
