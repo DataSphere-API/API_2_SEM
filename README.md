@@ -1,7 +1,7 @@
-# API_2_SEM
+# API 2° Semestre BD
 ## Planejamento de Aulas 
 <p align="center">
-  <img src="https://github.com/DataSphere-API/API_1_SEM/blob/main/Documentos/img/Logo_DataSphere.png" width="200"/>
+  <img src="Documentos/logo_datasphere.png" width="200"/>
 </p>
 <p align="center">
     <a href ="#desafio"> Desafio</a> |
@@ -16,8 +16,8 @@
 > Status do projeto: Em Análise
 
 
-### Desafio 🎯 <a id="desafio"></a>
-Desenvolver um software de Planejamento de aulas para que 
+### 🎯 Desafio  <a id="desafio"></a>
+Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distribuindo os conteúdos de forma sincronizada e validando restrições de datas, eliminando a necessidade de lançamentos manuais em telas separadas e o uso de planilhas improvisadas.
 
 ### Solução 💡
 
@@ -49,12 +49,31 @@ Desenvolver um software de Planejamento de aulas para que
 | Sprint 3 | 11/05/2026 a 31/05/2026 |        |              |
 
 ---
+
+
+### ☑️ DoR (Definition of Ready) <a id="dor"></a>
+
+- Product Backlog dividida em User Storys
+- Product Backlog aprovada pelo cliente
+- Duplas definidas para cada Sprint
+- Tarefas divisíveis através das User Storys
+
+---
+
+### ☑️ DoD (Definition of Done) <a id="dod"></a>
+
+- Documentação atualizada completa
+- Código atualizado e padronizado
+- Código testado e aprovado por toda equipe
+- Calculadora aprovada pelo cliente
+
+---
 ### 💻 Tecnologias <a id="tecnologias"></a>
 
--   **Versionador:** <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
--   **Ferramenta de gestão:** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="40" height="40"/>
--   **Linguagem:** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40"/>
--   **Plataforma:** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="40" height="40"/>
+-   **Versionador:** Git
+-   **Ferramenta de gestão:** Slack
+-   **Linguagem:** Java
+-   **Plataforma:** IntelliJ IDEA 
 
 ---
 
