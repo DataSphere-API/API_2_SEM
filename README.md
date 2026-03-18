@@ -48,24 +48,6 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
 | Sprint 2 | 13/04/2026 a 03/05/2026 |        |              |
 | Sprint 3 | 11/05/2026 a 31/05/2026 |        |              |
 
----
-
-
-### ☑️ DoR (Definition of Ready) <a id="dor"></a>
-
-- Product Backlog dividida em User Storys
-- Product Backlog aprovada pelo cliente
-- Duplas definidas para cada Sprint
-- Tarefas divisíveis através das User Storys
-
----
-
-### ☑️ DoD (Definition of Done) <a id="dod"></a>
-
-- Documentação atualizada completa
-- Código atualizado e padronizado
-- Código testado e aprovado por toda equipe
-- Calculadora aprovada pelo cliente
 
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
