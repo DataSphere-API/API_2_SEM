@@ -12,16 +12,14 @@ public class AulaPlanejada {
     private AulaModel aulaModel;
     private TopicoModel topicoModel;
     private DiaModel diaModel;
-    private LocalDate data;
 
     public AulaPlanejada() {
     }
 
-    public AulaPlanejada(AulaModel aulaModel, TopicoModel topicoModel, DiaModel diaModel, LocalDate data) {
+    public AulaPlanejada(AulaModel aulaModel, TopicoModel topicoModel, DiaModel diaModel) {
         this.aulaModel = aulaModel;
         this.topicoModel = topicoModel;
         this.diaModel = diaModel;
-        this.data = data;
     }
 
     public AulaPlanejada(DiaModel diaModel, TopicoModel topicoModel, AulaModel aulaModel) {
@@ -52,14 +50,6 @@ public class AulaPlanejada {
 
     public void setDiaModel(DiaModel diaModel) {
         this.diaModel = diaModel;
-    }
-
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
     }
 
     public boolean isDiaLetivo() {
