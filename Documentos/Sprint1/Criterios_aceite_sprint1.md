@@ -4,7 +4,7 @@
 </p>
 
 
- ##### Como professor, quero que as aulas sejam distribuídas baseado nos tópicos do conteúdo nas datas de aula disponíveis, respeitando a quantidade de aulas exigida por cada tópico e a capacidade de cada dia, para que eu não precise fazer esse cruzamento manualmente. 
+ #### Como professor, quero que as aulas sejam distribuídas baseado nos tópicos do conteúdo nas datas de aula disponíveis, respeitando a quantidade de aulas exigida por cada tópico e a capacidade de cada dia, para que eu não precise fazer esse cruzamento manualmente. 
 
 <table>
     <tr>
@@ -31,7 +31,7 @@
 
 <br>
 
- ##### Como professor quero poder ver um relatório geral do planejamento de aulas do semestre para que eu possa passá-lo para o SIGA.
+ #### Como professor quero poder ver um relatório geral do planejamento de aulas do semestre para que eu possa passá-lo para o SIGA.
 
 <table>
     <tr>
