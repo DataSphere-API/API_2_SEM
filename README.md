@@ -8,8 +8,11 @@
     <a href ="#solução"> Solução</a> |
     <a href ="#backlog"> Backlog do Produto</a> |   
     <a href ="#sprints"> Cronograma das Sprints</a> |
+    <a href ="#documentacao"> Documentação </a> |
     <a href ="#tecnologias"> Tecnologias</a> |
     <a href ="#equipe"> Equipe </a> |
+    
+
 </p>
 
 ---
@@ -47,17 +50,17 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
       <td align="center"> 5 </td>
     </tr>
     <tr>
-      <td>Como professor quero poder cadastrar, editar e remover os dias da semana e os horários de aula de cada semana, para que uma aula não seja agendada fora do horário</td>
+      <td>Como professor quero poder cadastrar, editar e remover os dias da semana e os horários de aula de cada semana, para que uma aula não seja agendada fora do horário.</td>
       <td align="center">  ALTA </td>
       <td align="center"> 3 </td>
     </tr>
     <tr>
-      <td>Como professor, quero poder cadastrar, editar e remover o conteúdo programático da minha disciplina, para que o planejamento não seja criado sem algum tópico</td>
+      <td>Como professor, quero poder cadastrar, editar e remover o conteúdo programático da minha disciplina, para que o planejamento não seja criado sem algum tópico.</td>
       <td align="center">  ALTA </td>
       <td align="center"> 5 </td>
     </tr>
     <tr>
-      <td>Como professor, quero poder validar a carga horária do planejamento feito, para que a carga mínima seja atingida</td>
+      <td>Como professor, quero poder validar a carga horária do planejamento feito, para que a carga mínima seja atingida.</td>
       <td align="center">  MÉDIA </td>
       <td align="center"> 2 </td>
     </tr>
@@ -83,28 +86,41 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
     <th> Sprint </th>
     <th> Período </th>
     <th> Status </th>
-    <th> Documentação </th>
     <tr>
       <td align="center"> Sprint 1 </td>
       <td align="center"> 16/03 a 05/04 </td>
       <td align="center"> EM ANDAMENTO </td>
-      <td align="center"> <a href = /Documentos/Sprint1> Docs </td>
     </tr>
     <tr>
       <td align="center"> Sprint 1 </td>
       <td align="center"> 13/04 a 03/05 </td>
-      <td align="center">  </td>
       <td align="center">  </td>
     </tr>
     <tr>
       <td align="center"> Sprint 1 </td>
       <td align="center"> 11/05 a 31/05 </td>
       <td align="center">  </td>
-      <td align="center">  </td>
     </tr>
   </table>
 </div>
 
+---
+
+### 📄 Documentação <a id="documentacao"></a>
+
+A documentação está disponível na pasta  <a href="/Documentos/>"> Documentos</a>.
+
+##### Conteúdo:
+- Padrão de Commits
+- Estrutura das Branches
+- Backlog do projeto
+- Documentação por sprint
+- Definition of Ready (DoR)
+- Definition of Done (DoD)
+
+##### Conteúdo dividido por sprint:
+- Backlog da sprint
+- Critérios de aceite
 
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
