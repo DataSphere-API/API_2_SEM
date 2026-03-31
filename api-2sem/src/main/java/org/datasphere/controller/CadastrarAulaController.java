@@ -113,6 +113,10 @@ public class CadastrarAulaController {
         if (chkSegunda.isSelected() && chkSeg1845.isSelected() && chkSeg1935.isSelected()){
             AulaModel aulaSegunda = new AulaModel(DayOfWeek.MONDAY, LocalTime.of(18,45), LocalTime.of(19,35));
             aulas.add(aulaSegunda);
+
+            chkSeg1935.setIndeterminate(true);
+            chkSeg1935.setIndeterminate(true);
+            chkSegunda.setIndeterminate(true);
         }
         return aulas;
     }
