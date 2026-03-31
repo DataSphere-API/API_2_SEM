@@ -13,13 +13,13 @@
     </tr>
     <tr>
       <td> Como professor, quero que as aulas sejam distribuidas baseado nos tópicos do conteúdo nas datas de aula disponíveis, respeitando a quantidade de aulas exigida por cada tópico e a capacidade de cada dia, para que eu não precise fazer esse cruzamento manualmente. </td>
-      <td> <center> ALTA </center> </td>
-      <td> <center> 13 </center> </td>
+      <td align="center">  ALTA </td>
+      <td align="center"> 13 </td>
     </tr>
     <tr>
       <td>Como professor quero poder ver um relatório geral do planejamento de aulas do semestre para que eu possa passá-lo para o SIGA.</td>
-      <td> <center> ALTA </center> </td>
-      <td> <center> 5 </center> </td>
+      <td align="center">  ALTA </td>
+      <td align="center"> 5 </td>
     </tr>
     </table>
 </div>
