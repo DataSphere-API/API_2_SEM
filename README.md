@@ -67,7 +67,7 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
       <td align="center"> 13 </td>
     </tr>
     <tr>
-      <td>FComo professor, quero visualizar o planejamento em formato de calendário mensal, para que eu tenha uma visão temporal clara de todas as aulas, avaliações e eventos do semestre.</td>
+      <td>Como professor, quero visualizar o planejamento em formato de calendário mensal, para que eu tenha uma visão temporal clara de todas as aulas, avaliações e eventos do semestre.</td>
       <td align="center">  BAIXA </td>
       <td align="center"> 8 </td>
     </tr>
@@ -78,11 +78,32 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
 
 ### 📆 Cronograma das Sprints <a id="sprints"></a>
 
-|  Sprint  |          Período        | Status | Doc. Sprints | 
-| :------: | :---------------------: | :----: | :----------: |
-| Sprint 1 | 16/03/2026 a 05/04/2026 |        |              |
-| Sprint 2 | 13/04/2026 a 03/05/2026 |        |              |
-| Sprint 3 | 11/05/2026 a 31/05/2026 |        |              |
+<div align="center">
+  <table>
+    <th> Sprint </th>
+    <th> Período </th>
+    <th> Status </th>
+    <th> Documentação </th>
+    <tr>
+      <td align="center"> Sprint 1 </td>
+      <td align="center"> 16/03 a 05/04 </td>
+      <td align="center"> EM ANDAMENTO </td>
+      <td align="center"> <a href = /Documemntos/Sprint1> Docs </td>
+    </tr>
+    <tr>
+      <td align="center"> Sprint 1 </td>
+      <td align="center"> 13/04 a 03/05 </td>
+      <td align="center">  </td>
+      <td align="center">  </td>
+    </tr>
+    <tr>
+      <td align="center"> Sprint 1 </td>
+      <td align="center"> 11/05 a 31/05 </td>
+      <td align="center">  </td>
+      <td align="center">  </td>
+    </tr>
+  </table>
+</div>
 
 
 ---
