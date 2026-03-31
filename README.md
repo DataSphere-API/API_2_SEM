@@ -108,7 +108,7 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
 
 ### 📄 Documentação <a id="documentacao"></a>
 
-A documentação está disponível na pasta  <a href="/Documentos>"> Documentos</a>.
+A documentação está disponível na pasta  <a href="/Documentos/"> Documentos</a>.
 
 ##### Conteúdo:
 - Padrão de Commits
