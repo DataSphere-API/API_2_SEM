@@ -9,6 +9,7 @@
     <a href ="#backlog"> Backlog do Produto</a> |   
     <a href ="#sprints"> Cronograma das Sprints</a> |
     <a href ="#tecnologias"> Tecnologias</a> |
+    <a href ="#equipe"> Equipe </a> |
 </p>
 
 ---
@@ -87,14 +88,15 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
 
--   **Versionador:** Git
+-   **Versionamento:** Git
 -   **Ferramenta de gestão:** Slack
 -   **Linguagem:** Java
 -   **Plataforma:** IntelliJ IDEA 
 
 ---
 
-<div align="center">
+### 👥 Equipe
+<div align="center" id ="equipe">
   <table>
     <tr>
       <th>Membro</th>
