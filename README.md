@@ -1,23 +1,27 @@
-# API_2_SEM
+# API 2° Semestre BD
 ## Planejamento de Aulas 
 <p align="center">
-  <img src="https://github.com/DataSphere-API/API_1_SEM/blob/main/Documentos/img/Logo_DataSphere.png" width="200"/>
+  <img src="Documentos/logo_datasphere.png" width="200"/>
 </p>
 <p align="center">
     <a href ="#desafio"> Desafio</a> |
     <a href ="#solução"> Solução</a> |
     <a href ="#backlog"> Backlog do Produto</a> |   
     <a href ="#sprints"> Cronograma das Sprints</a> |
+    <a href ="#documentacao"> Documentação </a> |
     <a href ="#tecnologias"> Tecnologias</a> |
+    <a href ="#equipe"> Equipe </a> |
+    
+
 </p>
 
 ---
 
-> Status do projeto: Em Análise
+> Status do projeto: Em Desenvolvimento
 
 
-### Desafio 🎯 <a id="desafio"></a>
-Desenvolver um software de Planejamento de aulas para que 
+### 🎯 Desafio  <a id="desafio"></a>
+Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distribuindo os conteúdos de forma sincronizada e validando restrições de datas, eliminando a necessidade de lançamentos manuais em telas separadas e o uso de planilhas improvisadas.
 
 ### Solução 💡
 
@@ -31,9 +35,44 @@ Desenvolver um software de Planejamento de aulas para que
       <th>Estimativa</th>
     </tr>
     <tr>
-      <td>Frase - No formato Como "participante", desejo "funcionalidade" para "motivação de negócio"</td>
-      <td>No formato alta/média/baixa ou numérico, onde 1 representa maior prioridade</td>
-      <td>Uma estimativa de esforço Geralmente utiliza Planning Poker (https://www.scrumpoker-online.org/pt/ )</td>
+      <td> Como professor, quero que as aulas sejam distribuidas baseado nos tópicos do conteúdo nas datas de aula disponíveis, respeitando a quantidade de aulas exigida por cada tópico e a capacidade de cada dia, para que eu não precise fazer esse cruzamento manualmente. </td>
+      <td align="center">  ALTA </td>
+      <td align="center"> 13 </td>
+    </tr>
+    <tr>
+      <td>Como professor quero poder ver um relatório geral do planejamento de aulas do semestre para que eu possa passá-lo para o SIGA.</td>
+      <td align="center">  ALTA </td>
+      <td align="center"> 5 </td>
+    </tr>
+    <tr>
+      <td>Como professor, quero ser que as avaliações sejam agendadas fora de datas restrita (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento.</td>
+      <td align="center">  ALTA </td>
+      <td align="center"> 5 </td>
+    </tr>
+    <tr>
+      <td>Como professor quero poder cadastrar, editar e remover os dias da semana e os horários de aula de cada semana, para que uma aula não seja agendada fora do horário.</td>
+      <td align="center">  ALTA </td>
+      <td align="center"> 3 </td>
+    </tr>
+    <tr>
+      <td>Como professor, quero poder cadastrar, editar e remover o conteúdo programático da minha disciplina, para que o planejamento não seja criado sem algum tópico.</td>
+      <td align="center">  ALTA </td>
+      <td align="center"> 5 </td>
+    </tr>
+    <tr>
+      <td>Como professor, quero poder validar a carga horária do planejamento feito, para que a carga mínima seja atingida.</td>
+      <td align="center">  MÉDIA </td>
+      <td align="center"> 2 </td>
+    </tr>
+    <tr>
+      <td>Como professor, quero ser avisado quando houver tópicos ainda sem data definida ou dias de aula sem conteúdo atribuído, para que eu não entregue um planejamento com lacunas.</td>
+      <td align="center">  MÉDIA </td>
+      <td align="center"> 13 </td>
+    </tr>
+    <tr>
+      <td>Como professor, quero visualizar o planejamento em formato de calendário mensal, para que eu tenha uma visão temporal clara de todas as aulas, avaliações e eventos do semestre.</td>
+      <td align="center">  BAIXA </td>
+      <td align="center"> 8 </td>
     </tr>
   </table>
 </div> 
@@ -42,23 +81,59 @@ Desenvolver um software de Planejamento de aulas para que
 
 ### 📆 Cronograma das Sprints <a id="sprints"></a>
 
-|  Sprint  |          Período        | Status | Doc. Sprints | 
-| :------: | :---------------------: | :----: | :----------: |
-| Sprint 1 | 16/03/2026 a 05/04/2026 |        |              |
-| Sprint 2 | 13/04/2026 a 03/05/2026 |        |              |
-| Sprint 3 | 11/05/2026 a 31/05/2026 |        |              |
+<div>
+  <table>
+    <th> Sprint </th>
+    <th> Período </th>
+    <th> Status </th>
+    <tr>
+      <td align="center"> Sprint 1 </td>
+      <td align="center"> 16/03 a 05/04 </td>
+      <td align="center"> EM ANDAMENTO </td>
+    </tr>
+    <tr>
+      <td align="center"> Sprint 1 </td>
+      <td align="center"> 13/04 a 03/05 </td>
+      <td align="center">  </td>
+    </tr>
+    <tr>
+      <td align="center"> Sprint 1 </td>
+      <td align="center"> 11/05 a 31/05 </td>
+      <td align="center">  </td>
+    </tr>
+  </table>
+</div>
+
+---
+
+### 📄 Documentação <a id="documentacao"></a>
+
+A documentação está disponível na pasta  <a href="/Documentos/"> Documentos</a>.
+
+##### Conteúdo:
+- Padrão de Commits
+- Estrutura das Branches
+- Backlog do projeto
+- Documentação por sprint
+- Definition of Ready (DoR)
+- Definition of Done (DoD)
+
+##### Conteúdo dividido por sprint:
+- Backlog da sprint
+- Critérios de aceite
 
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
 
--   **Versionador:** <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
--   **Ferramenta de gestão:** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="40" height="40"/>
--   **Linguagem:** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40"/>
--   **Plataforma:** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="40" height="40"/>
+-   **Versionamento:** Git
+-   **Ferramenta de gestão:** Slack
+-   **Linguagem:** Java
+-   **Plataforma:** IntelliJ IDEA 
 
 ---
 
-<div align="center">
+### 👥 Equipe
+<div align="center" id ="equipe">
   <table>
     <tr>
       <th>Membro</th>
