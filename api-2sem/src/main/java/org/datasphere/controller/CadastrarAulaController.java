@@ -42,6 +42,8 @@ public class CadastrarAulaController {
 
     private ObservableList<TopicoModel> obsListTopicos;
 
+    private ObservableList<AulaPlanejada> obsListAulasPlanejadas;
+
     private Integer contadorID = 1;
 
     public void initialize(){
@@ -56,6 +58,7 @@ public class CadastrarAulaController {
         clnAulasTopico.setCellValueFactory(new PropertyValueFactory<>("aulasNecessarias"));
 
         configurarTabela();
+        criarSemestreComDias();
     }
 
     private void configurarTabela(){
@@ -74,7 +77,7 @@ public class CadastrarAulaController {
     }
 
     @FXML
-    private void cadastrarTopico() {
+    private TopicoModel cadastrarTopico() {
         String titulo = txtFldTituloTopico.getText();
         Integer aulas = spnrQtdAulasTopico.getValue();
 
@@ -86,7 +89,9 @@ public class CadastrarAulaController {
             obsListTopicos.add(novoTopico);
 
             txtFldTituloTopico.clear();
+            return novoTopico;
         }
+        return null;
     }
 
     /**
@@ -108,17 +113,15 @@ public class CadastrarAulaController {
         DiaModel diaNaoLetivo2 = new DiaModel(LocalDate.of(2026,04,05), DiaEnum.NAO_LETIVO);
     }
 
-    public List<AulaModel> lerDiaHorarioAula(){
-        List<AulaModel> aulas = new ArrayList<>();
+    public AulaModel lerDiaHorarioAula(){
         if (chkSegunda.isSelected() && chkSeg1845.isSelected() && chkSeg1935.isSelected()){
             AulaModel aulaSegunda = new AulaModel(DayOfWeek.MONDAY, LocalTime.of(18,45), LocalTime.of(19,35));
-            aulas.add(aulaSegunda);
-
             chkSeg1935.setIndeterminate(true);
             chkSeg1935.setIndeterminate(true);
             chkSegunda.setIndeterminate(true);
+            return aulaSegunda;
         }
-        return aulas;
+        return null;
     }
 
     public List<AulaPlanejada> organizarAulas(List<AulaPlanejada> aulas, SemestreModel semestreModel) {
@@ -136,7 +139,7 @@ public class CadastrarAulaController {
                             aula.getTopicoModel(),
                             aula.getAulaModel()
                     );
-                    aulaComData.setData(dia);
+                    aulaComData.setDiaModel(new DiaModel(dia, DiaEnum.LETIVO));
                     planejamentoAulas.add(aulaComData);
                 }
             }
