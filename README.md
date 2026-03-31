@@ -33,42 +33,42 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
     <tr>
       <td> Como professor, quero que as aulas sejam distribuidas baseado nos tópicos do conteúdo nas datas de aula disponíveis, respeitando a quantidade de aulas exigida por cada tópico e a capacidade de cada dia, para que eu não precise fazer esse cruzamento manualmente. </td>
       <td align="center">  ALTA </td>
-      <td> <center> 13 </center> </td>
+      <td align="center"> 13 </td>
     </tr>
     <tr>
       <td>Como professor quero poder ver um relatório geral do planejamento de aulas do semestre para que eu possa passá-lo para o SIGA.</td>
       <td align="center">  ALTA </td>
-      <td> <center> 5 </center> </td>
+      <td align="center"> 5 </td>
     </tr>
     <tr>
       <td>Como professor, quero ser que as avaliações sejam agendadas fora de datas restrita (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento.</td>
       <td align="center">  ALTA </td>
-      <td> <center> 5 </center> </td>
+      <td align="center"> 5 </td>
     </tr>
     <tr>
       <td>Como professor quero poder cadastrar, editar e remover os dias da semana e os horários de aula de cada semana, para que uma aula não seja agendada fora do horário</td>
       <td align="center">  ALTA </td>
-      <td> <center> 3 </center> </td>
+      <td align="center"> 3 </td>
     </tr>
     <tr>
       <td>Como professor, quero poder cadastrar, editar e remover o conteúdo programático da minha disciplina, para que o planejamento não seja criado sem algum tópico</td>
       <td align="center">  ALTA </td>
-      <td> <center> 5 </center> </td>
+      <td align="center"> 5 </td>
     </tr>
     <tr>
       <td>Como professor, quero poder validar a carga horária do planejamento feito, para que a carga mínima seja atingida</td>
       <td align="center">  MÉDIA </td>
-      <td> <center> 2 </center> </td>
+      <td align="center"> 2 </td>
     </tr>
     <tr>
       <td>Como professor, quero ser avisado quando houver tópicos ainda sem data definida ou dias de aula sem conteúdo atribuído, para que eu não entregue um planejamento com lacunas.</td>
       <td align="center">  MÉDIA </td>
-      <td> <center> 13 </center> </td>
+      <td align="center"> 13 </td>
     </tr>
     <tr>
       <td>FComo professor, quero visualizar o planejamento em formato de calendário mensal, para que eu tenha uma visão temporal clara de todas as aulas, avaliações e eventos do semestre.</td>
       <td align="center">  BAIXA </td>
-      <td> <center> 8 </center> </td>
+      <td align="center"> 8 </td>
     </tr>
   </table>
 </div> 
