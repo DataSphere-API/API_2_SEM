@@ -78,7 +78,7 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
 
 ### 📆 Cronograma das Sprints <a id="sprints"></a>
 
-<div align="center">
+<div>
   <table>
     <th> Sprint </th>
     <th> Período </th>
@@ -88,7 +88,7 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
       <td align="center"> Sprint 1 </td>
       <td align="center"> 16/03 a 05/04 </td>
       <td align="center"> EM ANDAMENTO </td>
-      <td align="center"> <a href = /Documemntos/Sprint1> Docs </td>
+      <td align="center"> <a href = /Documentos/Sprint1> Docs </td>
     </tr>
     <tr>
       <td align="center"> Sprint 1 </td>
