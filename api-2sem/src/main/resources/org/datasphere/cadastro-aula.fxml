@@ -454,11 +454,11 @@
             </VBox>
             <VBox alignment="TOP_CENTER">
                <children>
-                  <TableView fx:id="tblTopicoAdicionado" prefHeight="372.0" prefWidth="793.0">
+                  <TableView fx:id="tblTopicoAdicionado" prefHeight="372.0" prefWidth="793.0" style="-fx-font-size: 20;">
                     <columns>
                         <TableColumn fx:id="clnIdTopico" prefWidth="59.00006103515625" text="Id" />
-                      <TableColumn fx:id="clnTopico" minWidth="-1.0" prefWidth="665.9999389648438" text="Tópico" />
-                        <TableColumn fx:id="clnAulasTopico" prefWidth="67.3333740234375" text="Aulas" />
+                      <TableColumn fx:id="clnTopico" minWidth="-1.0" prefWidth="624.666748046875" text="Tópico" />
+                        <TableColumn fx:id="clnAulasTopico" prefWidth="109.333251953125" text="Aulas" />
                     </columns>
                   </TableView>
                </children>
@@ -469,5 +469,17 @@
          <font>
             <Font size="20.0" />
          </font></Button>
+      <TableView layoutX="32.0" layoutY="620.0" prefHeight="414.0" prefWidth="1724.0" style="-fx-font-size: 20;">
+        <columns>
+          <TableColumn prefWidth="460.33333587646484" text="Aula" />
+          <TableColumn prefWidth="876.6666259765625" text="Tópico" />
+            <TableColumn prefWidth="387.3333740234375" text="Data" />
+        </columns>
+      </TableView>
+      <Text layoutX="822.0" layoutY="610.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planejamento de Aulas">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
