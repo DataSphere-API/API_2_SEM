@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../../Documentos/img/Logo_DataSphere.png" width="100"/>
+  <img src="Documentos/logo_datasphere.png" width="200"/>
   <h2 align="center"> Backlog da Sprint 1 </h2>
 </p>
 
