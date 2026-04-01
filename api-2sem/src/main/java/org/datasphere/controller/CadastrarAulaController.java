@@ -69,6 +69,8 @@ public class CadastrarAulaController {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
         spnrQtdAulasTopico.setValueFactory(valueFactory);
 
+        criarSemestreComDias();
+
         obsListTopicos = FXCollections.observableArrayList();
         tblTopicoAdicionado.setItems(obsListTopicos);
 
