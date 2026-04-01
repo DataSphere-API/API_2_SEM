@@ -1,13 +1,14 @@
 package org.datasphere.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SemestreModel {
 
     private LocalDate diaInicio;
     private LocalDate diaFim;
-    private List aulasPlanejadas;
+    private List<DiaModel> diasList;
 
     public SemestreModel() {
     }
@@ -15,6 +16,7 @@ public class SemestreModel {
     public SemestreModel(LocalDate diaInicio, LocalDate diaFim) {
         this.diaInicio = diaInicio;
         this.diaFim = diaFim;
+        this.diasList = new ArrayList<>();
     }
 
     public LocalDate getDiaInicio() {
@@ -29,15 +31,15 @@ public class SemestreModel {
         return diaFim;
     }
 
+    public List<DiaModel> getDiasList() {
+        return diasList;
+    }
+
     public void setDiaFim(LocalDate diaFim) {
         this.diaFim = diaFim;
     }
 
-    public List getAulasPlanejadas() {
-        return aulasPlanejadas;
-    }
-
-    public void setAulasPlanejadas(List aulasPlanejadas) {
-        this.aulasPlanejadas = aulasPlanejadas;
+    public void adicionarDias(DiaModel dia){
+        diasList.add(dia);
     }
 }
