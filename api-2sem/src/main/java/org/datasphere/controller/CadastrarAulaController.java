@@ -141,18 +141,23 @@ public class CadastrarAulaController {
 
         if (chkSegunda.isSelected() && chkSeg1845.isSelected() && chkSeg1935.isSelected()){
             diasDeAula.add(new AulaModel(DayOfWeek.MONDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
+            diasDeAula.add(new AulaModel(DayOfWeek.MONDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
         }
         if (chkTerca.isSelected() && chkTer1845.isSelected() && chkTer1935.isSelected()){
             diasDeAula.add(new AulaModel(DayOfWeek.TUESDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
+            diasDeAula.add(new AulaModel(DayOfWeek.TUESDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
         }
         if (chkQuarta.isSelected() && chkQua1845.isSelected() && chkQua1935.isSelected()){
             diasDeAula.add(new AulaModel(DayOfWeek.WEDNESDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
+            diasDeAula.add(new AulaModel(DayOfWeek.WEDNESDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
         }
         if (chkQuinta.isSelected() && chkQui1845.isSelected() && chkQui1935.isSelected()){
             diasDeAula.add(new AulaModel(DayOfWeek.THURSDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
+            diasDeAula.add(new AulaModel(DayOfWeek.THURSDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
         }
         if (chkSexta.isSelected() && chkSex1845.isSelected() && chkSex1935.isSelected()){
             diasDeAula.add(new AulaModel(DayOfWeek.FRIDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
+            diasDeAula.add(new AulaModel(DayOfWeek.FRIDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
         }
 
         return diasDeAula;
