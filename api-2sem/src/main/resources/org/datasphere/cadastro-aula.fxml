@@ -14,472 +14,167 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastrarAulaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastrarAulaController">
    <children>
-      <VBox layoutX="24.0" layoutY="24.0" prefHeight="285.0" prefWidth="902.0" spacing="20.0">
+
+      <!-- Painel esquerdo: Dias de aula -->
+      <VBox layoutX="10.0" layoutY="8.0" prefHeight="260.0" prefWidth="460.0" spacing="5.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="136.0" prefWidth="449.0">
+            <VBox alignment="TOP_CENTER" prefHeight="24.0" prefWidth="460.0">
                <children>
                   <Text strokeWidth="0.0" text="Dias de aula">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
+                     <font><Font size="13.0" /></font>
+                     <VBox.margin><Insets /></VBox.margin>
                   </Text>
                </children>
             </VBox>
-            <HBox fx:id="rowSegunda" spacing="30.0">
+            <HBox fx:id="rowSegunda" spacing="8.0">
                <children>
-                  <Label text="Segunda - Feira">
+                  <Label prefWidth="105.0" text="Segunda - Feira">
                      <graphic>
                         <CheckBox fx:id="chkSegunda" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
+                           <font><Font size="11.0" /></font>
                         </CheckBox>
                      </graphic>
-                     <font>
-                        <Font size="25.0" />
-                     </font>
+                     <font><Font size="11.0" /></font>
                   </Label>
                   <Label text="18:45">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkSeg1845" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
+                     <font><Font size="11.0" /></font>
+                     <graphic><CheckBox fx:id="chkSeg1845" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
                   </Label>
-                  <Label text="19:35 ">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkSeg1935" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
+                  <Label text="19:35">
+                     <font><Font size="11.0" /></font>
+                     <graphic><CheckBox fx:id="chkSeg1935" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
                   </Label>
                   <Label text="20:25">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkSeg2025" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
+                     <font><Font size="11.0" /></font>
+                     <graphic><CheckBox fx:id="chkSeg2025" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
                   </Label>
                   <Label text="21:15">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
+                     <font><Font size="11.0" /></font>
+                     <graphic><CheckBox mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
                   </Label>
                   <Label text="22:05">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkSeg2115" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
+                     <font><Font size="11.0" /></font>
+                     <graphic><CheckBox fx:id="chkSeg2115" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
                   </Label>
                </children>
             </HBox>
-            <HBox fx:id="rowTerca" spacing="30.0">
+            <HBox fx:id="rowTerca" spacing="8.0">
                <children>
-                  <Label text="Terça - Feira">
-                     <graphic>
-                        <CheckBox fx:id="chkTerca" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                     <font>
-                        <Font size="25.0" />
-                     </font>
+                  <Label prefWidth="105.0" text="Terça - Feira">
+                     <graphic><CheckBox fx:id="chkTerca" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
+                     <font><Font size="11.0" /></font>
                   </Label>
-                  <Label text="18:45">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkTer1845" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="19:35 ">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkTer1935" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="20:25">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkTer2025" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="21:15">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkTer2115" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="22:05">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkTer2205" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
+                  <Label text="18:45"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkTer1845" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="19:35"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkTer1935" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="20:25"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkTer2025" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="21:15"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkTer2115" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="22:05"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkTer2205" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
                </children>
             </HBox>
-            <HBox fx:id="rowQuarta" spacing="30.0">
+            <HBox fx:id="rowQuarta" spacing="8.0">
                <children>
-                  <Label text="Quarta - feira">
-                     <graphic>
-                        <CheckBox fx:id="chkQuarta" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                     <font>
-                        <Font size="25.0" />
-                     </font>
+                  <Label prefWidth="105.0" text="Quarta - Feira">
+                     <graphic><CheckBox fx:id="chkQuarta" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
+                     <font><Font size="11.0" /></font>
                   </Label>
-                  <Label text="18:45">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQua1845" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="19:35 ">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQua1935" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="20:25">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQua2025" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="21:15">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQua2115" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="22:05">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQua2205" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
+                  <Label text="18:45"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQua1845" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="19:35"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQua1935" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="20:25"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQua2025" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="21:15"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQua2115" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="22:05"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQua2205" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
                </children>
             </HBox>
-            <HBox fx:id="rowQuinta" spacing="30.0">
+            <HBox fx:id="rowQuinta" spacing="8.0">
                <children>
-                  <Label text="Quinta - Feira">
-                     <graphic>
-                        <CheckBox fx:id="chkQuinta" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                     <font>
-                        <Font size="25.0" />
-                     </font>
+                  <Label prefWidth="105.0" text="Quinta - Feira">
+                     <graphic><CheckBox fx:id="chkQuinta" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
+                     <font><Font size="11.0" /></font>
                   </Label>
-                  <Label text="18:45">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQui1845" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="19:35 ">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQui1935" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="20:25">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQui2025" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="21:15">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQui2115" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="22:05">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkQui2205" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
+                  <Label text="18:45"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQui1845" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="19:35"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQui1935" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="20:25"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQui2025" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="21:15"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQui2115" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="22:05"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkQui2205" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
                </children>
             </HBox>
-            <HBox fx:id="rowSexta" spacing="30.0">
+            <HBox fx:id="rowSexta" spacing="8.0">
                <children>
-                  <Label text="Sexta - Feira">
-                     <graphic>
-                        <CheckBox fx:id="chkSexta" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                     <font>
-                        <Font size="25.0" />
-                     </font>
+                  <Label prefWidth="105.0" text="Sexta - Feira">
+                     <graphic><CheckBox fx:id="chkSexta" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
+                     <font><Font size="11.0" /></font>
                   </Label>
-                  <Label text="18:45">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkSex1845" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="19:35 ">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkSex1935" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="20:25">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkSex2025" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="21:15">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkSex2115" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
-                  <Label text="22:05">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                     <graphic>
-                        <CheckBox fx:id="chkSex2205" mnemonicParsing="false">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </CheckBox>
-                     </graphic>
-                  </Label>
+                  <Label text="18:45"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkSex1845" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="19:35"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkSex1935" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="20:25"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkSex2025" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="21:15"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkSex2115" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
+                  <Label text="22:05"><font><Font size="11.0" /></font><graphic><CheckBox fx:id="chkSex2205" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic></Label>
                </children>
             </HBox>
             <Button fx:id="btnCadastrarDias" mnemonicParsing="false" onAction="#lerDiaHorarioAula" text="Cadastrar Dias">
-               <font>
-                  <Font size="17.0" />
-               </font>
+               <font><Font size="11.0" /></font>
             </Button>
-            <VBox alignment="BOTTOM_CENTER" prefHeight="128.0" prefWidth="390.0" />
          </children>
       </VBox>
-      <VBox layoutX="975.0" layoutY="29.0" prefHeight="571.0" prefWidth="793.0" spacing="10.0">
+
+      <!-- Painel direito: Conteúdo Programático -->
+      <VBox layoutX="490.0" layoutY="8.0" prefHeight="310.0" prefWidth="524.0" spacing="6.0">
          <children>
             <VBox alignment="TOP_CENTER">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Conteúdo Programático">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
+                     <font><Font size="13.0" /></font>
                   </Text>
                </children>
             </VBox>
-            <VBox>
+            <HBox prefHeight="26.0" prefWidth="524.0" spacing="8.0">
                <children>
-                  <HBox prefHeight="15.0" prefWidth="793.0" spacing="20.0">
-                     <children>
-                        <TextField fx:id="txtFldTituloTopico" prefHeight="23.0" prefWidth="684.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <Spinner fx:id="spnrQtdAulasTopico" prefHeight="45.0" prefWidth="86.0" />
-                     </children>
-                  </HBox>
+                  <TextField fx:id="txtFldTituloTopico" prefHeight="24.0" prefWidth="440.0">
+                     <font><Font size="11.0" /></font>
+                  </TextField>
+                  <Spinner fx:id="spnrQtdAulasTopico" prefHeight="24.0" prefWidth="68.0" />
                </children>
-            </VBox>
+            </HBox>
             <VBox alignment="TOP_CENTER">
                <children>
                   <Button fx:id="btnCadastrarTopico" mnemonicParsing="false" onAction="#cadastrarTopico" text="Cadastrar Conteúdo">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
+                     <font><Font size="11.0" /></font>
                   </Button>
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER">
                <children>
-                  <TableView fx:id="tblTopicoAdicionado" prefHeight="372.0" prefWidth="793.0" style="-fx-font-size: 20;">
-                    <columns>
-                        <TableColumn fx:id="clnIdTopico" prefWidth="59.00006103515625" text="Id" />
-                      <TableColumn fx:id="clnTopico" minWidth="-1.0" prefWidth="624.666748046875" text="Tópico" />
-                        <TableColumn fx:id="clnAulasTopico" prefWidth="109.333251953125" text="Aulas" />
-                    </columns>
+                  <TableView fx:id="tblTopicoAdicionado" prefHeight="207.0" prefWidth="524.0" style="-fx-font-size: 11;">
+                     <columns>
+                        <TableColumn fx:id="clnIdTopico" prefWidth="44.0" text="Id" />
+                        <TableColumn fx:id="clnTopico" prefWidth="394.0" text="Tópico" />
+                        <TableColumn fx:id="clnAulasTopico" prefWidth="84.0" text="Aulas" />
+                     </columns>
                   </TableView>
                </children>
             </VBox>
          </children>
       </VBox>
-      <Button fx:id="btnGerarPlanejamento" layoutX="348.0" layoutY="491.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="242.0" text="Gerar Planejamento">
-         <font>
-            <Font size="20.0" />
-         </font></Button>
-      <TableView layoutX="32.0" layoutY="620.0" prefHeight="414.0" prefWidth="1724.0" style="-fx-font-size: 20;">
-        <columns>
-          <TableColumn prefWidth="460.33333587646484" text="Aula" />
-          <TableColumn prefWidth="876.6666259765625" text="Tópico" />
-            <TableColumn prefWidth="387.3333740234375" text="Data" />
-        </columns>
-      </TableView>
-      <Text layoutX="822.0" layoutY="610.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planejamento de Aulas">
-         <font>
-            <Font size="25.0" />
-         </font>
+
+      <!-- Botão Gerar Planejamento -->
+      <Button fx:id="btnGerarPlanejamento" layoutX="170.0" layoutY="268.0" mnemonicParsing="false" onAction="#gerarPlanejamentoPlanilha" prefHeight="28.0" prefWidth="160.0" text="Gerar Planejamento">
+         <font><Font size="11.0" /></font>
+      </Button>
+
+      <!-- Título tabela -->
+      <Text layoutX="432.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planejamento de Aulas">
+         <font><Font size="13.0" /></font>
       </Text>
+
+      <!-- Tabela de planejamento -->
+      <TableView fx:id="tblPlanejamentoAulas" layoutX="10.0" layoutY="330.0" prefHeight="234.0" prefWidth="1004.0" style="-fx-font-size: 11;">
+         <columns>
+            <TableColumn fx:id="clnAulasPlanejamento" prefWidth="248.0" text="Aula" />
+            <TableColumn fx:id="clnTopicoPlanejamento" prefWidth="508.0" text="Tópico" />
+            <TableColumn fx:id="clnDataPlanejamento" prefWidth="246.0" text="Data" />
+         </columns>
+      </TableView>
+
    </children>
 </AnchorPane>
