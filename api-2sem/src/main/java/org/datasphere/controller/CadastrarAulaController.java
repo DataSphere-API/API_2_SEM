@@ -61,6 +61,10 @@ public class CadastrarAulaController {
 
     private Integer contadorID = 1;
 
+    private SemestreModel semestre = new SemestreModel(LocalDate.of(2026,04,01), LocalDate.of(2026,04,30));
+
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     public void initialize(){
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
         spnrQtdAulasTopico.setValueFactory(valueFactory);
