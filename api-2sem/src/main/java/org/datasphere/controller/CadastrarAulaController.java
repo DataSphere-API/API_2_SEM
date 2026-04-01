@@ -38,7 +38,22 @@ public class CadastrarAulaController {
     private TextField txtFldTituloTopico;
 
     @FXML
-    private CheckBox chkSegunda, chkSeg1845, chkSeg1935;
+    private CheckBox chkSegunda,chkTerca, chkQuarta, chkQuinta, chkSexta;
+
+    @FXML
+    private CheckBox chkSeg1845, chkSeg1935, chkTer1845, chkTer1935, chkQua1845, chkQua1935, chkQui1845, chkQui1935, chkSex1845, chkSex1935;
+
+    @FXML
+    private TableColumn<AulaPlanejada, String> clnAulasPlanejamento;
+
+    @FXML
+    private TableColumn<AulaPlanejada, String> clnDataPlanejamento;
+
+    @FXML
+    private TableColumn<AulaPlanejada, String> clnTopicoPlanejamento;
+
+    @FXML
+    private TableView<AulaPlanejada> tblPlanejamentoAulas;
 
     private ObservableList<TopicoModel> obsListTopicos;
 
