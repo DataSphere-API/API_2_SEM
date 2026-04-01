@@ -32,4 +32,8 @@ public class DiaModel {
     public void setTipo(DiaEnum tipo) {
         this.tipo = tipo;
     }
+
+    public boolean isDiaLetivo() {
+        return tipo != DiaEnum.NAO_LETIVO;
+    }
 }
