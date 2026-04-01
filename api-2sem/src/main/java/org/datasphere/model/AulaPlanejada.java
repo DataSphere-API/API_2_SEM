@@ -52,8 +52,6 @@ public class AulaPlanejada {
         this.diaModel = diaModel;
     }
 
-    public boolean isDiaLetivo() {
-        return diaModel.getTipo() != DiaEnum.NAO_LETIVO;
-    }
+
 
 }
