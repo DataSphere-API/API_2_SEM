@@ -65,7 +65,7 @@ public class CadastrarAulaController {
 
     private Integer contadorID = 1;
 
-    private SemestreModel semestre = new SemestreModel(LocalDate.of(2026,04,01), LocalDate.of(2026,04,30));
+    private SemestreModel semestre = new SemestreModel(LocalDate.of(2026,05,01), LocalDate.of(2026,05,30));
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -123,17 +123,17 @@ public class CadastrarAulaController {
      APÓS ISSO, ELE DEVE SER ALTERADO SEM FALTA!!!!
     **/
     public void criarSemestreComDias(){
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,1), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,2), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,6), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,7), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,8), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,9), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,10), DiaEnum.LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,4), DiaEnum.LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,5), DiaEnum.LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,6), DiaEnum.LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,7), DiaEnum.LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,8), DiaEnum.LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,9), DiaEnum.LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,10), DiaEnum.LETIVO));
 
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,03), DiaEnum.NAO_LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,04), DiaEnum.NAO_LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,04,05), DiaEnum.NAO_LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,01), DiaEnum.NAO_LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,02), DiaEnum.NAO_LETIVO));
+        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,03), DiaEnum.NAO_LETIVO));
     }
 
     public List<AulaModel> lerDiaHorarioAula(){
