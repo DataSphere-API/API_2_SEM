@@ -47,7 +47,7 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
     <tr>
       <td>Como professor, quero ser que as avaliações sejam agendadas fora de datas restrita (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento.</td>
       <td align="center">  ALTA </td>
-      <td align="center"> 5 </td>
+      <td align="center"> 13 </td>
     </tr>
     <tr>
       <td>Como professor quero poder cadastrar, editar e remover os dias da semana e os horários de aula de cada semana, para que uma aula não seja agendada fora do horário.</td>
