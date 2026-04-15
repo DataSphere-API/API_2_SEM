@@ -27,14 +27,14 @@
     </table>
 </div>
 
-#### ☑️ Definition of Ready (DoR) <a id="dor"></a>
+#### ✅ Definition of Ready (DoR) <a id="dor"></a>
 
 - Esboço de tela feito e aprovado.
 - A user story está bem escrita e clara para todos.
 - A US não depende de outra US ainda não concluída.
 - Regras de negócio bem definidas e claras.
 
-#### ☑️ Definition of Done (DoD) <a id="dod"></a>
+#### ✅ Definition of Done (DoD) <a id="dod"></a>
 
 - O código passou por revisão de outro membro do time 
 - Os commits estão claros e seguem o padrão convencional.
