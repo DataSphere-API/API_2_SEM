@@ -47,7 +47,7 @@ Na tela de conteúdo, ele seria lançado da seguinte forma:
 
 Os professores também precisam planejar o conteúdo levando em consideração as datas do API, o que torna o processo ainda mais desafiador. 
 
-Além disso, se houverem muitos feriados os professores precisam marcar aulas ao sábado para compor a carga horária mínima das disciplinas (40 horas aula para disciplinas com 2 aulas semenais ou 80 horas aula para disciplinas com 4 aulas semanais).
+Além disso, se houver muitos feriados os professores precisam marcar aulas ao sábado para compor a carga horária mínima das disciplinas (40 horas aula para disciplinas com 2 aulas semenais ou 80 horas aula para disciplinas com 4 aulas semanais).
 
 ### Solução - SIGA.ME </a>
 
@@ -67,7 +67,7 @@ Um sistema que crie o planejamento automaticamente, realizando o cruzamento auto
     </tr>
     <tr>
       <td align="center"> <b> US01 </b> </td>
-      <td> Como professor, quero que as aulas sejam distribuidas baseado nos tópicos do conteúdo nas datas de aula disponíveis, respeitando a quantidade de aulas exigida por cada tópico e a capacidade de cada dia, para que eu não precise fazer esse cruzamento manualmente. </td>
+      <td> Como professor, quero que as aulas sejam distribuídas baseado nos tópicos do conteúdo nas datas de aula disponíveis, respeitando a quantidade de aulas exigida por cada tópico e a capacidade de cada dia, para que eu não precise fazer esse cruzamento manualmente. </td>
       <td align="center">  ALTA </td>
       <td align="center"> 13 </td>
     </tr>
@@ -131,12 +131,12 @@ Um sistema que crie o planejamento automaticamente, realizando o cruzamento auto
       <td align="center"> ✅ </td>
     </tr>
     <tr>
-      <td align="center"> Sprint 1 </td>
+      <td align="center"> Sprint 2 </td>
       <td align="center"> 13/04 a 03/05 </td>
       <td align="center"> EM ANDAMENTO </td>
     </tr>
     <tr>
-      <td align="center"> Sprint 1 </td>
+      <td align="center"> Sprint 3 </td>
       <td align="center"> 11/05 a 31/05 </td>
       <td align="center">  </td>
     </tr>
