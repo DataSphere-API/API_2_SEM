@@ -159,6 +159,7 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
 ##### Conteúdo dividido por sprint:
 - Backlog da sprint
 - Critérios de aceite
+- Rascunhos das telas
 
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
