@@ -12,7 +12,7 @@
       <th>Estimativa</th>
     </tr>
     <tr>
-      <td> Como professor, quero que as avaliações sejam agendadas fora de datas restrita (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento. </td>
+      <td> Como professor, quero que as avaliações sejam agendadas fora de datas restritas (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento. </td>
       <td align="center">  ALTA </td>
       <td align="center"> 13 </td>
     </tr>
