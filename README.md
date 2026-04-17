@@ -1,5 +1,4 @@
-# API 2° Semestre BD
-## Planejamento de Aulas 
+# SIGA.ME </a> - Planejamento de Aulas Automatizada 
 <p align="center">
   <img src="Documentos/logo_datasphere.png" width="200"/>
 </p>
