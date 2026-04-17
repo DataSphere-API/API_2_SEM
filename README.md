@@ -51,7 +51,7 @@ Além disso, se houverem muitos feriados os professores precisam marcar aulas ao
 
 ### Solução - SIGA.ME </a>
 
-Um sistema que crie o planjamento automaticamente, realizando o cruzamento automatizado entre os dias letivos e não letivos do calendário acadêmico da FATEC e o conteúdo programático da matéria, levando em conta a quantidade de aulas que cada tópico vai demandar.
+Um sistema que crie o planejamento automaticamente, realizando o cruzamento automatizado entre os dias letivos e não letivos do calendário acadêmico da FATEC e o conteúdo programático da matéria, levando em conta a quantidade de aulas que cada tópico vai demandar.
 
 
 
@@ -79,7 +79,7 @@ Um sistema que crie o planjamento automaticamente, realizando o cruzamento autom
     </tr>
     <tr>
       <td align="center"> <b> US03 </b> </td>
-      <td>Como professor, quero que as avaliações sejam agendadas fora de datas restrita (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento.</td>
+      <td>Como professor, quero que as avaliações sejam agendadas fora de datas restritas (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento.</td>
       <td align="center">  ALTA </td>
       <td align="center"> 13 </td>
     </tr>
