@@ -3,24 +3,26 @@
   <h2 align="center"> Backlog da Sprint 1 </h2>
 </p>
 
-#### **Meta da Sprint:**  18 pontos (US01 - US02)
+#### **Meta da Sprint:**  13 pontos (US03)
 <div align="center">
   <table>
     <tr>
-      <th> Id </th>
       <th>User Stories</th>
       <th>Prioridade</th>
       <th>Estimativa</th>
     </tr>
     <tr>
-      <td align="center"> <b> US01 </b> </td>
-      <td> Como professor, quero que as aulas sejam distribuidas baseado nos tópicos do conteúdo nas datas de aula disponíveis, respeitando a quantidade de aulas exigida por cada tópico e a capacidade de cada dia, para que eu não precise fazer esse cruzamento manualmente. </td>
+      <td> Como professor, quero que as avaliações sejam agendadas fora de datas restritas (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento. </td>
       <td align="center">  ALTA </td>
       <td align="center"> 13 </td>
     </tr>
     <tr>
-    <td align="center"> <b> US02 </b> </td>
-      <td>Como professor quero poder ver um relatório geral do planejamento de aulas do semestre para que eu possa passá-lo para o SIGA.</td>
+      <td> Como professor quero poder cadastrar, editar e remover os dias da semana e os horários de aula de cada semana, para que uma aula não seja agendada fora do horário. </td>
+      <td align="center">  ALTA </td>
+      <td align="center"> 3 </td>
+    </tr>
+    <tr>
+      <td> Como professor, quero poder cadastrar, editar e remover o conteúdo programático da minha disciplina, para que o planejamento não seja criado sem algum tópico. </td>
       <td align="center">  ALTA </td>
       <td align="center"> 5 </td>
     </tr>
