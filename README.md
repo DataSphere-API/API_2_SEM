@@ -20,10 +20,40 @@
 > Status do projeto: Em Desenvolvimento
 
 
-### 🎯 Desafio  <a id="desafio"></a>
-Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distribuindo os conteúdos de forma sincronizada e validando restrições de datas, eliminando a necessidade de lançamentos manuais em telas separadas e o uso de planilhas improvisadas.
+### 🎯 Desafio do Projeto  <a id="desafio"></a>
+No começo de cada semestre letivo, os professores precisam lançar seus planos de aula no sistema.
+Essa atividade deveria ser simples, contudo a usabilidade do sistema deixa tudo mais difícil.
 
-### Solução 💡
+Os professores devem, para cada disciplina, informar em uma tela todos os dias/horários de aula do semestre e em outra tela separada, devem informar, por dia, qual o conteúdo da aula e a quantidade de aulas do dia.
+
+<b> Exemplo: </b>
+
+Em uma tela seriam lançados os seguintes dias/horários:
+
+- 09/02/2026 20:25-21:15
+- 11/02/2026 18:45-19:35
+- 12/02/2026 21:25-23:05
+- 19/02/2026 21:25-23:05
+- 23/02/2026 20:25-21:15
+
+Na tela de conteúdo, ele seria lançado da seguinte forma:
+- Recepção dos alunos: 1 aula
+- Introdução da disciplina: 1 aula
+- Projeto Integrador: 2 aulas
+- Sistemas Gerenciadores de Banco de Dado: 2 aulas
+- Modelagem de Dados: 1 aula
+
+<b> Com dezenas de aulas por semestre, fica extremamente difícil manter a sincronia das informações. </b>
+
+Os professores também precisam planejar o conteúdo levando em consideração as datas do API, o que torna o processo ainda mais desafiador. 
+
+Além disso, se houverem muitos feriados os professores precisam marcar aulas ao sábado para compor a carga horária mínima das disciplinas (40 horas aula para disciplinas com 2 aulas semenais ou 80 horas aula para disciplinas com 4 aulas semanais).
+
+### Solução - SIGA.ME </a>
+
+Um sistema que crie o planjamento automaticamente, realizando o cruzamento automatizado entre os dias letivos e não letivos do calendário acadêmico da FATEC e o conteúdo programático da matéria, levando em conta a quantidade de aulas que cada tópico vai demandar.
+
+
 
 ---
 ### 📋 Backlog do Produto <a id="backlog"></a>
@@ -49,7 +79,7 @@ Desenvolver um sistema que auxilie no planejamento de aulas do semestre, distrib
     </tr>
     <tr>
       <td align="center"> <b> US03 </b> </td>
-      <td>Como professor, quero ser que as avaliações sejam agendadas fora de datas restrita (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento.</td>
+      <td>Como professor, quero que as avaliações sejam agendadas fora de datas restrita (terceira semana de Sprint, apresentações de TG ou dia da feira de soluções), para que não haja esse erro no planejamento.</td>
       <td align="center">  ALTA </td>
       <td align="center"> 13 </td>
     </tr>
