@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e0f19e7-c0c9-4eba-acd3-2259f782a963" name="Changes" comment="fix: cria uma lista de dias para substituir o atributo de aulas planejadas" />
+    <list default="true" id="3e0f19e7-c0c9-4eba-acd3-2259f782a963" name="Changes" comment="refactor: apaga o Enum de dia letivo ou não letivo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/datasphere/controller/CadastrarAulaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/datasphere/controller/CadastrarAulaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/datasphere/model/AulaPlanejada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/datasphere/model/AulaPlanejada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/datasphere/model/DiaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/datasphere/model/DiaModel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,24 +38,25 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api-2sem [javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/organizar-aulas&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.api-2sem [javafx:run].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "refactor/criarSemestre",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.datasphere" />
@@ -82,6 +88,7 @@
       <workItem from="1775003312792" duration="1166000" />
       <workItem from="1775055877476" duration="5231000" />
       <workItem from="1775061811628" duration="1562000" />
+      <workItem from="1776608072765" duration="1324000" />
     </task>
     <task id="LOCAL-00001" summary="feat: cria o model de cada item a ser considerado no planejamento">
       <option name="closed" value="true" />
@@ -315,15 +322,29 @@
       <option name="project" value="LOCAL" />
       <updated>1775062142865</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="refactor: muda o dia de letivo e não letivo para disponivel para prova">
+      <option name="closed" value="true" />
+      <created>1776608631414</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1776608631415</updated>
+    </task>
+    <task id="LOCAL-00031" summary="refactor: apaga o Enum de dia letivo ou não letivo">
+      <option name="closed" value="true" />
+      <created>1776608738532</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1776608738532</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: cria o arquivo fxml para tela de cadastro de aula" />
-    <MESSAGE value="feat: cria o model da aula" />
     <MESSAGE value="feat: cria o model da aula planejada" />
     <MESSAGE value="feat: cria o model do dia" />
     <MESSAGE value="feat: cria o model do semestre" />
@@ -347,7 +368,9 @@
     <MESSAGE value="style: altera o tamanho dos elementos para melhor visualização" />
     <MESSAGE value="fix: aletara o método isDiaLetivo() do Model de dia" />
     <MESSAGE value="fix: cria uma lista de dias para substituir o atributo de aulas planejadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: cria uma lista de dias para substituir o atributo de aulas planejadas" />
+    <MESSAGE value="refactor: muda o dia de letivo e não letivo para disponivel para prova" />
+    <MESSAGE value="refactor: apaga o Enum de dia letivo ou não letivo" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: apaga o Enum de dia letivo ou não letivo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
