@@ -123,17 +123,11 @@ public class CadastrarAulaController {
      APÓS ISSO, ELE DEVE SER ALTERADO SEM FALTA!!!!
     **/
     public void criarSemestreComDias(){
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,4), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,5), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,6), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,7), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,8), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,9), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,10), DiaEnum.LETIVO));
-
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,01), DiaEnum.NAO_LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,02), DiaEnum.NAO_LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,03), DiaEnum.NAO_LETIVO));
+        for (LocalDate dia = semestre.getDiaInicio(); !dia.isAfter(semestre.getDiaFim()); dia = dia.plusDays(1)){
+            if (!dia.getDayOfWeek().equals(DayOfWeek.SATURDAY) && !dia.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
+                semestre.adicionarDias(new DiaModel(LocalDate.of(dia.getYear(),dia.getMonth(),dia.getDayOfMonth()), true));
+            }
+        }
     }
 
     public List<AulaModel> lerDiaHorarioAula(){
