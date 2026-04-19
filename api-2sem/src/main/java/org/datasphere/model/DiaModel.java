@@ -1,20 +1,18 @@
 package org.datasphere.model;
 
-import org.datasphere.enums.DiaEnum;
-
 import java.time.LocalDate;
 
 public class DiaModel {
 
     private LocalDate data;
-    private DiaEnum tipo;
+    private boolean disponivelParaProva;
 
     public DiaModel() {
     }
 
-    public DiaModel(LocalDate data, DiaEnum tipo) {
+    public DiaModel(LocalDate data, boolean disponivelParaProva) {
         this.data = data;
-        this.tipo = tipo;
+        this.disponivelParaProva = disponivelParaProva;
     }
 
     public LocalDate getData() {
@@ -25,15 +23,15 @@ public class DiaModel {
         this.data = data;
     }
 
-    public DiaEnum getTipo() {
-        return tipo;
+    public boolean getDisponivelParaProva() {
+        return disponivelParaProva;
     }
 
-    public void setTipo(DiaEnum tipo) {
-        this.tipo = tipo;
+    public void setDisponivelParaProva(boolean disponivelParaProva) {
+        this.disponivelParaProva = disponivelParaProva;
     }
 
-    public boolean isDiaLetivo() {
-        return tipo != DiaEnum.NAO_LETIVO;
+    public boolean isDisponivelParaProva() {
+        return disponivelParaProva;
     }
 }

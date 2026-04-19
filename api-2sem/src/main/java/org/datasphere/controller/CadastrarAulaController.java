@@ -6,17 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.datasphere.App;
-import org.datasphere.enums.DiaEnum;
 import org.datasphere.model.*;
 
-import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -65,7 +61,7 @@ public class CadastrarAulaController {
 
     private Integer contadorID = 1;
 
-    private SemestreModel semestre = new SemestreModel(LocalDate.of(2026,05,01), LocalDate.of(2026,05,30));
+    private SemestreModel semestre = new SemestreModel(LocalDate.now(), LocalDate.now().plusMonths(6));
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -118,22 +114,12 @@ public class CadastrarAulaController {
         return null;
     }
 
-    /**
-    ESSE METODO INSTANCIA UM SEMESTRE (QUE COMEÇA NO DIA 01/04 E TERMINA NO DIA 30/04) E CRIA UMA SEMANA LETIVA PARA ESSE MÊS PARA FINS DE APRESENTAÇÃO
-     APÓS ISSO, ELE DEVE SER ALTERADO SEM FALTA!!!!
-    **/
     public void criarSemestreComDias(){
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,4), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,5), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,6), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,7), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,8), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,9), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,10), DiaEnum.LETIVO));
-
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,01), DiaEnum.NAO_LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,02), DiaEnum.NAO_LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,03), DiaEnum.NAO_LETIVO));
+        for (LocalDate dia = semestre.getDiaInicio(); !dia.isAfter(semestre.getDiaFim()); dia = dia.plusDays(1)){
+            if (!dia.getDayOfWeek().equals(DayOfWeek.SATURDAY) && !dia.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
+                semestre.adicionarDias(new DiaModel(LocalDate.of(dia.getYear(),dia.getMonth(),dia.getDayOfMonth()), true));
+            }
+        }
     }
 
     public List<AulaModel> lerDiaHorarioAula(){
@@ -175,15 +161,15 @@ public class CadastrarAulaController {
                 boolean diaDaSemanaCorreto = dia.getDayOfWeek() == aula.getDiaDaSemana();
                 LocalDate finalDia = dia;
                 boolean diaLetivo = semestreModel.getDiasList().stream()
-                        .anyMatch(d -> d.getData().equals(finalDia) && d.getTipo() == DiaEnum.LETIVO);
+                        .anyMatch(d -> d.getData().equals(finalDia));
 
-                if (diaDaSemanaCorreto && diaLetivo && topicoAtualIndex < topicos.size()) {
+                if (diaDaSemanaCorreto && topicoAtualIndex < topicos.size()) {
 
                     TopicoModel topicoAtual = topicos.get(topicoAtualIndex);
 
                     AulaPlanejada aulaComData = new AulaPlanejada();
                     aulaComData.setAulaModel(aula);
-                    aulaComData.setDiaModel(new DiaModel(dia, DiaEnum.LETIVO));
+                    aulaComData.setDiaModel(new DiaModel(dia, true));
                     aulaComData.setTopicoModel(topicoAtual);
 
                     planejamentoAulas.add(aulaComData);

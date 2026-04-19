@@ -171,8 +171,8 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
 
 ---
 
-### 👥 Equipe
-<div align="center" id ="equipe">
+### 👥 Equipe <a id="equipe"></a>
+<div align="center">
   <table>
     <tr>
       <th>Membro</th>
