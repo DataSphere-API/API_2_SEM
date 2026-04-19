@@ -1,7 +1,5 @@
 package org.datasphere.model;
 
-import org.datasphere.enums.DiaEnum;
-
 import java.time.LocalDate;
 
 public class DiaModel {
