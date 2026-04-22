@@ -20,5 +20,8 @@ feature/[nome da task] -> branch para desenvolvimento de uma nova funcionalidade
 ```
 fix -> correção de bugs e problemas encontrados no código
 ```
+```
+refactor -> branch para aprimorar a estrutura interna do código existente, sem alterar seu comportamento funcional.
+```
 
 O desenvolvimento começa nas branches de trabalho — feat, fix e docs — onde cada alteração é implementada de forma isolada. Ao concluir o trabalho em qualquer uma dessas branches, o desenvolvedor abre um pull request direcionado à dev, onde o código passa por revisão antes de ser integrado. A dev funciona como ambiente de consolidação, acumulando as contribuições de todas as branches até que o conjunto de mudanças esteja estável e validado, momento em que um novo pull request é aberto da dev para a main, promovendo o código para produção.
