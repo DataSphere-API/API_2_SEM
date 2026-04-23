@@ -153,7 +153,7 @@
             <!-- terminar mais tarde -->
             <HBox prefHeight="26.0" prefWidth="524.0" spacing="8.0">
                <children>
-                  <TextField fx:id="txtFldTituloTopico" prefHeight="24.0" prefWidth="440.0">
+                  <TextField fx:id="txtFldTituloTopico" prefHeight="24.0" prefWidth="376.0">
                      <font><Font size="11.0" /></font>
                   </TextField>
                   <Spinner fx:id="spnrQtdAulasTopico" prefHeight="24.0" prefWidth="68.0" />
