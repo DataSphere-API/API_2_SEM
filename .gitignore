@@ -91,7 +91,6 @@ nb-configuration.xml
 
 
 ##############################
-## Database
+## Enviroment variables
 ##############################
 .env
-.properties
