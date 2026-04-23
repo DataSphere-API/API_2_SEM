@@ -54,11 +54,11 @@
                   </Label>
                   <Label text="21:15">
                      <font><Font size="11.0" /></font>
-                     <graphic><CheckBox mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
+                     <graphic><CheckBox fx:id="chkSeg2115" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
                   </Label>
                   <Label text="22:05">
                      <font><Font size="11.0" /></font>
-                     <graphic><CheckBox fx:id="chkSeg2115" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
+                     <graphic><CheckBox fx:id="chkSeg2205" mnemonicParsing="false"><font><Font size="11.0" /></font></CheckBox></graphic>
                   </Label>
                </children>
             </HBox>
