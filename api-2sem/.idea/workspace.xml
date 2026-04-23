@@ -7,8 +7,9 @@
     <list default="true" id="3e0f19e7-c0c9-4eba-acd3-2259f782a963" name="Changes" comment="refactor: apaga o Enum de dia letivo ou não letivo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/datasphere/controller/CadastrarAulaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/datasphere/controller/CadastrarAulaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/datasphere/model/AulaPlanejada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/datasphere/model/AulaPlanejada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/datasphere/model/DiaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/datasphere/model/DiaModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/datasphere/cadastro-aula.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/datasphere/cadastro-aula.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/datasphere/cadastro-aula.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/datasphere/cadastro-aula.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/datasphere/controller/CadastrarAulaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/datasphere/controller/CadastrarAulaController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +51,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "refactor/criarSemestre",
+    "git-widget-placeholder": "refactor/validacao-dias-selecionados",
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "vcs.Git",
@@ -89,6 +90,7 @@
       <workItem from="1775055877476" duration="5231000" />
       <workItem from="1775061811628" duration="1562000" />
       <workItem from="1776608072765" duration="1324000" />
+      <workItem from="1776897280641" duration="6864000" />
     </task>
     <task id="LOCAL-00001" summary="feat: cria o model de cada item a ser considerado no planejamento">
       <option name="closed" value="true" />
