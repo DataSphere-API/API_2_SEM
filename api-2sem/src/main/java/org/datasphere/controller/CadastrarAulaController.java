@@ -141,7 +141,8 @@ public class CadastrarAulaController {
                 LocalTime.of(19,35),
                 LocalTime.of(20,25),
                 LocalTime.of(21,15),
-                LocalTime.of(22,05));
+                LocalTime.of(22,05),
+                LocalTime.of(23,05));
 
         if(chkSegunda.isSelected()){
             List<CheckBox> horarios = List.of(chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205);
