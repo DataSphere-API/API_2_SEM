@@ -124,6 +124,7 @@ public class CadastrarAulaController {
         if (titulo != null && !titulo.isEmpty()) {
             TopicoModel novoTopico = new TopicoModel(titulo, aulas);
 
+            topicoDAO.salvar(novoTopico);
             obsListTopicos.add(novoTopico);
             topicoDAO.salvar(novoTopico);
 
@@ -200,6 +201,9 @@ public class CadastrarAulaController {
                 }
             }
         }
+        for(AulaModel aula:diasDeAula){
+            aulaDAO.salvar(aula);
+        }
         return diasDeAula;
     }
 
@@ -227,6 +231,7 @@ public class CadastrarAulaController {
                     aulaComData.setTopicoModel(topicoAtual);
 
                     planejamentoAulas.add(aulaComData);
+                    aulaPlanejadaDAO.salvar(aulaComData);
 
                     aulasNoTopicoAtual++;
                     if (aulasNoTopicoAtual >= topicoAtual.getAulasNecessarias()) {
