@@ -12,7 +12,7 @@ public class TopicoDAO implements IDAO <TopicoModel> {
 
     @Override
     public void salvar(TopicoModel topico){
-        String sql = "INSERT INTO topico (titulo, aulasNecessarias) VALUES (?,?)";
+        String sql = "INSERT INTO topico (titulo, aulas_necessarias) VALUES (?,?)";
         try(Connection conn = ConexaoDB.getConexao()){
 
             PreparedStatement ps = conn.prepareStatement(sql);
