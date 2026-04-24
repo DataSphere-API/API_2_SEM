@@ -8,8 +8,10 @@ import org.datasphere.model.TopicoModel;
 
 import java.sql.*;
 import java.time.DayOfWeek;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class AulaDAO implements IDAO<AulaModel> {
 
@@ -20,7 +22,7 @@ public class AulaDAO implements IDAO<AulaModel> {
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1,aulaModel.getDiaDaSemana().name());
+            ps.setString(1,aulaModel.getDiaDaSemana().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")));
             ps.setTime(2, Time.valueOf(aulaModel.getHoraInicio()));
 
             ps.executeUpdate();

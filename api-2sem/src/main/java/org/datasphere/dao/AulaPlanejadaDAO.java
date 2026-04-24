@@ -9,8 +9,10 @@ import org.datasphere.model.TopicoModel;
 
 import java.sql.*;
 import java.time.DayOfWeek;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class AulaPlanejadaDAO implements IDAO<AulaPlanejada> {
 
@@ -21,7 +23,7 @@ public class AulaPlanejadaDAO implements IDAO<AulaPlanejada> {
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1,aulaPlanejada.getAulaModel().getDiaDaSemana().name());
+            ps.setString(1,aulaPlanejada.getAulaModel().getDiaDaSemana().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")));
             ps.setTime(2, Time.valueOf(aulaPlanejada.getAulaModel().getHoraInicio()));
             ps.setDate(3,Date.valueOf(aulaPlanejada.getDiaModel().getData()));
             ps.setLong(4,aulaPlanejada.getTopicoModel().getId());
