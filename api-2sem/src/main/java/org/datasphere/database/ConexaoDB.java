@@ -15,7 +15,7 @@ public class ConexaoDB {
 
     public static void loadProperties(){
 
-        Dotenv dotenv = Dotenv.configure().directory("./").filename("env").load();
+        Dotenv dotenv = Dotenv.configure().directory("./").filename(".env").load();
 
         url = dotenv.get("DB_URL");
         username = dotenv.get("DB_USER");
@@ -24,6 +24,9 @@ public class ConexaoDB {
     }
 
     public static Connection getConexao(){
+
+        loadProperties();
+
         try{
             return DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
