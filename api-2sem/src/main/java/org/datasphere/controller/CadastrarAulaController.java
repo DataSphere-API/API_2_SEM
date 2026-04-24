@@ -126,7 +126,6 @@ public class CadastrarAulaController {
 
             topicoDAO.salvar(novoTopico);
             obsListTopicos.add(novoTopico);
-            topicoDAO.salvar(novoTopico);
 
             txtFldTituloTopico.clear();
             return novoTopico;
