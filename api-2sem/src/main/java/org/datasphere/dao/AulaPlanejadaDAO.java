@@ -16,16 +16,15 @@ public class AulaPlanejadaDAO implements IDAO<AulaPlanejada> {
 
     @Override
     public void salvar(AulaPlanejada aulaPlanejada){
-        String sql = "INSERT INTO aulaPlanejada (diaDaSemana, horaInicio, horaFim, data, nomeTopico) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO aula_planejada (dia_da_semana, horario, data, id_topico) VALUES (?,?,?,?)";
         try(Connection conn = ConexaoDB.getConexao()){
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1,aulaPlanejada.getAulaModel().getDiaDaSemana().name());
             ps.setTime(2, Time.valueOf(aulaPlanejada.getAulaModel().getHoraInicio()));
-            ps.setTime(3, Time.valueOf(aulaPlanejada.getAulaModel().getHoraFim()));
-            ps.setDate(4,Date.valueOf(aulaPlanejada.getDiaModel().getData()));
-            ps.setString(5,aulaPlanejada.getTopicoModel().getTitulo());
+            ps.setDate(3,Date.valueOf(aulaPlanejada.getDiaModel().getData()));
+            ps.setLong(4,aulaPlanejada.getTopicoModel().getId());
 
             ps.executeUpdate();
 
@@ -44,15 +43,14 @@ public class AulaPlanejadaDAO implements IDAO<AulaPlanejada> {
 
             while(rs.next()){
                 AulaModel aula = new AulaModel();
-                aula.setDiaDaSemana(DayOfWeek.valueOf(rs.getString("diaDaSemana")));
-                aula.setHoraInicio(rs.getTime("horaInicio").toLocalTime());
-                aula.setHoraFim(rs.getTime("horaFim").toLocalTime());
+                aula.setDiaDaSemana(DayOfWeek.valueOf(rs.getString("dia_da_semana")));
+                aula.setHoraInicio(rs.getTime("horario").toLocalTime());
 
                 DiaModel dia = new DiaModel();
                 dia.setData(rs.getDate("data").toLocalDate());
 
                 TopicoModel topico = new TopicoModel();
-                topico.setTitulo(rs.getString("nomeTopico"));
+                topico.setId(rs.getLong("id_topico"));
 
                 AulaPlanejada aulaPlanejada = new AulaPlanejada();
                 aulaPlanejada.setAulaModel(aula);
@@ -75,6 +73,8 @@ public class AulaPlanejadaDAO implements IDAO<AulaPlanejada> {
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setDate(1,Date.valueOf(aulaPlanejada.getDiaModel().getData()));
+
+            ps.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
