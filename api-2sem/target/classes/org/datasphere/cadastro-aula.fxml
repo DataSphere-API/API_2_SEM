@@ -8,12 +8,12 @@
 
 <!--incrementa plano de fundo ao container principal -->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastrarAulaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1054.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastrarAulaController">
    <children>
 
             <!-- Planejamento de aulas -->
       <HBox alignment="CENTER" layoutX="20.0" layoutY="445.0" prefWidth="984.0" />
-      <VBox layoutY="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+      <VBox layoutY="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="656.0" prefWidth="1036.0">
          <children>
       
             <!--logo -->
@@ -27,7 +27,7 @@
       
                   <!-- Painel esquerdo: Dias de aula -->
                   <!-- incrementa os parametros de estilo: cor de fundo, borda arredondada, efeito sombreamento -->
-                  <VBox prefHeight="258.0" prefWidth="480.0" spacing="8.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                  <VBox prefHeight="258.0" prefWidth="490.0" spacing="8.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
                      <!-- Ajusta o espaçamento dentro do container principal -->
                      <padding>
                         <Insets bottom="15" left="20" right="20" top="15" />
@@ -435,7 +435,7 @@
             
                   <!-- Painel direito: Conteúdo Programático -->
                   <!-- incrementa os parametros de estilo iguais aos do painel esquerdo -->
-                  <VBox prefHeight="258.0" prefWidth="480.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                  <VBox prefHeight="258.0" prefWidth="490.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
             
                      <!-- Cria uma margem interna no container de conteúdo programático -->
                      <padding>
@@ -493,6 +493,9 @@
                      </children>
                   </VBox>
                </children>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin>
             </FlowPane>
       
             <!-- Botão Gerar Planejamento -->
