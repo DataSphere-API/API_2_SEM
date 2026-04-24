@@ -15,14 +15,13 @@ public class AulaDAO implements IDAO<AulaModel> {
 
     @Override
     public void salvar(AulaModel aulaModel){
-        String sql = "INSERT INTO aula (diaDaSemana, horaInicio, horaFim) VALUES (?,?,?)";
+        String sql = "INSERT INTO aula (dia_da_semana, horario) VALUES (?,?)";
         try(Connection conn = ConexaoDB.getConexao()){
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1,aulaModel.getDiaDaSemana().name());
             ps.setTime(2, Time.valueOf(aulaModel.getHoraInicio()));
-            ps.setTime(3, Time.valueOf(aulaModel.getHoraFim()));
 
             ps.executeUpdate();
 
@@ -42,9 +41,9 @@ public class AulaDAO implements IDAO<AulaModel> {
             while(rs.next()){
                 AulaModel aulaModel = new AulaModel();
 
-                aulaModel.setDiaDaSemana(DayOfWeek.valueOf(rs.getString(1)));
-                aulaModel.setHoraInicio(rs.getTime(1).toLocalTime());
-                aulaModel.setHoraFim(rs.getTime(1).toLocalTime());
+                aulaModel.setDiaDaSemana(DayOfWeek.valueOf(rs.getString("dia_da_semana")));
+                aulaModel.setHoraInicio(rs.getTime("horario").toLocalTime());
+                aulaModel.setHoraFim(rs.getTime("horario").toLocalTime().plusMinutes(50));
 
                 aulaModelList.add(aulaModel);
 
@@ -57,12 +56,14 @@ public class AulaDAO implements IDAO<AulaModel> {
 
     @Override
     public void deletar(AulaModel aula){
-        String sql = "DELETE FROM aula WHERE diaDaSemana = ? AND horaInicio = ?";
+        String sql = "DELETE FROM aula WHERE dia_da_semana = ? AND horario = ?";
         try(Connection conn = ConexaoDB.getConexao()){
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, aula.getDiaDaSemana().name());
             ps.setTime(2, Time.valueOf(aula.getHoraInicio()));
+
+            ps.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
