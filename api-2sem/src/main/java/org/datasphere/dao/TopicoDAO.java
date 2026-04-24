@@ -15,12 +15,17 @@ public class TopicoDAO implements IDAO <TopicoModel> {
         String sql = "INSERT INTO topico (titulo, aulas_necessarias) VALUES (?,?)";
         try(Connection conn = ConexaoDB.getConexao()){
 
-            PreparedStatement ps = conn.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1,topico.getTitulo());
             ps.setInt(2,topico.getAulasNecessarias());
 
             ps.executeUpdate();
+
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                topico.setId(rs.getLong(1));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
