@@ -71,7 +71,11 @@ public class CadastrarAulaController {
 
     private ObservableList<AulaPlanejada> obsListAulasPlanejadas;
 
-    private Integer contadorID = 1;
+    private IDAO<AulaPlanejada> aulaPlanejadaDAO = new AulaPlanejadaDAO();
+
+    private IDAO<TopicoModel> topicoDAO = new TopicoDAO();
+
+    private IDAO<AulaModel> aulaDAO = new AulaDAO();
 
     private SemestreModel semestre = new SemestreModel(LocalDate.now(), LocalDate.now().plusMonths(6));
 
