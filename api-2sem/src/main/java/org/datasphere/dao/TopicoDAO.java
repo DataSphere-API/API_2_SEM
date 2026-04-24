@@ -44,7 +44,7 @@ public class TopicoDAO implements IDAO <TopicoModel> {
                 TopicoModel topicoModel = new TopicoModel();
                 topicoModel.setId(rs.getLong("id"));
                 topicoModel.setTitulo(rs.getString("titulo"));
-                topicoModel.setAulasNecessarias(rs.getInt("aulasNecessarias"));
+                topicoModel.setAulasNecessarias(rs.getInt("aulas_necessarias"));
 
                 topicoModelList.add(topicoModel);
             }
