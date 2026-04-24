@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e0f19e7-c0c9-4eba-acd3-2259f782a963" name="Changes" comment="refactor: apaga o Enum de dia letivo ou não letivo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/datasphere/cadastro-aula.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/datasphere/cadastro-aula.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/datasphere/cadastro-aula.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/datasphere/cadastro-aula.fxml" afterDir="false" />
     </list>
