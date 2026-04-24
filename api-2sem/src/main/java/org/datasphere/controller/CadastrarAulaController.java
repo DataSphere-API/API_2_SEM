@@ -6,6 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.datasphere.dao.AulaDAO;
+import org.datasphere.dao.AulaPlanejadaDAO;
+import org.datasphere.dao.TopicoDAO;
+import org.datasphere.dao.interfaces.IDAO;
 import org.datasphere.model.*;
 
 import java.time.DayOfWeek;
@@ -71,7 +75,11 @@ public class CadastrarAulaController {
 
     private ObservableList<AulaPlanejada> obsListAulasPlanejadas;
 
-    private Integer contadorID = 1;
+    private IDAO<AulaPlanejada> aulaPlanejadaDAO = new AulaPlanejadaDAO();
+
+    private IDAO<TopicoModel> topicoDAO = new TopicoDAO();
+
+    private IDAO<AulaModel> aulaDAO = new AulaDAO();
 
     private SemestreModel semestre = new SemestreModel(LocalDate.now(), LocalDate.now().plusMonths(6));
 
@@ -116,8 +124,7 @@ public class CadastrarAulaController {
         if (titulo != null && !titulo.isEmpty()) {
             TopicoModel novoTopico = new TopicoModel(titulo, aulas);
 
-            novoTopico.setId(Long.valueOf(contadorID++));
-
+            topicoDAO.salvar(novoTopico);
             obsListTopicos.add(novoTopico);
 
             txtFldTituloTopico.clear();
@@ -193,6 +200,9 @@ public class CadastrarAulaController {
                 }
             }
         }
+        for(AulaModel aula:diasDeAula){
+            aulaDAO.salvar(aula);
+        }
         return diasDeAula;
     }
 
@@ -220,6 +230,7 @@ public class CadastrarAulaController {
                     aulaComData.setTopicoModel(topicoAtual);
 
                     planejamentoAulas.add(aulaComData);
+                    aulaPlanejadaDAO.salvar(aulaComData);
 
                     aulasNoTopicoAtual++;
                     if (aulasNoTopicoAtual >= topicoAtual.getAulasNecessarias()) {

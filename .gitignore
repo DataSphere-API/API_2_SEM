@@ -88,3 +88,9 @@ nb-configuration.xml
 ## Miscellaneous
 ##############################
 *.log
+
+
+##############################
+## Enviroment variables
+##############################
+.env
