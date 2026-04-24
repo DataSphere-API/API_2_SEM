@@ -20,6 +20,8 @@ public class TopicoDAO implements IDAO <TopicoModel> {
             ps.setString(1,topico.getTitulo());
             ps.setInt(2,topico.getAulasNecessarias());
 
+            ps.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,6 +56,8 @@ public class TopicoDAO implements IDAO <TopicoModel> {
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setLong(1, id);
+
+            ps.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
