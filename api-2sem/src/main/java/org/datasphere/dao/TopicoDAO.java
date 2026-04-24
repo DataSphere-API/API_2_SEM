@@ -50,12 +50,12 @@ public class TopicoDAO implements IDAO <TopicoModel> {
     }
 
     @Override
-    public void deletar(Long id){
+    public void deletar(TopicoModel topico){
         String sql = "DELETE FROM topico WHERE id = ?";
         try(Connection conn = ConexaoDB.getConexao()){
 
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setLong(1, id);
+            ps.setLong(1, topico.getId());
 
             ps.executeUpdate();
 
