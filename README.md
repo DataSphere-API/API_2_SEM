@@ -17,7 +17,7 @@
 
 ### Sobre o Projeto <a id="sobre"></a>
 
-SIGA\.ME é um sistema desenvolvido por alunos da FATEC como APRENDIZADO POR PROJETO INTEGRADOR, com o objetivo de automatizar o planejamento de aulas dos professores no início de cada semestre letivo. A solução elimina o trabalho manual de cruzar o calendário acadêmico com o conteúdo programático das disciplinas, reduzindo erros e economizando tempo dos docentes.
+SIGA\.ME é um sistema desenvolvido por alunos do 2° semestre do curso de Banco de Dados da FATEC como  PROJETO INTEGRADOR, com o objetivo de automatizar o planejamento de aulas dos professores no início de cada semestre letivo. A solução elimina o trabalho manual de cruzar o calendário acadêmico com o conteúdo programático das disciplinas, reduzindo erros e economizando tempo dos docentes.
 
 ---
 
