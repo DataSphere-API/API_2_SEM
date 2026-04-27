@@ -11,6 +11,7 @@ import org.datasphere.dao.AulaPlanejadaDAO;
 import org.datasphere.dao.TopicoDAO;
 import org.datasphere.dao.interfaces.IDAO;
 import org.datasphere.model.*;
+import org.datasphere.service.SemestreService;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -81,7 +82,7 @@ public class CadastrarAulaController {
 
     private IDAO<AulaModel> aulaDAO = new AulaDAO();
 
-    private SemestreModel semestre = new SemestreModel(LocalDate.now(), LocalDate.now().plusMonths(6));
+    private SemestreService semestreService;
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -89,7 +90,7 @@ public class CadastrarAulaController {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
         spnrQtdAulasTopico.setValueFactory(valueFactory);
 
-        criarSemestreComDias();
+        semestreService.criarSemestreComDias();
 
         obsListTopicos = FXCollections.observableArrayList();
         tblTopicoAdicionado.setItems(obsListTopicos);
@@ -133,13 +134,7 @@ public class CadastrarAulaController {
         return null;
     }
 
-    public void criarSemestreComDias(){
-        for (LocalDate dia = semestre.getDiaInicio(); !dia.isAfter(semestre.getDiaFim()); dia = dia.plusDays(1)){
-            if (!dia.getDayOfWeek().equals(DayOfWeek.SATURDAY) && !dia.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
-                semestre.adicionarDias(new DiaModel(LocalDate.of(dia.getYear(),dia.getMonth(),dia.getDayOfMonth()), true));
-            }
-        }
-    }
+
 
     public List<AulaModel> lerDiaHorarioAula(){
         List<AulaModel> diasDeAula = new LinkedList<>();
