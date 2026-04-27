@@ -27,6 +27,9 @@ public class CadastrarAulaController {
     private TableColumn<TopicoModel, Long> clnIdTopico;
 
     @FXML
+    private CheckBox chkProva;
+
+    @FXML
     private TableColumn<TopicoModel, String> clnTopico;
 
     @FXML
