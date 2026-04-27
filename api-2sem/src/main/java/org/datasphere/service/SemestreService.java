@@ -10,6 +10,14 @@ public class SemestreService {
 
     private SemestreModel semestre = new SemestreModel(LocalDate.now(), LocalDate.now().plusMonths(6));
 
+    public void setSemestre(SemestreModel semestre) {
+        this.semestre = semestre;
+    }
+
+    public SemestreModel getSemestre() {
+        return semestre;
+    }
+
     public void criarSemestreComDias(){
         for (LocalDate dia = semestre.getDiaInicio(); !dia.isAfter(semestre.getDiaFim()); dia = dia.plusDays(1)){
             if (!dia.getDayOfWeek().equals(DayOfWeek.SATURDAY) && !dia.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
