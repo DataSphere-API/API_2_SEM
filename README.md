@@ -172,11 +172,13 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
 
--   **Versionamento:** Git
--   **Ferramenta de gestão:** Slack
--   **Linguagem:** Java
--   **Plataforma:** IntelliJ IDEA 
-
+- **Linguagem:** Java <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="20" height="20" alt="Java"/>
+- **Build & Dependências:** Maven <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" width="20" height="20" alt="Maven"/>
+- **IDE:** IntelliJ IDEA <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="20" height="20" alt="IntelliJ IDEA"/>
+- **Banco de Dados:** PostgreSQL <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="20" height="20" alt="PostgreSQL"/>
+- **Versionamento:** Git <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="20" height="20" alt="Git"/>
+- **Gestão & Comunicação:** Slack <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" width="20" height="20" alt="Slack"/>
+  
 ---
 
 ### 👥 Equipe
