@@ -172,12 +172,14 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
 
-- **Linguagem:** Java <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="20" height="20" alt="Java"/>
-- **Build & Dependências:** Maven <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" width="20" height="20" alt="Maven"/>
-- **IDE:** IntelliJ IDEA <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="20" height="20" alt="IntelliJ IDEA"/>
-- **Banco de Dados:** PostgreSQL <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="20" height="20" alt="PostgreSQL"/>
-- **Versionamento:** Git <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="20" height="20" alt="Git"/>
-- **Gestão & Comunicação:** Slack <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" width="20" height="20" alt="Slack"/>
+<ul>
+  <li><b>Linguagem:</b> Java <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="20" height="20" alt="Java"/></li>
+  <li><b>Build & Dependências:</b> Maven <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" width="20" height="20" alt="Maven"/></li>
+  <li><b>IDE:</b> IntelliJ IDEA <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="20" height="20" alt="IntelliJ IDEA"/></li>
+  <li><b>Banco de Dados:</b> PostgreSQL <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="20" height="20" alt="PostgreSQL"/></li>
+  <li><b>Versionamento:</b> Git <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="20" height="20" alt="Git"/></li>
+  <li><b>Gestão & Comunicação:</b> Slack <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" width="20" height="20" alt="Slack"/></li>
+</ul>
   
 ---
 
