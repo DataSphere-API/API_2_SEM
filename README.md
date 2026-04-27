@@ -1,4 +1,4 @@
-# SIGA.ME </a> - Planejamento de Aulas Automatizada 
+# SIGA\.ME - Planejamento de Aulas Automatizado
 <p align="center">
   <img src="Documentos/logo_datasphere.png" width="200"/>
 </p>
@@ -24,7 +24,7 @@ SIGA\.ME é um sistema desenvolvido por alunos da FATEC como APRENDIZADO POR PRO
 > Status do projeto: Em Desenvolvimento
 
 
-### 🎯 Desafio do Projeto  <a id="desafio"></a>
+### 🎯 Desafio  <a id="desafio"></a>
 No começo de cada semestre letivo, os professores precisam lançar seus planos de aula no sistema.
 Essa atividade deveria ser simples, contudo a usabilidade do sistema deixa tudo mais difícil.
 
@@ -44,14 +44,14 @@ Na tela de conteúdo, ele seria lançado da seguinte forma:
 - Recepção dos alunos: 1 aula
 - Introdução da disciplina: 1 aula
 - Projeto Integrador: 2 aulas
-- Sistemas Gerenciadores de Banco de Dado: 2 aulas
+- Sistemas Gerenciadores de Banco de Dados: 2 aulas
 - Modelagem de Dados: 1 aula
 
 <b> Com dezenas de aulas por semestre, fica extremamente difícil manter a sincronia das informações. </b>
 
-Além disso, se houver muitos feriados os professores precisam marcar aulas ao sábado para compor a carga horária mínima das disciplinas (40 horas aula para disciplinas com 2 aulas semanais ou 80 horas aula para disciplinas com 4 aulas semanais).
+Além disso, se houver muitos feriados os professores precisam marcar aulas aos sábados para compor a carga horária mínima das disciplinas (40 horas-aula para disciplinas com 2 aulas semanais ou 80 horas aula para disciplinas com 4 aulas semanais).
 
-Os professores também precisam planejar o conteúdo considerando outros eventos do calendário acadêmico, como a Feira de Soluções, a 3ª semana de sprint e a apresentação de TG, datas em que não é permitido o agendamento de avaliações o que torna o processo ainda mais desafiador. 
+Os professores também precisam planejar o conteúdo considerando outros eventos do calendário acadêmico, como a Feira de Soluções, a 3ª semana de sprint e a apresentação de TG, datas em que não é permitido o agendamento de avaliações, o que torna o processo ainda mais desafiador. 
 
 
 ### Solução - SIGA\.ME
