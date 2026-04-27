@@ -44,15 +44,14 @@ Na tela de conteúdo, ele seria lançado da seguinte forma:
 
 <b> Com dezenas de aulas por semestre, fica extremamente difícil manter a sincronia das informações. </b>
 
-Os professores também precisam planejar o conteúdo levando em consideração as datas do API, o que torna o processo ainda mais desafiador. 
+Além disso, se houver muitos feriados os professores precisam marcar aulas ao sábado para compor a carga horária mínima das disciplinas (40 horas aula para disciplinas com 2 aulas semanais ou 80 horas aula para disciplinas com 4 aulas semanais).
 
-Além disso, se houver muitos feriados os professores precisam marcar aulas ao sábado para compor a carga horária mínima das disciplinas (40 horas aula para disciplinas com 2 aulas semenais ou 80 horas aula para disciplinas com 4 aulas semanais).
+Os professores também precisam planejar o conteúdo considerando outros eventos do calendário acadêmico, como a Feira de Soluções, a 3ª semana de sprint e a apresentação de TG, datas em que não é permitido o agendamento de avaliações o que torna o processo ainda mais desafiador. 
+
 
 ### Solução - SIGA.ME </a>
 
 Um sistema que crie o planejamento automaticamente, realizando o cruzamento automatizado entre os dias letivos e não letivos do calendário acadêmico da FATEC e o conteúdo programático da matéria, levando em conta a quantidade de aulas que cada tópico vai demandar.
-
-
 
 ---
 ### 📋 Backlog do Produto <a id="backlog"></a>
@@ -215,6 +214,12 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/luiz-andrade1"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/luiz-felipe-queir%C3%B3s/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+    </tr>
+    <tr>
+      <td>Matheus Quirino</td>
+      <td>Desenvolvedor</td>
+      <td><a href="https://github.com/matquirin0"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/matheus-pquirino/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
  </table>
 </div>
