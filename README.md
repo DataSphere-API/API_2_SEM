@@ -54,9 +54,13 @@ Além disso, se houver muitos feriados os professores precisam marcar aulas ao s
 Os professores também precisam planejar o conteúdo considerando outros eventos do calendário acadêmico, como a Feira de Soluções, a 3ª semana de sprint e a apresentação de TG, datas em que não é permitido o agendamento de avaliações o que torna o processo ainda mais desafiador. 
 
 
-### Solução - SIGA.ME </a>
+### Solução - SIGA\.ME
 
-Um sistema que crie o planejamento automaticamente, realizando o cruzamento automatizado entre os dias letivos e não letivos do calendário acadêmico da FATEC e o conteúdo programático da matéria, levando em conta a quantidade de aulas que cada tópico vai demandar.
+O SIGA\.ME é um sistema que gera o planejamento de aulas de forma automatizada, fazendo o cruzamento inteligente entre os dias letivos e não letivos do calendário acadêmico da FATEC e o conteúdo programático de cada disciplina.
+
+A partir do conteúdo cadastrado pelo professor e da quantidade de aulas exigida por cada tópico, o sistema distribui as aulas ao longo do semestre respeitando a carga horária mínima da disciplina, evita o agendamento de avaliações em datas restritas (como a 3ª semana de Sprint, a Feira de Soluções e a apresentação de TG) e sinaliza eventuais lacunas no planejamento, como tópicos sem data ou dias de aula sem conteúdo atribuído. 
+
+Dessa forma, o professor passa a contar com um planejamento consistente, validado e pronto para ser lançado no SIGA.
 
 ---
 ### 📋 Backlog do Produto <a id="backlog"></a>
