@@ -140,12 +140,12 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
     <tr>
       <td align="center"> Sprint 2 </td>
       <td align="center"> 13/04 a 03/05 </td>
-      <td align="center"> EM ANDAMENTO </td>
+      <td align="center"> ⏳ </td>
     </tr>
     <tr>
       <td align="center"> Sprint 3 </td>
       <td align="center"> 11/05 a 31/05 </td>
-      <td align="center">  </td>
+      <td align="center"> </td>
     </tr>
   </table>
 </div>
