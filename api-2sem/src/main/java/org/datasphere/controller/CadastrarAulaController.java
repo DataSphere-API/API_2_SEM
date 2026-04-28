@@ -100,6 +100,11 @@ public class CadastrarAulaController {
         clnAulasTopico.setCellValueFactory(new PropertyValueFactory<>("aulasNecessarias"));
 
         configurarTabelaTopicos();
+
+        chkProva.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            spnrQtdAulasTopico.setDisable(newValue);
+        });
+
     }
 
     private void configurarTabelaTopicos(){
@@ -211,49 +216,49 @@ public class CadastrarAulaController {
     public List<AulaPlanejada> organizarAulas(List<TopicoModel> topicos, List<AulaModel> aulas, SemestreModel semestreModel) {
         List<AulaPlanejada> planejamentoAulas = new LinkedList<>();
         List<TopicoModel> topicosPendentes = new LinkedList<>(topicos);
-
         Map<TopicoModel, Integer> progressoAulas = new HashMap<>();
 
         for (LocalDate dataAtual = semestreModel.getDiaInicio(); !dataAtual.isAfter(semestreModel.getDiaFim()); dataAtual = dataAtual.plusDays(1)) {
-            if (topicosPendentes.isEmpty()) {
-                break;
-            }
+            if (topicosPendentes.isEmpty()) break;
 
             LocalDate finalDia = dataAtual;
-
             DiaModel diaModelAtual = semestreModel.getDiasList().stream()
                     .filter(d -> d.getData().equals(finalDia))
                     .findFirst()
                     .orElse(null);
 
-            if (diaModelAtual == null) {
-                continue;
-            }
+            if (diaModelAtual == null) continue;
+
+            // NOVAS VARIÁVEIS DE CONTROLE DO DIA
+            boolean diaJaTemAulaNormal = false;
+            TopicoModel provaDoDia = null;
 
             for (AulaModel aula : aulas) {
-                if (topicosPendentes.isEmpty()) {
-                    break;
-                }
+                if (topicosPendentes.isEmpty()) break;
 
                 if (dataAtual.getDayOfWeek() == aula.getDiaDaSemana()) {
-
                     TopicoModel topicoEscolhido = null;
 
-                    for (TopicoModel topicoCandidato : topicosPendentes) {
-
-                        if (topicoCandidato.getProva()) {
-                            if (diaModelAtual.getDisponivelParaProva()) {
+                    // Se já estamos aplicando uma prova neste dia, continua aplicando ela nos próximos horários
+                    if (provaDoDia != null) {
+                        topicoEscolhido = provaDoDia;
+                    } else {
+                        for (TopicoModel topicoCandidato : topicosPendentes) {
+                            if (topicoCandidato.getProva()) {
+                                // A prova SÓ entra se o dia estiver limpo (!diaJaTemAulaNormal) E permitir prova
+                                if (!diaJaTemAulaNormal && diaModelAtual.getDisponivelParaProva()) {
+                                    topicoEscolhido = topicoCandidato;
+                                    provaDoDia = topicoCandidato; // Trava o dia para essa prova
+                                    break;
+                                }
+                            } else {
                                 topicoEscolhido = topicoCandidato;
                                 break;
                             }
-                        } else {
-                            topicoEscolhido = topicoCandidato;
-                            break;
                         }
                     }
 
-                   if (topicoEscolhido != null) {
-
+                    if (topicoEscolhido != null) {
                         AulaPlanejada aulaComData = new AulaPlanejada();
                         aulaComData.setAulaModel(aula);
                         aulaComData.setDiaModel(diaModelAtual);
@@ -262,10 +267,10 @@ public class CadastrarAulaController {
                         planejamentoAulas.add(aulaComData);
                         aulaPlanejadaDAO.salvar(aulaComData);
 
-                        if (topicoEscolhido.getProva()) {
-                            topicosPendentes.remove(topicoEscolhido);
-                            break;
-                        } else {
+                        // Só contabiliza progresso de aulas normais
+                        if (!topicoEscolhido.getProva()) {
+                            diaJaTemAulaNormal = true; // Sujou o dia, prova não entra mais hoje
+
                             int aulasJaDadas = progressoAulas.getOrDefault(topicoEscolhido, 0) + 1;
                             progressoAulas.put(topicoEscolhido, aulasJaDadas);
 
@@ -275,6 +280,11 @@ public class CadastrarAulaController {
                         }
                     }
                 }
+            }
+
+            // Quando o dia acaba, se aplicamos uma prova, removemos ela da lista de pendências
+            if (provaDoDia != null) {
+                topicosPendentes.remove(provaDoDia);
             }
         }
         return planejamentoAulas;
