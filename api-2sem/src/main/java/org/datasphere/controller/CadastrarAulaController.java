@@ -316,7 +316,6 @@ public class CadastrarAulaController {
                 }
             }
 
-            // Quando o dia acaba, se aplicamos uma prova, removemos ela da lista de pendências
             if (provaDoDia != null) {
                 topicosPendentes.remove(provaDoDia);
             }
