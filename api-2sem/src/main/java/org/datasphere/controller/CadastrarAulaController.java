@@ -103,7 +103,45 @@ public class CadastrarAulaController {
 
         chkProva.selectedProperty().addListener((observable, oldValue, newValue) -> {
             spnrQtdAulasTopico.setDisable(newValue);
+            spnrQtdAulasTopico.getValueFactory().setValue(0);
         });
+
+
+        List<CheckBox> horariosSegunda = List.of(chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205);
+        List<CheckBox> horariosTerca = List.of(chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205);
+        List<CheckBox> horariosQuarta = List.of(chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205);
+        List<CheckBox> horariosQuinta = List.of(chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205);
+        List<CheckBox> horariosSexta = List.of(chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205);
+
+        Map<CheckBox, List<CheckBox>> mapaDiasHorarios = new HashMap<>();
+
+        mapaDiasHorarios.put(chkSegunda, horariosSegunda);
+        mapaDiasHorarios.put(chkTerca, horariosTerca);
+        mapaDiasHorarios.put(chkQuarta, horariosQuarta);
+        mapaDiasHorarios.put(chkQuinta, horariosQuinta);
+        mapaDiasHorarios.put(chkSexta, horariosSexta);
+
+        for (Map.Entry<CheckBox, List<CheckBox>> entrada : mapaDiasHorarios.entrySet()) {
+
+            CheckBox chkDiaPrincipal = entrada.getKey();
+            List<CheckBox> listaDeHorarios = entrada.getValue();
+
+            listaDeHorarios.forEach(chk -> chk.setDisable(true));
+
+            chkDiaPrincipal.setOnAction(e -> {
+
+                boolean diaEstaMarcado = chkDiaPrincipal.isSelected();
+
+                listaDeHorarios.forEach(chkHorario -> {
+                    chkHorario.setDisable(!diaEstaMarcado);
+                    if (!diaEstaMarcado) {
+                        chkHorario.setSelected(false);
+                    }
+                });
+            });
+        }
+
+
 
     }
 
@@ -229,7 +267,6 @@ public class CadastrarAulaController {
 
             if (diaModelAtual == null) continue;
 
-            // NOVAS VARIÁVEIS DE CONTROLE DO DIA
             boolean diaJaTemAulaNormal = false;
             TopicoModel provaDoDia = null;
 
@@ -239,16 +276,14 @@ public class CadastrarAulaController {
                 if (dataAtual.getDayOfWeek() == aula.getDiaDaSemana()) {
                     TopicoModel topicoEscolhido = null;
 
-                    // Se já estamos aplicando uma prova neste dia, continua aplicando ela nos próximos horários
                     if (provaDoDia != null) {
                         topicoEscolhido = provaDoDia;
                     } else {
                         for (TopicoModel topicoCandidato : topicosPendentes) {
                             if (topicoCandidato.getProva()) {
-                                // A prova SÓ entra se o dia estiver limpo (!diaJaTemAulaNormal) E permitir prova
                                 if (!diaJaTemAulaNormal && diaModelAtual.getDisponivelParaProva()) {
                                     topicoEscolhido = topicoCandidato;
-                                    provaDoDia = topicoCandidato; // Trava o dia para essa prova
+                                    provaDoDia = topicoCandidato;
                                     break;
                                 }
                             } else {
@@ -267,9 +302,8 @@ public class CadastrarAulaController {
                         planejamentoAulas.add(aulaComData);
                         aulaPlanejadaDAO.salvar(aulaComData);
 
-                        // Só contabiliza progresso de aulas normais
                         if (!topicoEscolhido.getProva()) {
-                            diaJaTemAulaNormal = true; // Sujou o dia, prova não entra mais hoje
+                            diaJaTemAulaNormal = true; //
 
                             int aulasJaDadas = progressoAulas.getOrDefault(topicoEscolhido, 0) + 1;
                             progressoAulas.put(topicoEscolhido, aulasJaDadas);
