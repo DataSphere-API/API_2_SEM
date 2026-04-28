@@ -17,9 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class CadastrarAulaController {
 
@@ -123,9 +121,10 @@ public class CadastrarAulaController {
     private TopicoModel cadastrarTopico() {
         String titulo = txtFldTituloTopico.getText();
         Integer aulas = spnrQtdAulasTopico.getValue();
+        Boolean prova = chkProva.isSelected();
 
         if (titulo != null && !titulo.isEmpty()) {
-            TopicoModel novoTopico = new TopicoModel(titulo, aulas);
+            TopicoModel novoTopico = new TopicoModel(titulo, aulas, prova);
 
             topicoDAO.salvar(novoTopico);
             obsListTopicos.add(novoTopico);
@@ -209,41 +208,75 @@ public class CadastrarAulaController {
         return diasDeAula;
     }
 
-    public List<AulaPlanejada> organizarAulas(List<TopicoModel> topicos,List<AulaModel> aulas, SemestreModel semestreModel) {
+    public List<AulaPlanejada> organizarAulas(List<TopicoModel> topicos, List<AulaModel> aulas, SemestreModel semestreModel) {
         List<AulaPlanejada> planejamentoAulas = new LinkedList<>();
+        List<TopicoModel> topicosPendentes = new LinkedList<>(topicos);
 
-        int topicoAtualIndex = 0;
-        int aulasNoTopicoAtual = 0;
+        Map<TopicoModel, Integer> progressoAulas = new HashMap<>();
 
-        for (LocalDate dia = semestreModel.getDiaInicio(); !dia.isAfter(semestreModel.getDiaFim()); dia = dia.plusDays(1)) {
+        for (LocalDate dataAtual = semestreModel.getDiaInicio(); !dataAtual.isAfter(semestreModel.getDiaFim()); dataAtual = dataAtual.plusDays(1)) {
+            if (topicosPendentes.isEmpty()) {
+                break;
+            }
+
+            LocalDate finalDia = dataAtual;
+
+            DiaModel diaModelAtual = semestreModel.getDiasList().stream()
+                    .filter(d -> d.getData().equals(finalDia))
+                    .findFirst()
+                    .orElse(null);
+
+            if (diaModelAtual == null) {
+                continue;
+            }
+
             for (AulaModel aula : aulas) {
+                if (topicosPendentes.isEmpty()) {
+                    break;
+                }
 
-                boolean diaDaSemanaCorreto = dia.getDayOfWeek() == aula.getDiaDaSemana();
-                LocalDate finalDia = dia;
-                boolean diaLetivo = semestreModel.getDiasList().stream()
-                        .anyMatch(d -> d.getData().equals(finalDia));
+                if (dataAtual.getDayOfWeek() == aula.getDiaDaSemana()) {
 
-                if (diaDaSemanaCorreto && topicoAtualIndex < topicos.size()) {
+                    TopicoModel topicoEscolhido = null;
 
-                    TopicoModel topicoAtual = topicos.get(topicoAtualIndex);
+                    for (TopicoModel topicoCandidato : topicosPendentes) {
 
-                    AulaPlanejada aulaComData = new AulaPlanejada();
-                    aulaComData.setAulaModel(aula);
-                    aulaComData.setDiaModel(new DiaModel(dia, true));
-                    aulaComData.setTopicoModel(topicoAtual);
+                        if (topicoCandidato.getProva()) {
+                            if (diaModelAtual.getDisponivelParaProva()) {
+                                topicoEscolhido = topicoCandidato;
+                                break;
+                            }
+                        } else {
+                            topicoEscolhido = topicoCandidato;
+                            break;
+                        }
+                    }
 
-                    planejamentoAulas.add(aulaComData);
-                    aulaPlanejadaDAO.salvar(aulaComData);
+                   if (topicoEscolhido != null) {
 
-                    aulasNoTopicoAtual++;
-                    if (aulasNoTopicoAtual >= topicoAtual.getAulasNecessarias()) {
-                        topicoAtualIndex++;
-                        aulasNoTopicoAtual = 0;
+                        AulaPlanejada aulaComData = new AulaPlanejada();
+                        aulaComData.setAulaModel(aula);
+                        aulaComData.setDiaModel(diaModelAtual);
+                        aulaComData.setTopicoModel(topicoEscolhido);
+
+                        planejamentoAulas.add(aulaComData);
+                        aulaPlanejadaDAO.salvar(aulaComData);
+
+                        if (topicoEscolhido.getProva()) {
+                            topicosPendentes.remove(topicoEscolhido);
+                            break;
+                        } else {
+                            int aulasJaDadas = progressoAulas.getOrDefault(topicoEscolhido, 0) + 1;
+                            progressoAulas.put(topicoEscolhido, aulasJaDadas);
+
+                            if (aulasJaDadas >= topicoEscolhido.getAulasNecessarias()) {
+                                topicosPendentes.remove(topicoEscolhido);
+                            }
+                        }
                     }
                 }
             }
         }
-
         return planejamentoAulas;
     }
 
@@ -275,3 +308,5 @@ public class CadastrarAulaController {
     }
 
 }
+
+
