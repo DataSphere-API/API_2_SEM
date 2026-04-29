@@ -82,7 +82,9 @@ public class CadastrarAulaController {
 
     private IDAO<AulaModel> aulaDAO = new AulaDAO();
 
-    private SemestreService semestreService;
+    private SemestreService semestreService = new SemestreService();
+
+    private OrganizarAulaService organizarAulaService = new OrganizarAulaService();
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
