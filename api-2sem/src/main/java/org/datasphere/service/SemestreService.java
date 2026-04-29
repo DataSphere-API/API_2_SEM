@@ -1,7 +1,6 @@
 package org.datasphere.service;
 
-import org.datasphere.model.DiaModel;
-import org.datasphere.model.SemestreModel;
+import org.datasphere.model.*;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
