@@ -91,6 +91,7 @@ public class CadastrarAulaController {
         spnrQtdAulasTopico.setValueFactory(valueFactory);
 
         criarSemestreComDias();
+        criarSemanaSprint();
 
         obsListTopicos = FXCollections.observableArrayList();
         tblTopicoAdicionado.setItems(obsListTopicos);
@@ -183,9 +184,12 @@ public class CadastrarAulaController {
             if (!dia.getDayOfWeek().equals(DayOfWeek.SATURDAY) && !dia.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
                 semestre.adicionarDias(new DiaModel(LocalDate.of(dia.getYear(),dia.getMonth(),dia.getDayOfMonth()), true));
             }
-            for (int i = 6; i < 14; i++){
-                semestre.getDiasList().get(i).setDisponivelParaProva(false);
-            }
+        }
+    }
+
+    public void criarSemanaSprint(){
+        for (int i = 6; i < 14; i++){
+            semestre.getDiasList().get(i).setDisponivelParaProva(false);
         }
     }
 
