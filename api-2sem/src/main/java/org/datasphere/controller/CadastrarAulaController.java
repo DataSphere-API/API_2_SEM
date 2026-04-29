@@ -11,6 +11,7 @@ import org.datasphere.dao.AulaPlanejadaDAO;
 import org.datasphere.dao.TopicoDAO;
 import org.datasphere.dao.interfaces.IDAO;
 import org.datasphere.model.*;
+import org.datasphere.service.OrganizarAulaService;
 import org.datasphere.service.SemestreService;
 
 import java.time.DayOfWeek;
