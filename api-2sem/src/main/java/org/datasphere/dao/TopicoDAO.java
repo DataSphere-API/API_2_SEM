@@ -12,13 +12,14 @@ public class TopicoDAO implements IDAO <TopicoModel> {
 
     @Override
     public void salvar(TopicoModel topico){
-        String sql = "INSERT INTO topico (titulo, aulas_necessarias) VALUES (?,?)";
+        String sql = "INSERT INTO topico (titulo, aulas_necessarias, prova) VALUES (?,?,?)";
         try(Connection conn = ConexaoDB.getConexao()){
 
             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1,topico.getTitulo());
             ps.setInt(2,topico.getAulasNecessarias());
+            ps.setBoolean(3, topico.getProva());
 
             ps.executeUpdate();
 
@@ -45,6 +46,7 @@ public class TopicoDAO implements IDAO <TopicoModel> {
                 topicoModel.setId(rs.getLong("id"));
                 topicoModel.setTitulo(rs.getString("titulo"));
                 topicoModel.setAulasNecessarias(rs.getInt("aulas_necessarias"));
+                topicoModel.setProva(rs.getBoolean("prova"));
 
                 topicoModelList.add(topicoModel);
             }
