@@ -11,9 +11,10 @@ import org.datasphere.dao.AulaPlanejadaDAO;
 import org.datasphere.dao.TopicoDAO;
 import org.datasphere.dao.interfaces.IDAO;
 import org.datasphere.model.*;
+import org.datasphere.service.OrganizarAulaService;
+import org.datasphere.service.SemestreService;
 
 import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
@@ -82,7 +83,9 @@ public class CadastrarAulaController {
 
     private IDAO<AulaModel> aulaDAO = new AulaDAO();
 
-    private SemestreModel semestre = new SemestreModel(LocalDate.now(), LocalDate.now().plusMonths(6));
+    private SemestreService semestreService = new SemestreService();
+
+    private OrganizarAulaService organizarAulaService = new OrganizarAulaService();
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -179,13 +182,7 @@ public class CadastrarAulaController {
         return null;
     }
 
-    public void criarSemestreComDias(){
-        for (LocalDate dia = semestre.getDiaInicio(); !dia.isAfter(semestre.getDiaFim()); dia = dia.plusDays(1)){
-            if (!dia.getDayOfWeek().equals(DayOfWeek.SATURDAY) && !dia.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
-                semestre.adicionarDias(new DiaModel(LocalDate.of(dia.getYear(),dia.getMonth(),dia.getDayOfMonth()), true));
-            }
-        }
-    }
+
 
     public void criarSemanaSprint(){
         for (int i = 6; i < 14; i++){
@@ -331,7 +328,7 @@ public class CadastrarAulaController {
     }
 
     private void adicionarTopicoLista(){
-        List<AulaPlanejada> aulasPlanejadas = organizarAulas(obsListTopicos, lerDiaHorarioAula(), semestre);
+        List<AulaPlanejada> aulasPlanejadas = organizarAulaService.organizarAulas(obsListTopicos, lerDiaHorarioAula(), semestreService.getSemestre());
 
 
             clnAulasPlanejamento.setCellValueFactory(cellData ->
