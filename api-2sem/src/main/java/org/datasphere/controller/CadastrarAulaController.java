@@ -204,7 +204,7 @@ public class CadastrarAulaController {
     }
 
     private void adicionarTopicoLista(){
-        List<AulaPlanejada> aulasPlanejadas = organizarAulas(obsListTopicos, lerDiaHorarioAula(), semestreService.getSemestre());
+        List<AulaPlanejada> aulasPlanejadas = organizarAulaService.organizarAulas(obsListTopicos, lerDiaHorarioAula(), semestreService.getSemestre());
 
 
             clnAulasPlanejamento.setCellValueFactory(cellData ->
