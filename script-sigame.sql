@@ -27,7 +27,6 @@ CREATE TABLE IF NOT EXISTS aula_planejada(
 	
 	PRIMARY KEY (dia_da_semana, horario, data),
 	CONSTRAINT fk_dia_da_semana_horario_possui FOREIGN KEY (dia_da_semana, horario) REFERENCES aula(dia_da_semana, horario) ON DELETE CASCADE,
-	CONSTRAINT fk_titulo_topico_possui FOREIGN KEY (id_topico) REFERENCES topico(id) ON DELETE CASCADE,
-    CONSTRAINT fk_data_possui FOREIGN KEY (data) REFERENCES dia(data) ON DELETE CASCADE
+	CONSTRAINT fk_titulo_topico_possui FOREIGN KEY (id_topico) REFERENCES topico(id) ON DELETE CASCADE
 );
 
