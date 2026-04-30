@@ -133,12 +133,12 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
     <th> Período </th>
     <th> Status </th>
     <tr>
-      <td align="center"> Sprint 1 </td>
+      <td align="center"> <a href="/Documentos/Sprint1/"> Sprint 1 </a> </td>
       <td align="center"> 16/03 a 05/04 </td>
       <td align="center"> ✅ </td>
     </tr>
     <tr>
-      <td align="center"> Sprint 2 </td>
+      <td align="center"> <a href="/Documentos/Sprint2/"> Sprint 2 </a> </td>
       <td align="center"> 13/04 a 03/05 </td>
       <td align="center"> ⏳ </td>
     </tr>
@@ -157,12 +157,12 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
 A documentação está disponível na pasta  <a href="/Documentos/"> Documentos</a>.
 
 ##### Conteúdo:
-- Padrão de Commits
-- Estrutura das Branches
-- Backlog do projeto
-- Documentação por sprint
-- Definition of Ready (DoR)
-- Definition of Done (DoD)
+- <a href="/Documentos/Padrão de Commits.md"> Padrão de Commits </a>
+- <a href="/Documentos/Estratégia de Branch.md"> Estratégia de Branches </a>
+- <a href="/Documentos/Manual do Usuário.md"> Manual do usuário </a>
+- <a href="/Documentos/"> Documentação por sprint </a>
+- <a href="/Documentos/Definition of Ready.md"> Definition of Ready (DoR) </a>
+- <a href="/Documentos/Definition of Done.md"> Definition of Done (DoD) </a>
 
 ##### Conteúdo dividido por sprint:
 - Backlog da sprint
