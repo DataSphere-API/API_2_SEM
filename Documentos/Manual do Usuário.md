@@ -3,6 +3,7 @@
   <h2 align="center"> Datasphere </h2>
 </p>
 
+
 # Manual do Usuário
 
 ## ▶️ Como Executar
@@ -15,18 +16,43 @@
 ### 1. Clone o repositório
 ```bash
 git clone https://github.com/DataSphere-API/API_2_SEM.git
+
 cd API_2_SEM/api-2sem
 ```
 
 ### 2. Crie o banco de dados
-Acesse o PostgreSQL via `psql` ou pgAdmin e execute:
+No PostgreSQL, crie um banco chamado `sigame_db` e execute nele o script `script_sigame.sql`.
+
+Você pode fazer isso pelo **pgAdmin** (Query Tool → cole o conteúdo do script → Executar) ou pela linha de comando, conforme seu sistema operacional.
+
+#### Windows
+Abra o psql:
+```bash
+psql -U postgres
+```
+Dentro do prompt, crie o banco e saia:
 ```sql
 CREATE DATABASE sigame_db;
+\q
+```
+Execute o script:
+```bash
+psql -U postgres -d sigame_db -f script_sigame.sql
 ```
 
-Conecte-se ao banco `sigame` e execute o script `script_sigame.sql` para criar as tabelas:
+#### Linux
+Abra o psql:
 ```bash
-psql -U postgres -d sigame -f script_sigame.sql
+sudo -u postgres psql
+```
+Dentro do prompt, crie o banco e saia:
+```sql
+CREATE DATABASE sigame_db;
+\q
+```
+Execute o script:
+```bash
+sudo -u postgres psql -d sigame_db -f script_sigame.sql
 ```
 
 ### 3. Configure as variáveis de ambiente
@@ -72,4 +98,3 @@ A ordem de cadastro define a ordem de distribuição dos tópicos.
 
 ### 3. Gerar o planejamento
 Clique em **Gerar Planejamento**. A tabela inferior será preenchida com a distribuição automática contendo dia da semana, horário, tópico e data de cada aula do semestre.
-
