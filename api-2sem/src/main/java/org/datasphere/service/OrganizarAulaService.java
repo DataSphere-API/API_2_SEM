@@ -5,8 +5,10 @@ import org.datasphere.model.*;
 import org.datasphere.dao.AulaPlanejadaDAO;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class OrganizarAulaService {
 
@@ -22,40 +24,78 @@ public class OrganizarAulaService {
 
     public List<AulaPlanejada> organizarAulas(List<TopicoModel> topicos, List<AulaModel> aulas, SemestreModel semestreModel) {
         List<AulaPlanejada> planejamentoAulas = new LinkedList<>();
+        List<TopicoModel> topicosPendentes = new LinkedList<>(topicos);
+        Map<TopicoModel, Integer> progressoAulas = new HashMap<>();
+
+        for (LocalDate dataAtual = semestreModel.getDiaInicio(); !dataAtual.isAfter(semestreModel.getDiaFim()); dataAtual = dataAtual.plusDays(1)) {
+            if (topicosPendentes.isEmpty()) break;
 
         int topicoAtualIndex = 0;
         int aulasNoTopicoAtual = 0;
+            LocalDate finalDia = dataAtual;
+            DiaModel diaModelAtual = semestreModel.getDiasList().stream()
+                    .filter(d -> d.getData().equals(finalDia))
+                    .findFirst()
+                    .orElse(null);
 
         for (LocalDate dia = semestreModel.getDiaInicio(); !dia.isAfter(semestreModel.getDiaFim()); dia = dia.plusDays(1)) {
+            if (diaModelAtual == null) continue;
+
+            boolean diaJaTemAulaNormal = false;
+            TopicoModel provaDoDia = null;
+
             for (AulaModel aula : aulas) {
+                if (topicosPendentes.isEmpty()) break;
 
-                boolean diaDaSemanaCorreto = dia.getDayOfWeek() == aula.getDiaDaSemana();
-                LocalDate finalDia = dia;
-                boolean diaLetivo = semestreModel.getDiasList().stream()
-                        .anyMatch(d -> d.getData().equals(finalDia));
+                if (dataAtual.getDayOfWeek() == aula.getDiaDaSemana()) {
+                    TopicoModel topicoEscolhido = null;
 
-                if (diaDaSemanaCorreto && topicoAtualIndex < topicos.size()) {
+                    if (provaDoDia != null) {
+                        topicoEscolhido = provaDoDia;
+                    } else {
+                        for (TopicoModel topicoCandidato : topicosPendentes) {
+                            if (topicoCandidato.getProva()) {
+                                if (!diaJaTemAulaNormal && diaModelAtual.getDisponivelParaProva()) {
+                                    topicoEscolhido = topicoCandidato;
+                                    provaDoDia = topicoCandidato;
+                                    break;
+                                }
+                            } else {
+                                topicoEscolhido = topicoCandidato;
+                                break;
+                            }
+                        }
+                    }
 
-                    TopicoModel topicoAtual = topicos.get(topicoAtualIndex);
+                    if (topicoEscolhido != null) {
+                        AulaPlanejada aulaComData = new AulaPlanejada();
+                        aulaComData.setAulaModel(aula);
+                        aulaComData.setDiaModel(diaModelAtual);
+                        aulaComData.setTopicoModel(topicoEscolhido);
 
-                    AulaPlanejada aulaComData = new AulaPlanejada();
-                    aulaComData.setAulaModel(aula);
-                    aulaComData.setDiaModel(new DiaModel(dia, true));
-                    aulaComData.setTopicoModel(topicoAtual);
+                        planejamentoAulas.add(aulaComData);
+                        aulaPlanejadaDAO.salvar(aulaComData);
 
-                    planejamentoAulas.add(aulaComData);
-                    aulaPlanejadaDAO.salvar(aulaComData);
+                        if (!topicoEscolhido.getProva()) {
+                            diaJaTemAulaNormal = true; //
 
-                    aulasNoTopicoAtual++;
-                    if (aulasNoTopicoAtual >= topicoAtual.getAulasNecessarias()) {
-                        topicoAtualIndex++;
-                        aulasNoTopicoAtual = 0;
+                            int aulasJaDadas = progressoAulas.getOrDefault(topicoEscolhido, 0) + 1;
+                            progressoAulas.put(topicoEscolhido, aulasJaDadas);
+
+                            if (aulasJaDadas >= topicoEscolhido.getAulasNecessarias()) {
+                                topicosPendentes.remove(topicoEscolhido);
+                            }
+                        }
                     }
                 }
             }
-        }
 
+            if (provaDoDia != null) {
+                topicosPendentes.remove(provaDoDia);
+            }
+        }
         return planejamentoAulas;
     }
+
 
 }
