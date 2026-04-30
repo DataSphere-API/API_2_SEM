@@ -15,6 +15,7 @@ import org.datasphere.service.OrganizarAulaService;
 import org.datasphere.service.SemestreService;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
@@ -93,7 +94,7 @@ public class CadastrarAulaController {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
         spnrQtdAulasTopico.setValueFactory(valueFactory);
 
-        criarSemestreComDias();
+        semestreService.criarSemestreComDias();
         criarSemanaSprint();
 
         obsListTopicos = FXCollections.observableArrayList();
@@ -186,7 +187,7 @@ public class CadastrarAulaController {
 
     public void criarSemanaSprint(){
         for (int i = 6; i < 14; i++){
-            semestre.getDiasList().get(i).setDisponivelParaProva(false);
+            semestreService.getSemestre().getDiasList().get(i).setDisponivelParaProva(false);
         }
     }
 
