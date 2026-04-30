@@ -30,15 +30,12 @@ public class OrganizarAulaService {
         for (LocalDate dataAtual = semestreModel.getDiaInicio(); !dataAtual.isAfter(semestreModel.getDiaFim()); dataAtual = dataAtual.plusDays(1)) {
             if (topicosPendentes.isEmpty()) break;
 
-        int topicoAtualIndex = 0;
-        int aulasNoTopicoAtual = 0;
             LocalDate finalDia = dataAtual;
             DiaModel diaModelAtual = semestreModel.getDiasList().stream()
                     .filter(d -> d.getData().equals(finalDia))
                     .findFirst()
                     .orElse(null);
 
-        for (LocalDate dia = semestreModel.getDiaInicio(); !dia.isAfter(semestreModel.getDiaFim()); dia = dia.plusDays(1)) {
             if (diaModelAtual == null) continue;
 
             boolean diaJaTemAulaNormal = false;
