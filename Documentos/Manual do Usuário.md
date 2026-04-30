@@ -21,7 +21,7 @@ cd API_2_SEM/api-2sem
 ```
 
 ### 2. Crie o banco de dados
-No PostgreSQL, crie um banco chamado `sigame_db` e execute nele o script `script_sigame.sql`.
+No PostgreSQL, crie um banco chamado `sigame_db` e execute nele o script `script-sigame.sql`.
 
 Você pode fazer isso pelo **pgAdmin** (Query Tool → cole o conteúdo do script → Executar) ou pela linha de comando, conforme seu sistema operacional.
 
@@ -37,7 +37,7 @@ CREATE DATABASE sigame_db;
 ```
 Execute o script:
 ```bash
-psql -U postgres -d sigame_db -f script_sigame.sql
+psql -U postgres -d sigame_db -f script-sigame.sql
 ```
 
 #### Linux
@@ -52,7 +52,7 @@ CREATE DATABASE sigame_db;
 ```
 Execute o script:
 ```bash
-sudo -u postgres psql -d sigame_db -f script_sigame.sql
+sudo -u postgres psql -d sigame_db -f script-sigame.sql
 ```
 
 ### 3. Configure as variáveis de ambiente
