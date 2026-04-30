@@ -17,7 +17,7 @@
 ```bash
 git clone https://github.com/DataSphere-API/API_2_SEM.git
 
-cd API_2_SEM/api-2sem
+cd API_2_SEM/
 ```
 
 ### 2. Crie o banco de dados
