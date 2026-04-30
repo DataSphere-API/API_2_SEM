@@ -68,6 +68,7 @@ DB_DRIVER=org.postgresql.Driver
 
 ### 4. Baixe as dependências
 ```bash
+cd api_2_sem
 mvn clean install
 ```
 
