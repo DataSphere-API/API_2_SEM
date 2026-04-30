@@ -160,6 +160,7 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
 - <a href="/Documentos/Padrão de Commits.md"> Padrão de Commits </a>
 - <a href="/Documentos/Estratégia de Branch.md"> Estratégia de Branches </a>
 - <a href="/Documentos/Manual do Usuário.md"> Manual do usuário </a>
+- <a href="/Documentos/Manual de Instalação.md"> Manual de Instalação </a>
 - <a href="/Documentos/"> Documentação por sprint </a>
 - <a href="/Documentos/Definition of Ready.md"> Definition of Ready (DoR) </a>
 - <a href="/Documentos/Definition of Done.md"> Definition of Done (DoD) </a>
