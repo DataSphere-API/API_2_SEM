@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="logo_datasphere.png" width="200"/>
-  <h2 align="center"> Data Sphere </h2>
+  <img src="assets/logo_datasphere.png" width="200"/>
+  <h2 align="center"> Datasphere </h2>
 </p>
 
 ## 📝 Critérios de permanência
