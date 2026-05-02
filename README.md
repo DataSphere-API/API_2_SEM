@@ -162,6 +162,7 @@ API_2_SEM/
 ├── Documentos/                          # Documentação do projeto
 │   ├── Sprint1/                         # Backlog, critérios de aceite e rascunhos
 │   ├── Sprint2/                         # Backlog, critérios de aceite e rascunhos
+|   ├── DER-API.png
 │   ├── Definition of Done.md
 │   ├── Definition of Ready.md
 │   ├── Diretrizes de Permanência.md
