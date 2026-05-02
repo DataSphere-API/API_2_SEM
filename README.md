@@ -1,6 +1,6 @@
 # SIGA\.ME - Planejamento de Aulas Automatizado
 <p align="center">
-  <img src="Documentos/logo_datasphere.png" width="200"/>
+  <img src="Documentos/assets/logo_datasphere.png" width="200"/>
 </p>
 <p align="center">
     <a href = #sobre>
@@ -8,6 +8,7 @@
     <a href ="#solução"> Solução</a> |
     <a href ="#backlog"> Backlog do Produto</a> |   
     <a href ="#sprints"> Cronograma das Sprints</a> |
+    <a href ="#estrutura"> Estrutura do Projeto</a> |
     <a href ="#documentacao"> Documentação </a> |
     <a href ="#tecnologias"> Tecnologias</a> |
     <a href ="#equipe"> Equipe </a> |
@@ -154,6 +155,73 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
 
 ---
 
+## 📁 Estrutura do Projeto <a id = "estrutura"></a>
+
+```
+API_2_SEM/
+├── Documentos/                          # Documentação do projeto
+│   ├── Sprint1/                         # Backlog, critérios de aceite e rascunhos
+│   ├── Sprint2/                         # Backlog, critérios de aceite e rascunhos
+|   ├── DER-API.png
+│   ├── Definition of Done.md
+│   ├── Definition of Ready.md
+│   ├── Diretrizes de Permanência.md
+│   ├── Estratégia de Branch.md
+│   ├── Padrão de Commits.md
+│   ├── Manual de Instalação.md
+│   ├── Manual do Usuário.md
+│   └── logo_datasphere.png
+│
+├── api-2sem/                            # Aplicação JavaFX
+│   ├── src/main/java/org/datasphere/
+│   │   ├── App.java                     # Ponto de entrada (main)
+│   │   ├── controller/                  # Controllers do JavaFX
+│   │   │   └── CadastrarAulaController.java
+│   │   ├── service/                     # Regras de negócio
+│   │   │   ├── OrganizarAulaService.java
+│   │   │   └── SemestreService.java
+│   │   ├── dao/                         # Acesso ao banco de dados
+│   │   │   ├── interfaces/
+│   │   │   │   └── IDAO.java
+│   │   │   ├── AulaDAO.java
+│   │   │   ├── AulaPlanejadaDAO.java
+│   │   │   ├── DiaDAO.java
+│   │   │   └── TopicoDAO.java
+│   │   ├── model/                       # Entidades
+│   │   │   ├── AulaModel.java
+│   │   │   ├── AulaPlanejada.java
+│   │   │   ├── DiaModel.java
+│   │   │   ├── SemestreModel.java
+│   │   │   └── TopicoModel.java
+│   │   └── database/                    # Configuração de conexão com banco de dados
+│   │       └── ConexaoDB.java
+│   ├── src/main/resources/
+│   │   ├── org/datasphere/
+│   │   │   └── cadastro-aula.fxml       # Definição da tela principal
+│   │   └── static/                      # Imagens e recursos visuais
+│   ├── .env.example                     # Modelo do arquivo de ambiente
+│   ├── pom.xml                          # Dependências e configuração Maven
+│   └── script_sigame.sql                # Script de criação das tabelas
+│
+├── README.md
+└── .gitignore
+```
+
+---
+
+## 🏗️ Arquitetura
+
+A aplicação segue o padrão **MVC com camada de serviço e DAO**, organizando o código em quatro responsabilidades bem definidas:
+
+| Camada | Pasta | Responsabilidade |
+|---|---|---|
+| **Apresentação (View + Controller)** | `controller/` + `resources/org/datasphere/(FXML) `| Receber as ações do usuário e atualizar a interface |
+| **Negócio (Services)** | `service/` | Regras de distribuição de aulas e cálculo do semestre |
+| **Persistência (DAO)** | `dao/` | Operações de leitura e escrita no PostgreSQL |
+| **Domínio (Model)** | `model/` | Classes que representam as entidades do sistema |
+
+---
+
 ### 📄 Documentação <a id="documentacao"></a>
 
 A documentação está disponível na pasta  <a href="/Documentos/"> Documentos</a>.
@@ -188,48 +256,56 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
 <div align="center">
   <table>
     <tr>
+      <th> </th>
       <th>Membro</th>
       <th>Função</th>
       <th>Github</th>
       <th>Linkedin</th>
     </tr>
      <tr>
+      <th> <img src="/Documentos/assets/team_pics/vinicius.png" height=120px> </th>
       <td>Vinicius Santos</td>
       <td>Product Owner</td>
       <td><a href="https://github.com/vncssd"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/vncssd?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
+      <th> <img src="/Documentos/assets/team_pics/carolina.png" height=120px> </th>
       <td>Carolina Medeiros</td>
       <td>Scrum Master</td>
       <td><a href="https://github.com/mcarolinamedeiros"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://br.linkedin.com/in/mcarolinamedeiros"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr> 
      <tr>
+      <th> <img src="/Documentos/assets/team_pics/daiane.png" height=120px> </th>
       <td>Daiane Moura</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/mouradaiane"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/daiane-moura-189987106/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
    <tr>
+      <th> <img src="/Documentos/assets/team_pics/ieda.png" height=120px> </th>
       <td>Ieda Moretini</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/imoretini"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/iedamoretini"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
+      <th> <img src="/Documentos/assets/team_pics/lucas.png" height=120px> </th>
       <td>Lucas Nathan</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/Consolucas"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/lucasconsolo/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
+      <th> <img src="/Documentos/assets/team_pics/luiz.png" height=120px> </th>
       <td>Luiz Felipe Andrade</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/luiz-andrade1"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/luiz-felipe-queir%C3%B3s/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
+      <th> <img src="/Documentos/assets/team_pics/matheus.png" height=120px> </th>
       <td>Matheus Quirino</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/matquirin0"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
