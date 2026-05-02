@@ -8,6 +8,7 @@
     <a href ="#solução"> Solução</a> |
     <a href ="#backlog"> Backlog do Produto</a> |   
     <a href ="#sprints"> Cronograma das Sprints</a> |
+    <a href ="#estrutura"> Estrutura do Projeto</a> |
     <a href ="#documentacao"> Documentação </a> |
     <a href ="#tecnologias"> Tecnologias</a> |
     <a href ="#equipe"> Equipe </a> |
@@ -151,6 +152,72 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
     </tr>
   </table>
 </div>
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+API_2_SEM/
+├── Documentos/                          # Documentação do projeto
+│   ├── Sprint1/                         # Backlog, critérios de aceite e rascunhos
+│   ├── Sprint2/                         # Backlog, critérios de aceite e rascunhos
+│   ├── Definition of Done.md
+│   ├── Definition of Ready.md
+│   ├── Diretrizes de Permanência.md
+│   ├── Estratégia de Branch.md
+│   ├── Padrão de Commits.md
+│   ├── Manual de Instalação.md
+│   ├── Manual do Usuário.md
+│   └── logo_datasphere.png
+│
+├── api-2sem/                            # Aplicação JavaFX
+│   ├── src/main/java/org/datasphere/
+│   │   ├── App.java                     # Ponto de entrada (main)
+│   │   ├── controller/                  # Controllers do JavaFX
+│   │   │   └── CadastrarAulaController.java
+│   │   ├── service/                     # Regras de negócio
+│   │   │   ├── OrganizarAulaService.java
+│   │   │   └── SemestreService.java
+│   │   ├── dao/                         # Acesso ao banco de dados
+│   │   │   ├── interfaces/
+│   │   │   │   └── IDAO.java
+│   │   │   ├── AulaDAO.java
+│   │   │   ├── AulaPlanejadaDAO.java
+│   │   │   ├── DiaDAO.java
+│   │   │   └── TopicoDAO.java
+│   │   ├── model/                       # Entidades
+│   │   │   ├── AulaModel.java
+│   │   │   ├── AulaPlanejada.java
+│   │   │   ├── DiaModel.java
+│   │   │   ├── SemestreModel.java
+│   │   │   └── TopicoModel.java
+│   │   └── database/                    # Configuração de conexão com banco de dados
+│   │       └── ConexaoDB.java
+│   ├── src/main/resources/
+│   │   ├── org/datasphere/
+│   │   │   └── cadastro-aula.fxml       # Definição da tela principal
+│   │   └── static/                      # Imagens e recursos visuais
+│   ├── .env.example                     # Modelo do arquivo de ambiente
+│   ├── pom.xml                          # Dependências e configuração Maven
+│   └── script_sigame.sql                # Script de criação das tabelas
+│
+├── README.md
+└── .gitignore
+```
+
+---
+
+## 🏗️ Arquitetura
+
+A aplicação segue o padrão **MVC com camada de serviço e DAO**, organizando o código em quatro responsabilidades bem definidas:
+
+| Camada | Pasta | Responsabilidade |
+|---|---|---|
+| **Apresentação (View + Controller)** | `controller/` + `resources/org/datasphere/` (FXML) | Receber as ações do usuário e atualizar a interface |
+| **Negócio (Services)** | `service/` | Regras de distribuição de aulas e cálculo do semestre |
+| **Persistência (DAO)** | `dao/` | Operações de leitura e escrita no PostgreSQL |
+| **Domínio (Model)** | `model/` | Classes que representam as entidades do sistema |
 
 ---
 
