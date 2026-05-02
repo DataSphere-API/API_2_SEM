@@ -6,25 +6,28 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.datasphere.App;
-import org.datasphere.enums.DiaEnum;
+import org.datasphere.dao.AulaDAO;
+import org.datasphere.dao.AulaPlanejadaDAO;
+import org.datasphere.dao.TopicoDAO;
+import org.datasphere.dao.interfaces.IDAO;
 import org.datasphere.model.*;
+import org.datasphere.service.OrganizarAulaService;
+import org.datasphere.service.SemestreService;
 
-import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class CadastrarAulaController {
 
     @FXML
     private TableColumn<TopicoModel, Long> clnIdTopico;
+
+    @FXML
+    private CheckBox chkProva;
 
     @FXML
     private TableColumn<TopicoModel, String> clnTopico;
@@ -45,7 +48,19 @@ public class CadastrarAulaController {
     private CheckBox chkSegunda,chkTerca, chkQuarta, chkQuinta, chkSexta;
 
     @FXML
-    private CheckBox chkSeg1845, chkSeg1935, chkTer1845, chkTer1935, chkQua1845, chkQua1935, chkQui1845, chkQui1935, chkSex1845, chkSex1935;
+    private CheckBox chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205;
+
+    @FXML
+    private CheckBox chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205;
+
+    @FXML
+    private CheckBox chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205;
+
+    @FXML
+    private CheckBox chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205;
+
+    @FXML
+    private CheckBox chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205;
 
     @FXML
     private TableColumn<AulaPlanejada, String> clnAulasPlanejamento;
@@ -63,9 +78,15 @@ public class CadastrarAulaController {
 
     private ObservableList<AulaPlanejada> obsListAulasPlanejadas;
 
-    private Integer contadorID = 1;
+    private IDAO<AulaPlanejada> aulaPlanejadaDAO = new AulaPlanejadaDAO();
 
-    private SemestreModel semestre = new SemestreModel(LocalDate.of(2026,05,01), LocalDate.of(2026,05,30));
+    private IDAO<TopicoModel> topicoDAO = new TopicoDAO();
+
+    private IDAO<AulaModel> aulaDAO = new AulaDAO();
+
+    private SemestreService semestreService = new SemestreService();
+
+    private OrganizarAulaService organizarAulaService = new OrganizarAulaService();
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -73,7 +94,8 @@ public class CadastrarAulaController {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
         spnrQtdAulasTopico.setValueFactory(valueFactory);
 
-        criarSemestreComDias();
+        semestreService.criarSemestreComDias();
+        criarSemanaSprint();
 
         obsListTopicos = FXCollections.observableArrayList();
         tblTopicoAdicionado.setItems(obsListTopicos);
@@ -83,6 +105,49 @@ public class CadastrarAulaController {
         clnAulasTopico.setCellValueFactory(new PropertyValueFactory<>("aulasNecessarias"));
 
         configurarTabelaTopicos();
+
+        chkProva.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            spnrQtdAulasTopico.setDisable(newValue);
+            spnrQtdAulasTopico.getValueFactory().setValue(0);
+        });
+
+
+        List<CheckBox> horariosSegunda = List.of(chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205);
+        List<CheckBox> horariosTerca = List.of(chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205);
+        List<CheckBox> horariosQuarta = List.of(chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205);
+        List<CheckBox> horariosQuinta = List.of(chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205);
+        List<CheckBox> horariosSexta = List.of(chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205);
+
+        Map<CheckBox, List<CheckBox>> mapaDiasHorarios = new HashMap<>();
+
+        mapaDiasHorarios.put(chkSegunda, horariosSegunda);
+        mapaDiasHorarios.put(chkTerca, horariosTerca);
+        mapaDiasHorarios.put(chkQuarta, horariosQuarta);
+        mapaDiasHorarios.put(chkQuinta, horariosQuinta);
+        mapaDiasHorarios.put(chkSexta, horariosSexta);
+
+        for (Map.Entry<CheckBox, List<CheckBox>> entrada : mapaDiasHorarios.entrySet()) {
+
+            CheckBox chkDiaPrincipal = entrada.getKey();
+            List<CheckBox> listaDeHorarios = entrada.getValue();
+
+            listaDeHorarios.forEach(chk -> chk.setDisable(true));
+
+            chkDiaPrincipal.setOnAction(e -> {
+
+                boolean diaEstaMarcado = chkDiaPrincipal.isSelected();
+
+                listaDeHorarios.forEach(chkHorario -> {
+                    chkHorario.setDisable(!diaEstaMarcado);
+                    if (!diaEstaMarcado) {
+                        chkHorario.setSelected(false);
+                    }
+                });
+            });
+        }
+
+
+
     }
 
     private void configurarTabelaTopicos(){
@@ -104,12 +169,12 @@ public class CadastrarAulaController {
     private TopicoModel cadastrarTopico() {
         String titulo = txtFldTituloTopico.getText();
         Integer aulas = spnrQtdAulasTopico.getValue();
+        Boolean prova = chkProva.isSelected();
 
         if (titulo != null && !titulo.isEmpty()) {
-            TopicoModel novoTopico = new TopicoModel(titulo, aulas);
+            TopicoModel novoTopico = new TopicoModel(titulo, aulas, prova);
 
-            novoTopico.setId(Long.valueOf(contadorID++));
-
+            topicoDAO.salvar(novoTopico);
             obsListTopicos.add(novoTopico);
 
             txtFldTituloTopico.clear();
@@ -118,90 +183,82 @@ public class CadastrarAulaController {
         return null;
     }
 
-    /**
-    ESSE METODO INSTANCIA UM SEMESTRE (QUE COMEÇA NO DIA 01/04 E TERMINA NO DIA 30/04) E CRIA UMA SEMANA LETIVA PARA ESSE MÊS PARA FINS DE APRESENTAÇÃO
-     APÓS ISSO, ELE DEVE SER ALTERADO SEM FALTA!!!!
-    **/
-    public void criarSemestreComDias(){
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,4), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,5), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,6), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,7), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,8), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,9), DiaEnum.LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,10), DiaEnum.LETIVO));
 
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,01), DiaEnum.NAO_LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,02), DiaEnum.NAO_LETIVO));
-        semestre.adicionarDias(new DiaModel(LocalDate.of(2026,05,03), DiaEnum.NAO_LETIVO));
+
+    public void criarSemanaSprint(){
+        for (int i = 6; i < 14; i++){
+            semestreService.getSemestre().getDiasList().get(i).setDisponivelParaProva(false);
+        }
     }
 
     public List<AulaModel> lerDiaHorarioAula(){
         List<AulaModel> diasDeAula = new LinkedList<>();
+        List<LocalTime> tempos = List.of(
+                LocalTime.of(18,45),
+                LocalTime.of(19,35),
+                LocalTime.of(20,25),
+                LocalTime.of(21,15),
+                LocalTime.of(22,05),
+                LocalTime.of(23,05));
 
-        if (chkSegunda.isSelected() && chkSeg1845.isSelected() && chkSeg1935.isSelected()){
-            diasDeAula.add(new AulaModel(DayOfWeek.MONDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
-            diasDeAula.add(new AulaModel(DayOfWeek.MONDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
-        }
-        if (chkTerca.isSelected() && chkTer1845.isSelected() && chkTer1935.isSelected()){
-            diasDeAula.add(new AulaModel(DayOfWeek.TUESDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
-            diasDeAula.add(new AulaModel(DayOfWeek.TUESDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
-        }
-        if (chkQuarta.isSelected() && chkQua1845.isSelected() && chkQua1935.isSelected()){
-            diasDeAula.add(new AulaModel(DayOfWeek.WEDNESDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
-            diasDeAula.add(new AulaModel(DayOfWeek.WEDNESDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
-        }
-        if (chkQuinta.isSelected() && chkQui1845.isSelected() && chkQui1935.isSelected()){
-            diasDeAula.add(new AulaModel(DayOfWeek.THURSDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
-            diasDeAula.add(new AulaModel(DayOfWeek.THURSDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
-        }
-        if (chkSexta.isSelected() && chkSex1845.isSelected() && chkSex1935.isSelected()){
-            diasDeAula.add(new AulaModel(DayOfWeek.FRIDAY, LocalTime.of(18,45), LocalTime.of(19,35)));
-            diasDeAula.add(new AulaModel(DayOfWeek.FRIDAY, LocalTime.of(19,35), LocalTime.of(20,25)));
-        }
+        if(chkSegunda.isSelected()){
+            List<CheckBox> horarios = List.of(chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205);
 
-        return diasDeAula;
-    }
-
-    public List<AulaPlanejada> organizarAulas(List<TopicoModel> topicos,List<AulaModel> aulas, SemestreModel semestreModel) {
-        List<AulaPlanejada> planejamentoAulas = new LinkedList<>();
-
-        int topicoAtualIndex = 0;
-        int aulasNoTopicoAtual = 0;
-
-        for (LocalDate dia = semestreModel.getDiaInicio(); !dia.isAfter(semestreModel.getDiaFim()); dia = dia.plusDays(1)) {
-            for (AulaModel aula : aulas) {
-
-                boolean diaDaSemanaCorreto = dia.getDayOfWeek() == aula.getDiaDaSemana();
-                LocalDate finalDia = dia;
-                boolean diaLetivo = semestreModel.getDiasList().stream()
-                        .anyMatch(d -> d.getData().equals(finalDia) && d.getTipo() == DiaEnum.LETIVO);
-
-                if (diaDaSemanaCorreto && diaLetivo && topicoAtualIndex < topicos.size()) {
-
-                    TopicoModel topicoAtual = topicos.get(topicoAtualIndex);
-
-                    AulaPlanejada aulaComData = new AulaPlanejada();
-                    aulaComData.setAulaModel(aula);
-                    aulaComData.setDiaModel(new DiaModel(dia, DiaEnum.LETIVO));
-                    aulaComData.setTopicoModel(topicoAtual);
-
-                    planejamentoAulas.add(aulaComData);
-
-                    aulasNoTopicoAtual++;
-                    if (aulasNoTopicoAtual >= topicoAtual.getAulasNecessarias()) {
-                        topicoAtualIndex++;
-                        aulasNoTopicoAtual = 0;
-                    }
+            for (int i=0; i<horarios.size(); i++){
+                if(horarios.get(i).isSelected()){
+                    diasDeAula.add(new AulaModel(DayOfWeek.MONDAY, tempos.get(i), tempos.get(i+1)));
                 }
             }
         }
 
-        return planejamentoAulas;
+        if(chkTerca.isSelected()){
+            List<CheckBox> horarios = List.of(chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205);
+
+            for (int i=0; i<horarios.size(); i++){
+                if(horarios.get(i).isSelected()){
+                    diasDeAula.add(new AulaModel(DayOfWeek.TUESDAY, tempos.get(i), tempos.get(i+1)));
+                }
+            }
+        }
+
+        if(chkQuarta.isSelected()){
+            List<CheckBox> horarios = List.of(chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205);
+
+            for (int i=0; i<horarios.size(); i++){
+                if(horarios.get(i).isSelected()){
+                    diasDeAula.add(new AulaModel(DayOfWeek.WEDNESDAY, tempos.get(i), tempos.get(i+1)));
+                }
+            }
+        }
+
+        if(chkQuinta.isSelected()){
+            List<CheckBox> horarios = List.of(chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205);
+
+            for (int i=0; i<horarios.size(); i++){
+                if(horarios.get(i).isSelected()){
+                    diasDeAula.add(new AulaModel(DayOfWeek.THURSDAY, tempos.get(i), tempos.get(i+1)));
+                }
+            }
+        }
+
+        if(chkSexta.isSelected()){
+            List<CheckBox> horarios = List.of(chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205);
+
+            for (int i=0; i<horarios.size(); i++){
+                if(horarios.get(i).isSelected()){
+                    diasDeAula.add(new AulaModel(DayOfWeek.FRIDAY, tempos.get(i), tempos.get(i+1)));
+                }
+            }
+        }
+        for(AulaModel aula:diasDeAula){
+            aulaDAO.salvar(aula);
+        }
+        return diasDeAula;
     }
 
+
     private void adicionarTopicoLista(){
-        List<AulaPlanejada> aulasPlanejadas = organizarAulas(obsListTopicos, lerDiaHorarioAula(), semestre);
+        List<AulaPlanejada> aulasPlanejadas = organizarAulaService.organizarAulas(obsListTopicos, lerDiaHorarioAula(), semestreService.getSemestre());
 
 
             clnAulasPlanejamento.setCellValueFactory(cellData ->
@@ -228,3 +285,5 @@ public class CadastrarAulaController {
     }
 
 }
+
+

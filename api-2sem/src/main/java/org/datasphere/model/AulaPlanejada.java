@@ -1,12 +1,5 @@
 package org.datasphere.model;
 
-import org.datasphere.enums.DiaEnum;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 public class AulaPlanejada {
 
     private AulaModel aulaModel;

@@ -1,8 +1,9 @@
-# SIGA.ME </a> - Planejamento de Aulas Automatizada 
+# SIGA\.ME - Planejamento de Aulas Automatizado
 <p align="center">
   <img src="Documentos/logo_datasphere.png" width="200"/>
 </p>
 <p align="center">
+    <a href = #sobre>
     <a href ="#desafio"> Desafio</a> |
     <a href ="#solução"> Solução</a> |
     <a href ="#backlog"> Backlog do Produto</a> |   
@@ -14,12 +15,16 @@
 
 </p>
 
+### Sobre o Projeto <a id="sobre"></a>
+
+SIGA\.ME é um sistema desenvolvido por alunos do 2° semestre do curso de Banco de Dados da FATEC como  PROJETO INTEGRADOR, com o objetivo de automatizar o planejamento de aulas dos professores no início de cada semestre letivo. A solução elimina o trabalho manual de cruzar o calendário acadêmico com o conteúdo programático das disciplinas, reduzindo erros e economizando tempo dos docentes.
+
 ---
 
 > Status do projeto: Em Desenvolvimento
 
 
-### 🎯 Desafio do Projeto  <a id="desafio"></a>
+### 🎯 Desafio  <a id="desafio"></a>
 No começo de cada semestre letivo, os professores precisam lançar seus planos de aula no sistema.
 Essa atividade deveria ser simples, contudo a usabilidade do sistema deixa tudo mais difícil.
 
@@ -39,20 +44,25 @@ Na tela de conteúdo, ele seria lançado da seguinte forma:
 - Recepção dos alunos: 1 aula
 - Introdução da disciplina: 1 aula
 - Projeto Integrador: 2 aulas
-- Sistemas Gerenciadores de Banco de Dado: 2 aulas
+- Sistemas Gerenciadores de Banco de Dados: 2 aulas
 - Modelagem de Dados: 1 aula
 
 <b> Com dezenas de aulas por semestre, fica extremamente difícil manter a sincronia das informações. </b>
 
-Os professores também precisam planejar o conteúdo levando em consideração as datas do API, o que torna o processo ainda mais desafiador. 
+Além disso, se houver muitos feriados os professores precisam marcar aulas aos sábados para compor a carga horária mínima das disciplinas (40 horas-aula para disciplinas com 2 aulas semanais ou 80 horas aula para disciplinas com 4 aulas semanais).
 
-Além disso, se houver muitos feriados os professores precisam marcar aulas ao sábado para compor a carga horária mínima das disciplinas (40 horas aula para disciplinas com 2 aulas semenais ou 80 horas aula para disciplinas com 4 aulas semanais).
-
-### Solução - SIGA.ME </a>
-
-Um sistema que crie o planejamento automaticamente, realizando o cruzamento automatizado entre os dias letivos e não letivos do calendário acadêmico da FATEC e o conteúdo programático da matéria, levando em conta a quantidade de aulas que cada tópico vai demandar.
+Os professores também precisam planejar o conteúdo considerando outros eventos do calendário acadêmico, como a Feira de Soluções, a 3ª semana de sprint e a apresentação de TG, datas em que não é permitido o agendamento de avaliações, o que torna o processo ainda mais desafiador. 
 
 
+### Solução - SIGA\.ME
+
+O SIGA\.ME é um sistema que gera o planejamento de aulas de forma automatizada, fazendo o cruzamento inteligente entre os dias letivos e não letivos do calendário acadêmico da FATEC e o conteúdo programático de cada disciplina.
+
+A partir do conteúdo cadastrado pelo professor e da quantidade de aulas exigida por cada tópico, o sistema distribui as aulas ao longo do semestre respeitando a carga horária mínima da disciplina, evita o agendamento de avaliações em datas restritas (como a 3ª semana de Sprint, a Feira de Soluções e a apresentação de TG) e sinaliza eventuais lacunas no planejamento, como tópicos sem data ou dias de aula sem conteúdo atribuído. 
+
+Dessa forma, o professor passa a contar com um planejamento consistente, validado e pronto para ser lançado no SIGA.
+
+##### CLIQUE <a href="https://youtu.be/DfhsHqrduig"> AQUI </a> PARA VER O FUNCIONAMENTO DA FERRAMENTA
 
 ---
 ### 📋 Backlog do Produto <a id="backlog"></a>
@@ -125,19 +135,19 @@ Um sistema que crie o planejamento automaticamente, realizando o cruzamento auto
     <th> Período </th>
     <th> Status </th>
     <tr>
-      <td align="center"> Sprint 1 </td>
+      <td align="center"> <a href="/Documentos/Sprint1/"> Sprint 1 </a> </td>
       <td align="center"> 16/03 a 05/04 </td>
       <td align="center"> ✅ </td>
     </tr>
     <tr>
-      <td align="center"> Sprint 2 </td>
+      <td align="center"> <a href="/Documentos/Sprint2/"> Sprint 2 </a> </td>
       <td align="center"> 13/04 a 03/05 </td>
-      <td align="center"> EM ANDAMENTO </td>
+      <td align="center"> ⏳ </td>
     </tr>
     <tr>
       <td align="center"> Sprint 3 </td>
       <td align="center"> 11/05 a 31/05 </td>
-      <td align="center">  </td>
+      <td align="center"> </td>
     </tr>
   </table>
 </div>
@@ -149,12 +159,13 @@ Um sistema que crie o planejamento automaticamente, realizando o cruzamento auto
 A documentação está disponível na pasta  <a href="/Documentos/"> Documentos</a>.
 
 ##### Conteúdo:
-- Padrão de Commits
-- Estrutura das Branches
-- Backlog do projeto
-- Documentação por sprint
-- Definition of Ready (DoR)
-- Definition of Done (DoD)
+- <a href="/Documentos/Padrão de Commits.md"> Padrão de Commits </a>
+- <a href="/Documentos/Estratégia de Branch.md"> Estratégia de Branches </a>
+- <a href="/Documentos/Manual do Usuário.md"> Manual do usuário </a>
+- <a href="/Documentos/Manual de Instalação.md"> Manual de Instalação </a>
+- <a href="/Documentos/"> Documentação por sprint </a>
+- <a href="/Documentos/Definition of Ready.md"> Definition of Ready (DoR) </a>
+- <a href="/Documentos/Definition of Done.md"> Definition of Done (DoD) </a>
 
 ##### Conteúdo dividido por sprint:
 - Backlog da sprint
@@ -164,11 +175,13 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
 ---
 ### 💻 Tecnologias <a id="tecnologias"></a>
 
--   **Versionamento:** Git
--   **Ferramenta de gestão:** Slack
--   **Linguagem:** Java
--   **Plataforma:** IntelliJ IDEA 
-
+- **Linguagem:** Java <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="20" height="20" alt="Java"/>
+- **Build & Dependências:** Maven <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" width="20" height="20" alt="Maven"/>
+- **IDE:** IntelliJ IDEA <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="20" height="20" alt="IntelliJ IDEA"/>
+- **Banco de Dados:** PostgreSQL <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="20" height="20" alt="PostgreSQL"/>
+- **Versionamento:** Git <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="20" height="20" alt="Git"/>
+- **Gestão & Comunicação:** Slack <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" width="20" height="20" alt="Slack"/>
+  
 ---
 
 ### 👥 Equipe <a id="equipe"></a>
@@ -202,7 +215,7 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
       <td>Ieda Moretini</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/imoretini"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
-      <td><a href="www.linkedin.com/in/iedamoretini"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/iedamoretini"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
       <td>Lucas Nathan</td>
@@ -216,6 +229,11 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
       <td><a href="https://github.com/luiz-andrade1"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/luiz-felipe-queir%C3%B3s/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
+    <tr>
+      <td>Matheus Quirino</td>
+      <td>Desenvolvedor</td>
+      <td><a href="https://github.com/matquirin0"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/matheus-pquirino/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+    </tr>
  </table>
 </div>
-
