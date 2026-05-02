@@ -62,6 +62,8 @@ A partir do conteúdo cadastrado pelo professor e da quantidade de aulas exigida
 
 Dessa forma, o professor passa a contar com um planejamento consistente, validado e pronto para ser lançado no SIGA.
 
+##### CLIQUE <a href="https://youtu.be/DfhsHqrduig"> AQUI </a> PARA VER O FUNCIONAMENTO DA FERRAMENTA
+
 ---
 ### 📋 Backlog do Produto <a id="backlog"></a>
 <div align="center">
