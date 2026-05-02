@@ -1,6 +1,6 @@
 # SIGA\.ME - Planejamento de Aulas Automatizado
 <p align="center">
-  <img src="Documentos/logo_datasphere.png" width="200"/>
+  <img src="Documentos/assets/logo_datasphere.png" width="200"/>
 </p>
 <p align="center">
     <a href = #sobre>
@@ -256,48 +256,56 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
 <div align="center">
   <table>
     <tr>
+      <th> </th>
       <th>Membro</th>
       <th>Função</th>
       <th>Github</th>
       <th>Linkedin</th>
     </tr>
      <tr>
+      <th> <img src="/Documentos/assets/team_pics/vinicius.png" height=120px> </th>
       <td>Vinicius Santos</td>
       <td>Product Owner</td>
       <td><a href="https://github.com/vncssd"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/vncssd?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
+      <th> <img src="/Documentos/assets/team_pics/carolina.png" height=120px> </th>
       <td>Carolina Medeiros</td>
       <td>Scrum Master</td>
       <td><a href="https://github.com/mcarolinamedeiros"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://br.linkedin.com/in/mcarolinamedeiros"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr> 
      <tr>
+      <th> <img src="/Documentos/assets/team_pics/daiane.png" height=120px> </th>
       <td>Daiane Moura</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/mouradaiane"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/daiane-moura-189987106/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
    <tr>
+      <th> <img src="/Documentos/assets/team_pics/ieda.png" height=120px> </th>
       <td>Ieda Moretini</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/imoretini"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/iedamoretini"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
+      <th> <img src="/Documentos/assets/team_pics/lucas.png" height=120px> </th>
       <td>Lucas Nathan</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/Consolucas"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/lucasconsolo/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
+      <th> <img src="/Documentos/assets/team_pics/luiz.png" height=120px> </th>
       <td>Luiz Felipe Andrade</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/luiz-andrade1"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/luiz-felipe-queir%C3%B3s/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
+      <th> <img src="/Documentos/assets/team_pics/matheus.png" height=120px> </th>
       <td>Matheus Quirino</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/matquirin0"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
