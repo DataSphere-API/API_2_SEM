@@ -155,7 +155,7 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Estrutura do Projeto <a id = "estrutura"></a>
 
 ```
 API_2_SEM/
@@ -214,7 +214,7 @@ A aplicação segue o padrão **MVC com camada de serviço e DAO**, organizando 
 
 | Camada | Pasta | Responsabilidade |
 |---|---|---|
-| **Apresentação (View + Controller)** | `controller/` + `resources/org/datasphere/` (FXML) | Receber as ações do usuário e atualizar a interface |
+| **Apresentação (View + Controller)** | `controller/` + `resources/org/datasphere/(FXML) `| Receber as ações do usuário e atualizar a interface |
 | **Negócio (Services)** | `service/` | Regras de distribuição de aulas e cálculo do semestre |
 | **Persistência (DAO)** | `dao/` | Operações de leitura e escrita no PostgreSQL |
 | **Domínio (Model)** | `model/` | Classes que representam as entidades do sistema |
