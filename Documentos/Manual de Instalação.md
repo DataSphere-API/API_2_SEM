@@ -80,4 +80,4 @@ A janela do SIGA.ME será aberta automaticamente.
 
 ---
 
-> Para o uso do sistema após a instalação, consulte o [Manual do Usuário](MANUAL_DO_USUARIO.md).
+> Para o uso do sistema após a instalação, consulte o <a href= "Manual do Usuário.md"> Manual do Usuário. </a>

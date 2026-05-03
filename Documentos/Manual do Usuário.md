@@ -8,7 +8,7 @@
 
 Este documento descreve como utilizar o SIGA.ME no dia a dia. Destinado a professores que vão montar o planejamento de aulas do semestre.
 
-> Para instruções de instalação do sistema, consulte o [Manual de Instalação](MANUAL_DE_INSTALACAO.md).
+> Para instruções de instalação do sistema, consulte o <a href= "Manual de Instalação.md"> Manual de Instalação. </a>
 
 ## 🖥️ Visão Geral
 
