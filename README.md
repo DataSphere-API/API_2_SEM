@@ -146,7 +146,7 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
       <td align="center"> ✅ </td>
     </tr>
     <tr>
-      <td align="center"> Sprint 3 </td>
+      <td align="center"> <a href="/Documentos/Sprint3/"> Sprint 3 </a> </td>
       <td align="center"> 11/05 a 31/05 </td>
       <td align="center"> </td>
     </tr>
