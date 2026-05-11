@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CoordenadorController">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1400.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fx:id="ivLogo" fitHeight="74.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../static/siga.meLOGO.png" />
+                    </image>
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </ImageView>
+
+                <VBox spacing="2.0">
+                    <HBox.margin>
+                        <Insets left="15.0" />
+                    </HBox.margin>
+                </VBox>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="831.0" text="Painel do Coordenador" textFill="#2e5fbd">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Button fx:id="btSair" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: transparent; -fx-cursor: hand;" text="⏻">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="15.0" right="20.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+
+        <TabPane layoutY="80.0" prefHeight="720.0" prefWidth="1400.0" style="-fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+
+            <Tab fx:id="tabCalendario" text="Calendário">
+                <content>
+                    <HBox prefHeight="680.0" prefWidth="1360.0" spacing="20.0">
+                        <padding>
+                            <Insets bottom="20.0" left="0.0" right="0.0" top="20.0" />
+                        </padding>
+                        <children>
+                            <VBox prefHeight="680.0" prefWidth="900.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);" HBox.hgrow="ALWAYS">
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Text fill="#2E5FBD" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendário Acadêmico">
+                                                <font>
+                                                    <Font name="System Bold" size="20.0" />
+                                                </font>
+                                            </Text>
+                                        </children>
+                                    </HBox>
+
+                                    <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                        <children>
+                                            <DatePicker fx:id="calendario" prefWidth="800.0" style="-fx-font-size: 16px;">
+                                                <VBox.margin>
+                                                    <Insets bottom="20.0" top="20.0" />
+                                                </VBox.margin>
+                                            </DatePicker>
+
+                                            <VBox fx:id="vbSelectedDates" alignment="TOP_LEFT" prefHeight="100.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: #F8F9FC; -fx-background-radius: 8; -fx-padding: 10;">
+                                                <children>
+                                                    <Text fill="#6B7280" strokeType="OUTSIDE" strokeWidth="0.0" text="Datas selecionadas:">
+                                                        <font>
+                                                            <Font size="12.0" />
+                                                        </font>
+                                                    </Text>
+                                                </children>
+                                            </VBox>
+                                        </children>
+                                    </VBox>
+
+                                    <Separator />
+
+                                    <VBox spacing="10.0">
+                                        <children>
+                                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                <children>
+                                                    <Text fill="#374151" strokeType="OUTSIDE" strokeWidth="0.0" text="Legenda:">
+                                                        <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Region HBox.hgrow="ALWAYS" />
+                                                    <Button fx:id="btAdicionarLegenda" mnemonicParsing="false" onAction="#AdicionarLegenda" style="-fx-background-color: transparent; -fx-text-fill: #2E5FBD; -fx-cursor: hand; -fx-border-color: #2E5FBD; -fx-border-radius: 6; -fx-background-radius: 6;" text="➕ Adicionar">
+                                                        <font>
+                                                            <Font size="11.0" />
+                                                        </font>
+                                                        <padding>
+                                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                        </padding>
+                                                    </Button>
+                                                </children>
+                                            </HBox>
+
+                                            <VBox fx:id="vbNovaLegenda" managed="false" spacing="10.0" style="-fx-background-color: #F8F9FC; -fx-background-radius: 8; -fx-padding: 15;" visible="false">
+                                                <children>
+                                                    <HBox spacing="10.0">
+                                                        <children>
+                                                            <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                <children>
+                                                                    <Label text="Nome da Legenda" textFill="#374151">
+                                                                        <font>
+                                                                            <Font size="11.0" />
+                                                                        </font>
+                                                                    </Label>
+                                                                    <TextField fx:id="txtNovaLegendaNome" promptText="Ex: Provas Finais" style="-fx-background-radius: 6;">
+                                                                        <font>
+                                                                            <Font size="12.0" />
+                                                                        </font>
+                                                                    </TextField>
+                                                                </children>
+                                                            </VBox>
+                                                            <VBox spacing="5.0">
+                                                                <children>
+                                                                    <Label text="Cor" textFill="#374151">
+                                                                        <font>
+                                                                            <Font size="11.0" />
+                                                                        </font>
+                                                                    </Label>
+                                                                    <ColorPicker fx:id="cpNovaLegendaCor" prefWidth="100.0" style="-fx-background-radius: 6;" />
+                                                                </children>
+                                                            </VBox>
+                                                        </children>
+                                                    </HBox>
+                                                    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                                        <children>
+                                                            <Button mnemonicParsing="false" onAction="#handleCancelarNovaLegenda" style="-fx-background-color: #E5E7EB; -fx-cursor: hand; -fx-background-radius: 6;" text="Cancelar">
+                                                                <font>
+                                                                    <Font size="11.0" />
+                                                                </font>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" onAction="#handleSalvarNovaLegenda" style="-fx-background-color: #2E5FBD; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 6;" text="Salvar">
+                                                                <font>
+                                                                    <Font name="System Bold" size="11.0" />
+                                                                </font>
+                                                            </Button>
+                                                        </children>
+                                                    </HBox>
+                                                </children>
+                                            </VBox>
+
+                                            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="200.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                                                <content>
+                                                    <VBox fx:id="vbListaLegendas" spacing="5.0" />
+                                                </content>
+                                            </ScrollPane>
+                                        </children>
+                                    </VBox>
+                                </children>
+                            </VBox>
+
+                            <VBox prefHeight="680.0" prefWidth="420.0" spacing="15.0">
+                                <children>
+                                    <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                                        <padding>
+                                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                        </padding>
+                                        <children>
+                                            <Text fill="#E91E8C" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Data">
+                                                <font>
+                                                    <Font name="System Bold" size="18.0" />
+                                                </font>
+                                            </Text>
+
+                                            <VBox spacing="8.0">
+                                                <children>
+                                                    <Label text="Título" textFill="#374151">
+                                                        <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                        </font>
+                                                    </Label>
+                                       <TextField fx:id="txtTituloData" promptText="Feriado, Sprint... " style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8;" />
+                                                </children>
+                                            </VBox>
+
+                                            <VBox spacing="8.0">
+                                                <children>
+                                                    <Label text="Descrição" textFill="#374151">
+                                                        <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                        </font>
+                                                    </Label>
+                                                    <TextArea fx:id="txtDescricaoData" prefHeight="80.0" prefWidth="380.0" promptText="Ex: Início do 1º Semestre" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8;" wrapText="true">
+                                                        <font>
+                                                            <Font size="13.0" />
+                                                        </font>
+                                                    </TextArea>
+                                                </children>
+                                            </VBox>
+
+                                            <Text fx:id="txtInfo" fill="#6B7280" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione datas no calendário">
+                                                <font>
+                                                    <Font size="12.0" />
+                                                </font>
+                                            </Text>
+
+                                            <Button fx:id="btAdicionarData" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AdicionarData" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Adicionar Data">
+                                                <font>
+                                                    <Font name="System Bold" size="15.0" />
+                                                </font>
+                                            </Button>
+                                        </children>
+                                    </VBox>
+
+                                    <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);" VBox.vgrow="ALWAYS">
+                                        <padding>
+                                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                        </padding>
+                                        <children>
+                                            <Text fx:id="txtTotalDatas" fill="#2E5FBD" strokeType="OUTSIDE" strokeWidth="0.0" text="Datas Cadastradas (0)">
+                                                <font>
+                                                    <Font name="System Bold" size="18.0" />
+                                                </font>
+                                            </Text>
+
+                                            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
+                                                <content>
+                                                    <TableView fx:id="tblDatasImportantes" prefHeight="300.0" style="-fx-background-color: white; -fx-font-size: 11;">
+                                                        <columns>
+                                                            <TableColumn fx:id="clnData" prefWidth="100.0" text="Data" />
+                                                            <TableColumn fx:id="clnDescricao" prefWidth="180.0" text="Descrição" />
+                                                            <TableColumn fx:id="clnTitulo" prefWidth="80.0" text="Título" />
+                                                        </columns>
+                                                    </TableView>
+                                                </content>
+                                            </ScrollPane>
+                                        </children>
+                                    </VBox>
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                </content>
+            </Tab>
+
+            <Tab fx:id="tabDisciplinas" text="Disciplinas">
+                <content>
+                    <HBox prefHeight="680.0" prefWidth="1360.0" spacing="20.0">
+                        <padding>
+                            <Insets bottom="20.0" left="0.0" right="0.0" top="20.0" />
+                        </padding>
+                        <children>
+                            <VBox prefWidth="420.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <children>
+                                    <Text fx:id="txtTituloDisciplina" fill="#E91E8C" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Disciplina">
+                                        <font>
+                                            <Font name="System Bold" size="18.0" />
+                                        </font>
+                                    </Text>
+
+                                    <VBox spacing="8.0">
+                                        <children>
+                                            <Label text="Nome da Disciplina" textFill="#374151">
+                                                <font>
+                                                    <Font name="System Bold" size="13.0" />
+                                                </font>
+                                            </Label>
+                                            <TextField fx:id="txtNomeDisciplina" promptText="Ex: Estrutura de Dados" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
+                                                <font>
+                                                    <Font size="13.0" />
+                                                </font>
+                                            </TextField>
+                                        </children>
+                                    </VBox>
+
+                                    <VBox spacing="8.0">
+                                        <children>
+                                            <Label text="Carga Horária (horas)" textFill="#374151">
+                                                <font>
+                                                    <Font name="System Bold" size="13.0" />
+                                                </font>
+                                            </Label>
+                                 <HBox prefHeight="34.0" prefWidth="380.0">
+                                    <children>
+                                       <Region prefHeight="34.0" prefWidth="52.0" />
+                                       <RadioButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="40 Horas " textFill="#2e5fbd">
+                                          <font>
+                                             <Font name="System Bold" size="13.0" />
+                                          </font>
+                                       </RadioButton>
+                                       <Region prefHeight="34.0" prefWidth="64.0" />
+                                       <RadioButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="80 Horas" textFill="#2e5fbd">
+                                          <font>
+                                             <Font name="System Bold" size="13.0" />
+                                          </font>
+                                       </RadioButton>
+                                    </children>
+                                 </HBox>
+                                        </children>
+                                    </VBox>
+
+                                    <VBox spacing="8.0">
+                                        <children>
+                                            <Label text="Curso" textFill="#374151">
+                                                <font>
+                                                    <Font name="System Bold" size="13.0" />
+                                                </font>
+                                            </Label>
+                                            <TextField fx:id="txtCurso" promptText="Ex.: Tecnologia em Banco de Dados" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
+                                                <font>
+                                                    <Font size="13.0" />
+                                                </font>
+                                            </TextField>
+                                        </children>
+                                    </VBox>
+
+                                    <HBox fx:id="hbBotoesDisciplina" spacing="10.0">
+                                        <children>
+                                            <Button fx:id="btnCadastrarDisciplina" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#CadastrarDisciplina" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="➕ Cadastrar" HBox.hgrow="ALWAYS">
+                                                <font>
+                                                    <Font name="System Bold" size="15.0" />
+                                                </font>
+                                            </Button>
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </VBox>
+
+                            <VBox prefWidth="900.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);" HBox.hgrow="ALWAYS">
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Text fx:id="txtTotalDisciplinas" fill="#2E5FBD" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplinas Cadastradas (0)">
+                                                <font>
+                                                    <Font name="System Bold" size="20.0" />
+                                                </font>
+                                            </Text>
+                                        </children>
+                                    </HBox>
+
+                                    <VBox spacing="8.0">
+                                        <children>
+                                            <TextField fx:id="txtFiltroDisciplina" onKeyReleased="#handleFiltrarDisciplinas" promptText="🔍 Filtrar por nome ou curso" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
+                                                <font>
+                                                    <Font size="13.0" />
+                                                </font>
+                                            </TextField>
+                                        </children>
+                                    </VBox>
+
+                                    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
+                                        <content>
+                                            <TableView fx:id="tblDisciplinas" prefHeight="450.0" style="-fx-background-color: white; -fx-font-size: 13;">
+                                                <columns>
+                                                    <TableColumn fx:id="clnNomeDisciplina" prefWidth="424.00000607967377" text="Nome da Disciplina" />
+                                                    <TableColumn fx:id="clnCargaHoraria" prefWidth="100.79995727539062" text="Carga Horária" />
+                                                    <TableColumn fx:id="clnCurso" prefWidth="337.60003662109375" text="Curso" />
+                                                </columns>
+                                            </TableView>
+                                        </content>
+                                    </ScrollPane>
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                </content>
+            </Tab>
+        </TabPane>
+    </children>
+</AnchorPane>

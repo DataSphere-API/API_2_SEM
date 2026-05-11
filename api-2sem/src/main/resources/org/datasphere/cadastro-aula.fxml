@@ -19,17 +19,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<!--incrementa plano de fundo ao container principal -->
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="1204.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastrarAulaController">
    <children>
 
-            <!-- Planejamento de aulas -->
       <HBox alignment="CENTER" layoutX="20.0" layoutY="445.0" prefWidth="984.0" />
       <VBox layoutX="9.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="697.0" prefWidth="1184.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="11.800000000000182">
          <children>
-      
-            <!--logo -->
+
             <ImageView fx:id="ivLogo" fitHeight="150.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../static/siga.meLOGO.png" />
@@ -438,8 +434,7 @@
                         </GridPane>
                      </children>
                   </VBox>
-            
-                  <!-- Painel direito: Conteúdo Programático -->
+
                   <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
 
                      <padding>
@@ -497,8 +492,7 @@
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
             </HBox>
-      
-            <!-- Botão Gerar Planejamento -->
+
             <HBox alignment="CENTER" prefHeight="78.0" prefWidth="1024.0">
                <children>
                   <Button fx:id="btnGerarPlanejamento" mnemonicParsing="false" onAction="#gerarPlanejamentoPlanilha" prefHeight="47.0" prefWidth="236.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Gerar Planejamento">
@@ -515,8 +509,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Text>
-      
-                  <!-- Tabela de planejamento -->
+
                   <TableView fx:id="tblPlanejamentoAulas" fixedCellSize="0.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-font-size: 11;">
                      <columns>
                         <TableColumn fx:id="clnAulasPlanejamento" prefWidth="171.19999253749847" style="-fx-font-size: 12;" text="Aula" />
