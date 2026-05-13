@@ -1,3 +1,22 @@
+CREATE TABLE IF NOT EXISTS professor(
+	email VARCHAR(35) NOT NULL,
+	nome VARCHAR(45) NOT NULL,
+	senha VARCHAR(255) NOT NULL,
+	PRIMARY KEY (email)
+	
+);
+
+CREATE TABLE IF NOT EXISTS materia(
+	sigla VARCHAR(10) NOT NULL,
+	titulo VARCHAR(45) NOT NULL,
+	carga_horaria INT NOT NULL,
+	email_professor VARCHAR(35),
+	
+	PRIMARY KEY(sigla),
+	FOREIGN KEY(email_professor) REFERENCES professor(email)
+	
+);
+
 CREATE TABLE IF NOT EXISTS aula(
 	dia_da_semana VARCHAR(25) NOT NULL,
 	horario TIME NOT NULL,
