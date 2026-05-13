@@ -3,7 +3,7 @@
   <h2 align="center"> Backlog da Sprint </h2>
 </p>
 
-#### **Meta da Sprint:**  13 pontos (US03)
+#### **Meta da Sprint:**  15 pontos (US03)
 <div align="center">
   <table>
     <tr>
