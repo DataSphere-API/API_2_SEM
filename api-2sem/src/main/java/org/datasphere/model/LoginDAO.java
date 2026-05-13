@@ -18,7 +18,7 @@ public class LoginDAO {
             ps.setString(1, email);
             ps.setString(2, SenhaHashService.gerarHashSenha(senha));
 
-            ResultSet rs = ps.executeQuery(sql);
+            ResultSet rs = ps.executeQuery();
 
             if (rs.next()){
                 return true;
