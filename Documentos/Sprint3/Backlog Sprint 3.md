@@ -3,27 +3,28 @@
   <h2 align="center"> Backlog da Sprint </h2>
 </p>
 
-#### **Meta da Sprint:**  18 pontos (US01 - US02)
+#### **Meta da Sprint:**  13 pontos (US03)
 <div align="center">
   <table>
     <tr>
-      <th> Id </th>
       <th>User Stories</th>
       <th>Prioridade</th>
       <th>Estimativa</th>
     </tr>
     <tr>
-      <td align="center"> <b> US01 </b> </td>
-      <td> Como professor, quero que as aulas sejam distribuidas baseado nos tópicos do conteúdo nas datas de aula disponíveis, respeitando a quantidade de aulas exigida por cada tópico e a capacidade de cada dia, para que eu não precise fazer esse cruzamento manualmente. </td>
-      <td align="center">  ALTA </td>
+      <td>Como professor, quero poder validar a carga horária do planejamento feito, para que a carga mínima seja atingida.</td>
+      <td align="center">  MÉDIA </td>
+      <td align="center"> 2 </td>
+    </tr>
+    <tr>
+      <td>Como professor, quero ser avisado quando houver tópicos ainda sem data definida ou dias de aula sem conteúdo atribuído, para que eu não entregue um planejamento com lacunas.</td>
+      <td align="center">  MÉDIA </td>
       <td align="center"> 13 </td>
     </tr>
     <tr>
-    <td align="center"> <b> US02 </b> </td>
-      <td>Como professor quero poder ver um relatório geral do planejamento de aulas do semestre para que eu possa passá-lo para o SIGA.</td>
-      <td align="center">  ALTA </td>
-      <td align="center"> 5 </td>
-    </tr>
+      <td>Como professor, quero visualizar o planejamento em formato de calendário mensal, para que eu tenha uma visão temporal clara de todas as aulas, avaliações e eventos do semestre.</td>
+      <td align="center">  BAIXA </td>
+      <td align="center"> 8 </td>
     </table>
 </div>
 

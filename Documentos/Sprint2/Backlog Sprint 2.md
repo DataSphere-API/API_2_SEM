@@ -1,6 +1,6 @@
 <p align="center">
   <img src="../logo_datasphere.png" width="200"/>
-  <h2 align="center"> Backlog da Sprint 1 </h2>
+  <h2 align="center"> Backlog da Sprint </h2>
 </p>
 
 #### **Meta da Sprint:**  13 pontos (US03)
