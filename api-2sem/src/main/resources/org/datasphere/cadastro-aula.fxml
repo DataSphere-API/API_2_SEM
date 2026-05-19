@@ -23,22 +23,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="777.0" prefWidth="1220.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastrarAulaController">
    <children>
-      <VBox layoutX="9.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="747.0" prefWidth="1199.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="12.0">
+      <VBox layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="747.0" prefWidth="1199.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="21.0">
          <children>
             <HBox fx:id="hbprincipal" alignment="CENTER" prefHeight="60.0" prefWidth="1199.0">
                <children>
-                  <Label prefHeight="73.0" prefWidth="143.0" text="Bem vindo, ">
+                  <Label prefHeight="67.0" prefWidth="140.0" text="Bem vindo, ">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="10.0" prefHeight="73.0" prefWidth="283.0" text="(Nome do professor)">
+                  <Label fx:id="lbNomeUsuario" layoutX="10.0" layoutY="10.0" prefHeight="67.0" prefWidth="273.0" text="____________________">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <ComboBox prefHeight="31.0" prefWidth="515.0" promptText="Selecione aqui sua matéria" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-font-size: 15;" />
-                  <Region prefHeight="67.0" prefWidth="130.0" />
+                  <ComboBox fx:id="cmbSelecionarMateria" prefHeight="31.0" prefWidth="515.0" promptText="Selecione aqui sua matéria" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-font-size: 15;" />
+                  <Region prefHeight="67.0" prefWidth="87.0" />
       
                   <ImageView fx:id="ivLogo" fitHeight="67.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -49,7 +49,7 @@
             </HBox>
             <HBox fx:id="fpDiasAulaEconteudoProgram" maxWidth="1.7976931348623157E308" prefHeight="693.0" prefWidth="1159.0" spacing="30.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="670.0" prefWidth="509.0">
+                  <VBox alignment="CENTER" prefHeight="670.0" prefWidth="535.0">
                      <children>
             
                         <!-- Painel esquerdo: Dias de aula -->
@@ -419,7 +419,7 @@
                         </VBox>
                         <Region prefHeight="75.0" prefWidth="622.0" />
       
-                        <VBox prefHeight="420.0" prefWidth="622.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                        <VBox prefHeight="435.0" prefWidth="500.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
       
                            <padding>
                               <Insets bottom="15" left="20" right="20" top="15" />
@@ -453,20 +453,20 @@
                                     </VBox>
                                     <VBox prefHeight="25.0" prefWidth="64.0">
                                        <children>
-                                          <Label maxWidth="1.7976931348623157E308" text="Máx Aulas">
+                                          <Label maxWidth="1.7976931348623157E308" text="Min Aulas">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font></Label>
-                                          <Spinner fx:id="spnrMaxAulas" prefHeight="25.0" prefWidth="58.0" />
+                                          <Spinner fx:id="spnrMinAulas" prefHeight="25.0" prefWidth="58.0" />
                                        </children>
                                     </VBox>
                                     <VBox layoutX="213.0" layoutY="10.0" prefHeight="25.0" prefWidth="64.0">
                                        <children>
-                                          <Label maxWidth="1.7976931348623157E308" text="Min Aulas">
+                                          <Label maxWidth="1.7976931348623157E308" text="Máx Aulas">
                                           <font>
                                              <Font name="System Bold" size="12.0" />
                                           </font></Label>
-                                          <Spinner fx:id="spnrMinAulas" prefHeight="25.0" prefWidth="58.0" />
+                                          <Spinner fx:id="spnrMaxAulas" prefHeight="25.0" prefWidth="59.0" />
                                        </children>
                                     </VBox>
                                     <VBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="52.0">
@@ -504,11 +504,11 @@
                               </VBox>
                            </children>
                         </VBox>
-                        <Region layoutX="10.0" layoutY="208.0" prefHeight="75.0" prefWidth="622.0" />
+                        <Region layoutX="10.0" layoutY="208.0" prefHeight="17.0" prefWidth="500.0" />
                      </children>
                   </VBox>
-                  <Region prefHeight="670.0" prefWidth="16.0" />
-                  <VBox fx:id="vbDireito" alignment="TOP_CENTER" prefHeight="670.0" prefWidth="575.0">
+                  <Region prefHeight="670.0" prefWidth="17.0" />
+                  <VBox fx:id="vbDireito" alignment="TOP_CENTER" prefHeight="670.0" prefWidth="599.0">
                      <children>
                         <HBox maxHeight="-Infinity" prefHeight="81.0" prefWidth="505.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
                            <children>
@@ -521,7 +521,7 @@
                                     </Label>
                                     <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="lbContadorCargaHoraria" text="-">
+                                          <Label fx:id="lbContadorCargaHoraria" text="_">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
@@ -545,7 +545,7 @@
                                     </Label>
                                     <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="166.0">
                                        <children>
-                                          <Label fx:id="lbContadorHorasPlanejadas" text="-" textFill="#02542d">
+                                          <Label fx:id="lbContadorHorasPlanejadas" text="_" textFill="#02542d">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
@@ -568,7 +568,7 @@
                                     </Label>
                                     <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="166.0">
                                        <children>
-                                          <Label fx:id="lbContadorHorasFaltantes1" text="-" textFill="#900b09">
+                                          <Label fx:id="lbContadorHorasFaltantes" text="_" textFill="#900b09">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
@@ -594,9 +594,9 @@
 
                                     <TableView fx:id="tblPlanejamentoAulas" fixedCellSize="0.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-font-size: 11;">
                                  <columns>
-                                    <TableColumn fx:id="clnAulasPlanejamento" minWidth="0.0" prefWidth="39.0" style="-fx-font-size: 12;" text="Aula" />
-                                    <TableColumn fx:id="clnTopicoPlanejamento" prefWidth="147.0" style="-fx-font-size: 12;" text="Tópico" />
-                                    <TableColumn fx:id="clnDataPlanejamento" prefWidth="139.0" style="-fx-font-size: 12;" text="Data" />
+                                    <TableColumn fx:id="clnAulasPlanejamento" minWidth="0.0" prefWidth="64.0" style="-fx-font-size: 12;" text="Aula" />
+                                    <TableColumn fx:id="clnTopicoPlanejamento" prefWidth="453.0" style="-fx-font-size: 12;" text="Tópico" />
+                                    <TableColumn fx:id="clnDataPlanejamento" prefWidth="62.0" style="-fx-font-size: 12;" text="Data" />
                                  </columns>
                               </TableView>
                            </children>
@@ -605,11 +605,22 @@
                            </padding>
                         </VBox>
                         <Region layoutX="10.0" layoutY="88.0" prefHeight="13.0" prefWidth="505.0" />
-                        <Button fx:id="btnGerarPlanejamento" mnemonicParsing="false" onAction="#gerarPlanejamentoPlanilha" prefHeight="47.0" prefWidth="236.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Gerar Planejamento">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
+                        <HBox prefHeight="55.0" prefWidth="582.0">
+                           <children>
+                              <Region prefHeight="49.0" prefWidth="187.0" />
+                              <Button fx:id="btnGerarPlanejamento" mnemonicParsing="false" onAction="#gerarPlanejamentoPlanilha" prefHeight="47.0" prefWidth="236.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Gerar Planejamento">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Region prefHeight="49.0" prefWidth="109.0" />
+                              <Button fx:id="btBaixar" mnemonicParsing="false" onAction="#baixarArquivo" prefHeight="47.0" prefWidth="50.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="📥">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>

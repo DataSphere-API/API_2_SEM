@@ -23,7 +23,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="878.0" prefWidth="1211.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CoordenadorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="882.0" prefWidth="1211.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CoordenadorController">
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1400.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -64,12 +64,12 @@
 
             <Tab fx:id="tabCalendario" text="Calendário">
                 <content>
-                    <HBox prefHeight="680.0" prefWidth="1360.0" spacing="20.0">
+                    <HBox prefHeight="733.0" prefWidth="1171.0" spacing="20.0">
                         <padding>
                             <Insets bottom="20.0" left="0.0" right="0.0" top="20.0" />
                         </padding>
                         <children>
-                            <VBox prefHeight="204.0" prefWidth="825.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);" HBox.hgrow="ALWAYS">
+                            <VBox prefHeight="709.0" prefWidth="692.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);" HBox.hgrow="ALWAYS">
                                 <padding>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                 </padding>
@@ -246,7 +246,7 @@
                             <VBox prefHeight="680.0" prefWidth="420.0" spacing="15.0">
                                 <children>
 
-                                          <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);" VBox.vgrow="ALWAYS">
+                                          <VBox prefHeight="709.0" prefWidth="385.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);" VBox.vgrow="ALWAYS">
                                         <padding>
                                             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                         </padding>
@@ -270,9 +270,9 @@
                                                 <content>
                                                     <TableView fx:id="tblDatasImportantes" prefHeight="623.0" prefWidth="329.0" style="-fx-background-color: white; -fx-font-size: 11;">
                                                         <columns>
-                                                            <TableColumn fx:id="clnData" prefWidth="100.0" text="Data" />
-                                                            <TableColumn fx:id="clnDescricao" prefWidth="180.0" text="Descrição" />
-                                                            <TableColumn fx:id="clnTitulo" prefWidth="80.0" text="Título" />
+                                                            <TableColumn fx:id="clnData" prefWidth="78.0" text="Data" />
+                                                            <TableColumn fx:id="clnDescricao" prefWidth="201.0" text="Descrição" />
+                                                            <TableColumn fx:id="clnTitulo" prefWidth="96.0" text="Título" />
                                                         </columns>
                                                     </TableView>
                                                 </content>
@@ -362,7 +362,7 @@
 
                                     <HBox fx:id="hbBotoesDisciplina" spacing="10.0">
                                         <children>
-                                            <Button fx:id="btnCadastrarDisciplina" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#CadastrarDisciplina" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="➕ Cadastrar" HBox.hgrow="ALWAYS">
+                                            <Button fx:id="btnCadastrarDisciplina" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#CadastrarDisciplina" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Cadastrar" HBox.hgrow="ALWAYS">
                                                 <font>
                                                     <Font name="System Bold" size="15.0" />
                                                 </font>
