@@ -63,8 +63,6 @@ A partir do conteúdo cadastrado pelo professor e da quantidade de aulas exigida
 
 Dessa forma, o professor passa a contar com um planejamento consistente, validado e pronto para ser lançado no SIGA.
 
-##### CLIQUE <a href="https://youtu.be/DfhsHqrduig"> AQUI </a> PARA VER O FUNCIONAMENTO DA FERRAMENTA
-
 ---
 ### 📋 Backlog do Produto <a id="backlog"></a>
 <div align="center">
@@ -135,20 +133,24 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
     <th> Sprint </th>
     <th> Período </th>
     <th> Status </th>
+    <th> Vídeo </th>
     <tr>
       <td align="center"> <a href="/Documentos/Sprint1/"> Sprint 1 </a> </td>
       <td align="center"> 16/03 a 05/04 </td>
       <td align="center"> ✅ </td>
+       <td> <a href=""> 1° ENTREGA </td>
     </tr>
     <tr>
       <td align="center"> <a href="/Documentos/Sprint2/"> Sprint 2 </a> </td>
       <td align="center"> 13/04 a 03/05 </td>
       <td align="center"> ✅ </td>
+      <td> <a href="https://youtu.be/DfhsHqrduig"> 2° ENTREGA </td>
     </tr>
     <tr>
       <td align="center"> <a href="/Documentos/Sprint3/"> Sprint 3 </a> </td>
       <td align="center"> 11/05 a 31/05 </td>
       <td align="center"> </td>
+      <td> <a href=""> 3° ENTREGA </td>
     </tr>
   </table>
 </div>
