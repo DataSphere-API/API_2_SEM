@@ -22,16 +22,13 @@ public class CoordenadorController {
     private Button btAdicionarData;
 
     @FXML
-    private Button btAdicionarLegenda;
+    private Button btAdicionarPeriodo;
 
     @FXML
     private Button btSair;
 
     @FXML
     private Button btnCadastrarDisciplina;
-
-    @FXML
-    private DatePicker calendario;
 
     @FXML
     private TableColumn<?, ?> clnCargaHoraria;
@@ -55,10 +52,25 @@ public class CoordenadorController {
     private ColorPicker cpNovaLegendaCor;
 
     @FXML
+    private DatePicker dpDataFinal;
+
+    @FXML
+    private DatePicker dpDataInicial;
+
+    @FXML
+    private DatePicker dpFeriados;
+
+    @FXML
     private HBox hbBotoesDisciplina;
 
     @FXML
     private ImageView ivLogo;
+
+    @FXML
+    private RadioButton rb40hrs;
+
+    @FXML
+    private RadioButton rb80hrs;
 
     @FXML
     private Tab tabCalendario;
@@ -71,6 +83,12 @@ public class CoordenadorController {
 
     @FXML
     private TableView<?> tblDisciplinas;
+
+    @FXML
+    private Text txtContadorDatas;
+
+    @FXML
+    private Text txtContadorDisciplinas;
 
     @FXML
     private TextField txtCurso;
@@ -103,26 +121,20 @@ public class CoordenadorController {
     private Text txtTotalDisciplinas;
 
     @FXML
-    private VBox vbListaLegendas;
-
-    @FXML
     private VBox vbNovaLegenda;
 
     @FXML
-    private VBox vbSelectedDates;
-
-    @FXML
-    void AdicionarData(ActionEvent event) {
+    void adicionarDataFeriado(ActionEvent event) {
 
     }
 
     @FXML
-    void AdicionarLegenda(ActionEvent event) {
+    void adicionarPeriodo(ActionEvent event) {
 
     }
 
     @FXML
-    void CadastrarDisciplina(ActionEvent event) {
+    void cadastrarDisciplina(ActionEvent event) {
 
     }
 
