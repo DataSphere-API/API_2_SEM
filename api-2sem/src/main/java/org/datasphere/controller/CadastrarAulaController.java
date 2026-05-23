@@ -6,11 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.datasphere.dao.AulaDAO;
 import org.datasphere.dao.AulaPlanejadaDAO;
 import org.datasphere.dao.TopicoDAO;
 import org.datasphere.dao.interfaces.IDAO;
 import org.datasphere.model.*;
+import org.datasphere.service.AulaService;
 import org.datasphere.service.OrganizarAulaService;
 import org.datasphere.service.SemestreService;
 
@@ -45,7 +45,7 @@ public class CadastrarAulaController {
     private TextField txtFldTituloTopico;
 
     @FXML
-    private CheckBox chkSegunda,chkTerca, chkQuarta, chkQuinta, chkSexta;
+    private CheckBox chkSegunda, chkTerca, chkQuarta, chkQuinta, chkSexta;
 
     @FXML
     private CheckBox chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205;
@@ -82,7 +82,8 @@ public class CadastrarAulaController {
 
     private IDAO<TopicoModel> topicoDAO = new TopicoDAO();
 
-    private IDAO<AulaModel> aulaDAO = new AulaDAO();
+    // AulaDAO removido daqui — agora é responsabilidade do AulaService
+    private AulaService aulaService = new AulaService();
 
     private SemestreService semestreService = new SemestreService();
 
@@ -90,7 +91,7 @@ public class CadastrarAulaController {
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public void initialize(){
+    public void initialize() {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
         spnrQtdAulasTopico.setValueFactory(valueFactory);
 
@@ -110,7 +111,6 @@ public class CadastrarAulaController {
             spnrQtdAulasTopico.setDisable(newValue);
             spnrQtdAulasTopico.getValueFactory().setValue(0);
         });
-
 
         List<CheckBox> horariosSegunda = List.of(chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205);
         List<CheckBox> horariosTerca = List.of(chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205);
@@ -145,13 +145,9 @@ public class CadastrarAulaController {
                 });
             });
         }
-
-
-
     }
 
-    private void configurarTabelaTopicos(){
-
+    private void configurarTabelaTopicos() {
         clnIdTopico.setCellValueFactory(cellData ->
                 new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getId())
         );
@@ -183,130 +179,80 @@ public class CadastrarAulaController {
         return null;
     }
 
-
-
-    public void criarSemanaSprint(){
-        for (int i = 6; i < 14; i++){
+    public void criarSemanaSprint() {
+        for (int i = 6; i < 14; i++) {
             semestreService.getSemestre().getDiasList().get(i).setDisponivelParaProva(false);
         }
     }
 
-    public List<AulaModel> lerDiaHorarioAula(){
+    public List<AulaModel> lerDiaHorarioAula() {
         List<AulaModel> diasDeAula = new LinkedList<>();
+
         List<LocalTime> tempos = List.of(
-                LocalTime.of(18,45),
-                LocalTime.of(19,35),
-                LocalTime.of(20,25),
-                LocalTime.of(21,15),
-                LocalTime.of(22,05),
-                LocalTime.of(23,05));
+                LocalTime.of(18, 45),
+                LocalTime.of(19, 35),
+                LocalTime.of(20, 25),
+                LocalTime.of(21, 15),
+                LocalTime.of(22, 05),
+                LocalTime.of(23, 05));
 
-        if(chkSegunda.isSelected()){
-            List<CheckBox> horarios = List.of(chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205);
+        // Cada entrada associa o checkbox do dia (DayOfWeek, lista de horários)
+        Map<CheckBox, DayOfWeek> diasDaSemana = new LinkedHashMap<>();
+        diasDaSemana.put(chkSegunda, DayOfWeek.MONDAY);
+        diasDaSemana.put(chkTerca,   DayOfWeek.TUESDAY);
+        diasDaSemana.put(chkQuarta,  DayOfWeek.WEDNESDAY);
+        diasDaSemana.put(chkQuinta,  DayOfWeek.THURSDAY);
+        diasDaSemana.put(chkSexta,   DayOfWeek.FRIDAY);
 
-            for (int i=0; i<horarios.size(); i++){
-                if(horarios.get(i).isSelected()){
-                    diasDeAula.add(new AulaModel(DayOfWeek.MONDAY, tempos.get(i), tempos.get(i+1)));
+        Map<CheckBox, List<CheckBox>> horariosDosDias = new LinkedHashMap<>();
+        horariosDosDias.put(chkSegunda, List.of(chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205));
+        horariosDosDias.put(chkTerca,   List.of(chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205));
+        horariosDosDias.put(chkQuarta,  List.of(chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205));
+        horariosDosDias.put(chkQuinta,  List.of(chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205));
+        horariosDosDias.put(chkSexta,   List.of(chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205));
+
+        for (Map.Entry<CheckBox, DayOfWeek> entrada : diasDaSemana.entrySet()) {
+            CheckBox chkDia = entrada.getKey();
+            DayOfWeek diaDaSemana = entrada.getValue();
+
+            if (!chkDia.isSelected()) continue;
+
+            List<CheckBox> horarios = horariosDosDias.get(chkDia);
+            for (int i = 0; i < horarios.size(); i++) {
+                if (horarios.get(i).isSelected()) {
+                    diasDeAula.add(new AulaModel(diaDaSemana, tempos.get(i), tempos.get(i + 1)));
                 }
             }
         }
 
-        if(chkTerca.isSelected()){
-            List<CheckBox> horarios = List.of(chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205);
+        // Delegando a persistência ao service
+        aulaService.salvarAulas(diasDeAula);
 
-            for (int i=0; i<horarios.size(); i++){
-                if(horarios.get(i).isSelected()){
-                    diasDeAula.add(new AulaModel(DayOfWeek.TUESDAY, tempos.get(i), tempos.get(i+1)));
-                }
-            }
-        }
-
-        if(chkQuarta.isSelected()){
-            List<CheckBox> horarios = List.of(chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205);
-
-            for (int i=0; i<horarios.size(); i++){
-                if(horarios.get(i).isSelected()){
-                    diasDeAula.add(new AulaModel(DayOfWeek.WEDNESDAY, tempos.get(i), tempos.get(i+1)));
-                }
-            }
-        }
-
-        if(chkQuinta.isSelected()){
-            List<CheckBox> horarios = List.of(chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205);
-
-            for (int i=0; i<horarios.size(); i++){
-                if(horarios.get(i).isSelected()){
-                    diasDeAula.add(new AulaModel(DayOfWeek.THURSDAY, tempos.get(i), tempos.get(i+1)));
-                }
-            }
-        }
-
-        if(chkSexta.isSelected()){
-            List<CheckBox> horarios = List.of(chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205);
-
-            for (int i=0; i<horarios.size(); i++){
-                if(horarios.get(i).isSelected()){
-                    diasDeAula.add(new AulaModel(DayOfWeek.FRIDAY, tempos.get(i), tempos.get(i+1)));
-                }
-            }
-        }
-        for(AulaModel aula:diasDeAula){
-            aulaDAO.salvar(aula);
-        }
         return diasDeAula;
     }
 
-
-    private void adicionarTopicoLista(){
+    private void adicionarTopicoLista() {
         List<AulaPlanejada> aulasPlanejadas = organizarAulaService.organizarAulas(obsListTopicos, lerDiaHorarioAula(), semestreService.getSemestre());
 
+        clnAulasPlanejamento.setCellValueFactory(cellData ->
+                new javafx.beans.property.SimpleStringProperty((cellData.getValue().getAulaModel().getDiaDaSemana().getDisplayName(TextStyle.SHORT, new Locale("pt", "BR")) + " "
+                        + (cellData.getValue().getAulaModel().getHoraInicio() + " - "))
+                        + (cellData.getValue().getAulaModel().getHoraFim()))
+        );
 
-            clnAulasPlanejamento.setCellValueFactory(cellData ->
-                    new javafx.beans.property.SimpleStringProperty((cellData.getValue().getAulaModel().getDiaDaSemana().getDisplayName(TextStyle.SHORT, new Locale("pt", "BR")) + " "
-                            + (cellData.getValue().getAulaModel().getHoraInicio()+ " - "))
-                            + (cellData.getValue().getAulaModel().getHoraFim()))
+        clnTopicoPlanejamento.setCellValueFactory(cellData ->
+                new javafx.beans.property.SimpleStringProperty(cellData.getValue().getTopicoModel().getTitulo())
+        );
 
-            );
-
-            clnTopicoPlanejamento.setCellValueFactory(cellData ->
-                    new javafx.beans.property.SimpleStringProperty(cellData.getValue().getTopicoModel().getTitulo())
-            );
-
-            clnDataPlanejamento.setCellValueFactory(cellData ->
-                    new javafx.beans.property.SimpleStringProperty((cellData.getValue().getDiaModel().getData().format(fmt)))
-            );
+        clnDataPlanejamento.setCellValueFactory(cellData ->
+                new javafx.beans.property.SimpleStringProperty((cellData.getValue().getDiaModel().getData().format(fmt)))
+        );
 
         tblPlanejamentoAulas.setItems(FXCollections.observableArrayList(aulasPlanejadas));
     }
 
     @FXML
-    private void gerarPlanejamentoPlanilha(ActionEvent event){
+    private void gerarPlanejamentoPlanilha(ActionEvent event) {
         adicionarTopicoLista();
     }
-
-    //botões recém cadastrados:
-
-    @FXML
-    private Label lbNomeUsuario;
-
-    @FXML
-    private ComboBox<?> cmbSelecionarMateria;
-
-    @FXML
-    private Label lbContadorCargaHoraria;
-
-    @FXML
-    private Label lbContadorHorasFaltantes;
-
-    @FXML
-    private Label lbContadorHorasPlanejadas;
-
-    @FXML
-    private Spinner<?> spnrMaxAulas;
-
-    @FXML
-    private Spinner<?> spnrMinAulas;
-
 }
-
-
