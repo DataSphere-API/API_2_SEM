@@ -13,9 +13,10 @@ import org.datasphere.model.*;
 import org.datasphere.service.AulaService;
 import org.datasphere.service.OrganizarAulaService;
 import org.datasphere.service.SemestreService;
+import org.datasphere.service.TopicoService;
+
 
 import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
@@ -82,7 +83,8 @@ public class CadastrarAulaController {
 
     private IDAO<TopicoModel> topicoDAO = new TopicoDAO();
 
-    // AulaDAO removido daqui — agora é responsabilidade do AulaService
+    private TopicoService topicoService = new TopicoService();
+
     private AulaService aulaService = new AulaService();
 
     private SemestreService semestreService = new SemestreService();
@@ -162,21 +164,13 @@ public class CadastrarAulaController {
     }
 
     @FXML
-    private TopicoModel cadastrarTopico() {
+    private void cadastrarTopico() {
         String titulo = txtFldTituloTopico.getText();
-        Integer aulas = spnrQtdAulasTopico.getValue();
-        Boolean prova = chkProva.isSelected();
-
         if (titulo != null && !titulo.isEmpty()) {
-            TopicoModel novoTopico = new TopicoModel(titulo, aulas, prova);
-
-            topicoDAO.salvar(novoTopico);
+            TopicoModel novoTopico = topicoService.cadastrar(titulo, spnrQtdAulasTopico.getValue(), chkProva.isSelected());
             obsListTopicos.add(novoTopico);
-
             txtFldTituloTopico.clear();
-            return novoTopico;
         }
-        return null;
     }
 
     public void criarSemanaSprint() {
@@ -225,7 +219,6 @@ public class CadastrarAulaController {
             }
         }
 
-        // Delegando a persistência ao service
         aulaService.salvarAulas(diasDeAula);
 
         return diasDeAula;
