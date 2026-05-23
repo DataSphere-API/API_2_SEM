@@ -29,4 +29,9 @@ public class SemestreService {
         }
     }
 
+    public void criarSemanaSprint() {
+        for (int i = 6; i < 14; i++) {
+            getSemestre().getDiasList().get(i).setDisponivelParaProva(false);
+        }
+    }
 }
