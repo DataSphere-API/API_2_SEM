@@ -307,6 +307,13 @@ public class CadastrarAulaController {
     @FXML
     private Spinner<?> spnrMinAulas;
 
+    @FXML
+    private Button btBaixar;
+
+    @FXML
+    private Button btExcluir;
+
+
 }
 
 
