@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class LoginDAO {
 
-    public boolean checarLogin(String email, String senha){
+        public String checarLogin(String email, String senha){
         String sql = "SELECT email, senha FROM professor WHERE EMAIL = ? AND SENHA = ?";
         try(Connection conn = ConexaoDB.getConexao()){
 
@@ -21,13 +21,14 @@ public class LoginDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()){
-                return true;
+
+                return "Login válido";
             }
 
         }catch(SQLException e){
             e.printStackTrace();
         }
-        return false;
+        return "INVALIDO";
     }
 
 }
