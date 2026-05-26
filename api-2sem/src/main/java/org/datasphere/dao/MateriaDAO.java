@@ -55,7 +55,7 @@ public class MateriaDAO implements IDAO<MateriaModel> {
 
     @Override
     public void deletar(MateriaModel materia) {
-        String sql = "DELETE FROM topico WHERE sigla = ?";
+        String sql = "DELETE FROM materia WHERE sigla = ?";
         try(Connection conn = ConexaoDB.getConexao()){
 
             PreparedStatement ps = conn.prepareStatement(sql);
