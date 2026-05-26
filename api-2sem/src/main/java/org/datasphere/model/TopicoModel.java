@@ -6,15 +6,18 @@ public class TopicoModel {
     private String titulo;
     private Integer aulasNecessarias;
     private Boolean prova;
+    private Long idMateria;
 
     public TopicoModel() {
     }
 
-    public TopicoModel(String titulo, Integer aulasNecessarias, Boolean prova) {
+    public TopicoModel(String titulo, Integer aulasNecessarias, Boolean prova, Long idMateria) {
         this.titulo = titulo;
         this.aulasNecessarias = aulasNecessarias;
         this.prova = prova;
+        this.idMateria=idMateria;
     }
+
 
     public Long getId() {
         return id;
@@ -47,4 +50,8 @@ public class TopicoModel {
     public void setProva(Boolean prova) {
         this.prova = prova;
     }
+
+    public Long getIdMateria() {return idMateria;}
+
+    public void setIdMateria(Long idMateria) {this.idMateria = idMateria;}
 }
