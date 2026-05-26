@@ -5,13 +5,15 @@ public class MateriaModel {
     String sigla;
     String titulo;
     int cargaHoraria;
+    String emailProfessor;
 
     public MateriaModel(){}
 
-    public MateriaModel(String sigla, String titulo, int cargaHoraria){
+    public MateriaModel(String sigla, String titulo, int cargaHoraria, String emailProfessor){
         this.sigla=sigla;
         this.titulo=titulo;
         this.cargaHoraria=cargaHoraria;
+        this.emailProfessor=emailProfessor;
     }
 
     public String getSigla(){return sigla;}
@@ -25,6 +27,10 @@ public class MateriaModel {
     public int getCargaHoraria(){return cargaHoraria;}
 
     public void setCargaHoraria(int cargaHoraria){this.cargaHoraria=cargaHoraria;}
+
+    public String getEmailProfessor() {return emailProfessor;}
+
+    public void setEmailProfessor(String emailProfessor) {this.emailProfessor = emailProfessor;}
 }
 
 
