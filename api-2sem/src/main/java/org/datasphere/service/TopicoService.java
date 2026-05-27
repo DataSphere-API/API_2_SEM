@@ -8,8 +8,14 @@ public class TopicoService {
 
     private IDAO<TopicoModel> topicoDAO = new TopicoDAO();
 
-    public TopicoModel cadastrar(String titulo, Integer aulasNecessarias, Boolean prova) {
-        TopicoModel novoTopico = new TopicoModel(titulo, aulasNecessarias, prova);
+    public TopicoModel cadastrar(String titulo, int aulasMinimas, int aulasMaximas, boolean prova, String siglaMateria) {
+
+        if (aulasMinimas > aulasMaximas) {
+            throw new IllegalArgumentException("O número mínimo de aulas não pode ser maior que o máximo.");
+        }
+
+        TopicoModel novoTopico = new TopicoModel(titulo, aulasMinimas, aulasMaximas, prova, siglaMateria);
+
         topicoDAO.salvar(novoTopico);
         return novoTopico;
     }
