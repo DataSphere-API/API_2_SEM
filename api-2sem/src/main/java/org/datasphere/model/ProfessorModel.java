@@ -7,12 +7,11 @@ public class ProfessorModel {
     private String email;
     private String nome;
     private String senha;
-    private boolean coordenador;
 
     public ProfessorModel() {
     }
 
-    public ProfessorModel(String email, String nome, String senha, boolean coordenador) {
+    public ProfessorModel(String email, String nome, String senha) {
         this.email = email;
         this.nome = nome;
         this.senha = SenhaHashService.gerarHashSenha(senha);
@@ -40,13 +39,5 @@ public class ProfessorModel {
 
     public void setSenha(String senha) {
         this.senha = SenhaHashService.gerarHashSenha(senha);
-    }
-
-    public boolean isCoordenador() {
-        return coordenador;
-    }
-
-    public void setCoordenador(boolean coordenador) {
-        this.coordenador = coordenador;
     }
 }
