@@ -12,7 +12,7 @@ public class TopicoDAO implements IDAO<TopicoModel> {
 
     @Override
     public void salvar(TopicoModel topico) {
-        String sql = "INSERT INTO topico (titulo, aulas_minimas, aulas_maximas, prova) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO topico (titulo, aulas_minimas, aulas_maximas, prova, sigla_materia) VALUES (?,?,?,?,?)";
         try (Connection conn = ConexaoDB.getConexao()) {
 
             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -21,6 +21,7 @@ public class TopicoDAO implements IDAO<TopicoModel> {
             ps.setInt(2, topico.getAulasMinimas());
             ps.setInt(3, topico.getAulasMaximas());
             ps.setBoolean(4, topico.isProva());
+            ps.setString(5, topico.getSiglaMateria());
 
             ps.executeUpdate();
 
@@ -46,10 +47,37 @@ public class TopicoDAO implements IDAO<TopicoModel> {
                 TopicoModel topicoModel = new TopicoModel();
                 topicoModel.setId(rs.getLong("id"));
                 topicoModel.setTitulo(rs.getString("titulo"));
-
                 topicoModel.setAulasMinimas(rs.getInt("aulas_minimas"));
                 topicoModel.setAulasMaximas(rs.getInt("aulas_maximas"));
                 topicoModel.setProva(rs.getBoolean("prova"));
+                topicoModel.setSiglaMateria(rs.getString("sigla_materia"));
+
+                topicoModelList.add(topicoModel);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return topicoModelList;
+    }
+
+    public List<TopicoModel> listarPorMateria(String siglaMateria) {
+        String sql = "SELECT * FROM topico WHERE sigla_materia = ? ORDER BY id";
+        List<TopicoModel> topicoModelList = new ArrayList<>();
+
+        try (Connection conn = ConexaoDB.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, siglaMateria);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                TopicoModel topicoModel = new TopicoModel();
+                topicoModel.setId(rs.getLong("id"));
+                topicoModel.setTitulo(rs.getString("titulo"));
+                topicoModel.setAulasMinimas(rs.getInt("aulas_minimas"));
+                topicoModel.setAulasMaximas(rs.getInt("aulas_maximas"));
+                topicoModel.setProva(rs.getBoolean("prova"));
+                topicoModel.setSiglaMateria(rs.getString("sigla_materia"));
 
                 topicoModelList.add(topicoModel);
             }

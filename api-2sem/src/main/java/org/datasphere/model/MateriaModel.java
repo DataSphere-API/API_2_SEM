@@ -23,4 +23,9 @@ public class MateriaModel {
     public void setCargaHoraria(int cargaHoraria) { this.cargaHoraria = cargaHoraria; }
     public String getEmailProfessor() { return emailProfessor; }
     public void setEmailProfessor(String emailProfessor) { this.emailProfessor = emailProfessor; }
+
+    @Override
+    public String toString() {
+        return this.sigla + " - " + this.titulo;
+    }
 }
