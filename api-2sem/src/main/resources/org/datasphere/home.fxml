@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -36,8 +37,11 @@
                                     <font>
                                         <Font name="System Bold" size="20.0" />
                                     </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grupoPerfil" />
+                           </toggleGroup>
                                 </RadioButton>
-                                <RadioButton fx:id="rbCoordenador" mnemonicParsing="false" text="Coordenador" textFill="#2e5fbd">
+                                <RadioButton fx:id="rbCoordenador" mnemonicParsing="false" text="Coordenador" textFill="#2e5fbd" toggleGroup="$grupoPerfil">
                                     <font>
                                         <Font name="System Bold" size="20.0" />
                                     </font>
