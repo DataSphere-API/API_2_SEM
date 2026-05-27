@@ -24,7 +24,6 @@ import java.util.*;
 
 public class CadastrarAulaController {
 
-    @FXML private TableColumn<TopicoModel, Long> clnIdTopico;
     @FXML private TableColumn<TopicoModel, String> clnTopico;
     @FXML private TableColumn<TopicoModel, String> clnAulasTopico;
 
@@ -39,6 +38,8 @@ public class CadastrarAulaController {
 
     @FXML private TableView<TopicoModel> tblTopicoAdicionado;
     @FXML private TextField txtFldTituloTopico;
+
+    @FXML private Button btExcluir;
 
     @FXML private CheckBox chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205;
     @FXML private CheckBox chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205;
@@ -107,9 +108,6 @@ public class CadastrarAulaController {
     }
 
     private void configurarTabelaTopicos() {
-        clnIdTopico.setCellValueFactory(cellData ->
-                new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getId())
-        );
         clnTopico.setCellValueFactory(cellData ->
                 new javafx.beans.property.SimpleStringProperty(cellData.getValue().getTitulo())
         );
@@ -128,6 +126,17 @@ public class CadastrarAulaController {
             TopicoModel novoTopico = topicoService.cadastrar(titulo, spnrMinAulas.getValue(), spnrMaxAulas.getValue(), chkProva.isSelected());
             obsListTopicos.add(novoTopico);
             txtFldTituloTopico.clear();
+        }
+    }
+
+    @FXML
+    private void excluirTopico(ActionEvent event) {
+        TopicoModel topicoSelecionado = tblTopicoAdicionado.getSelectionModel().getSelectedItem();
+
+        if (topicoSelecionado != null) {
+            obsListTopicos.remove(topicoSelecionado);
+        } else {
+            obsListTopicos.clear();
         }
     }
 
@@ -197,6 +206,11 @@ public class CadastrarAulaController {
 
     @FXML
     private void baixarArquivo(ActionEvent event) {
+        System.out.println("Botão de baixar arquivo acionado!");
+    }
+
+    @FXML
+    private void selecionarMateria(ActionEvent event) {
         System.out.println("Botão de baixar arquivo acionado!");
     }
 }
