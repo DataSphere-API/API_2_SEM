@@ -37,7 +37,7 @@ public class AulaPlanejadaDAO implements IDAO<AulaPlanejada> {
 
     @Override
     public List<AulaPlanejada> listar(){
-        String sql = "SELECT * FROM aula_Planejada ORDER BY data";
+        String sql = "SELECT * FROM aulaPlanejada ORDER BY data";
         List<AulaPlanejada> aulaPlanejadaList = new ArrayList<>();
         try(Connection conn = ConexaoDB.getConexao()){
             PreparedStatement ps = conn.prepareStatement(sql);

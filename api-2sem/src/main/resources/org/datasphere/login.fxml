@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.LoginController">
     <children>
 
-        <VBox alignment="CENTER" prefHeight="700.0" prefWidth="993.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox alignment="CENTER" layoutX="300.0" layoutY="100.0" maxWidth="400.0" prefHeight="500.0" prefWidth="400.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="100.0">
             <children>
 
-                <VBox alignment="TOP_CENTER" maxWidth="400.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 5);">
+                <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 5);">
                     <padding>
                         <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                     </padding>
                     <children>
-
                         <VBox alignment="CENTER" spacing="10.0">
                             <children>
                                 <ImageView fx:id="ivLogo" fitHeight="120.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
@@ -27,8 +35,7 @@
                                 </ImageView>
                             </children>
                         </VBox>
-
-                        <VBox spacing="20.0">
+                        <VBox spacing="20.0" VBox.vgrow="ALWAYS">
                             <children>
 
                                 <VBox spacing="8.0">
@@ -45,7 +52,6 @@
                                         </TextField>
                                     </children>
                                 </VBox>
-
                                 <VBox spacing="8.0">
                                     <children>
                                         <Label text="Senha" textFill="#374151">
@@ -60,13 +66,16 @@
                                         </PasswordField>
                                     </children>
                                 </VBox>
-
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <children>
+                                        <HBox HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
                                 <Button fx:id="btnLogin" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#entrar" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Entrar">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
                                     </font>
                                 </Button>
-
                                 <HBox alignment="CENTER" spacing="10.0">
                                     <children>
                                         <Separator prefWidth="100.0" HBox.hgrow="ALWAYS" />
@@ -78,7 +87,6 @@
                                         <Separator prefWidth="100.0" HBox.hgrow="ALWAYS" />
                                     </children>
                                 </HBox>
-
                                 <HBox alignment="CENTER" spacing="5.0">
                                     <children>
                                         <Hyperlink fx:id="linkCriarConta" onAction="#criarConta" text="Criar conta" textFill="#2E5FBD">
@@ -88,7 +96,6 @@
                                         </Hyperlink>
                                     </children>
                                 </HBox>
-
                             </children>
                         </VBox>
                     </children>
