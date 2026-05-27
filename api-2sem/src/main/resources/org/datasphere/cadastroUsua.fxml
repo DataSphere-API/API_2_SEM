@@ -6,115 +6,127 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastroUsuaController">
+<AnchorPane prefHeight="750.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastroUsuaController">
     <children>
 
-          <VBox alignment="TOP_CENTER" layoutX="300.0" layoutY="39.0" maxWidth="1.7976931348623157E308" prefHeight="663.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 5);">
-              <padding>
-                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-              </padding>
-              <children>
-                  <VBox alignment="CENTER" spacing="10.0">
-                      <children>
-                          <ImageView fx:id="ivLogo" fitHeight="120.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
-                              <image>
-                                  <Image url="@../../static/siga.meLOGO.png" />
-                              </image>
-                          </ImageView>
-                      </children>
-                  </VBox>
-                  <VBox prefHeight="441.0" prefWidth="320.0" spacing="20.0" VBox.vgrow="ALWAYS">
-                      <children>
+        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
 
-                          <VBox spacing="8.0">
-                              <children>
-                        <VBox spacing="8.0">
-                           <children>
-                              <Label text="Nome Completo" textFill="#374151">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtNome" promptText="Seu Nome Completo" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 12;">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
+                <VBox alignment="TOP_CENTER" maxWidth="420.0" prefWidth="420.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 5);">
+                    <padding>
+                        <Insets bottom="35.0" left="40.0" right="40.0" top="35.0" />
+                    </padding>
+                    <children>
+
+                        <VBox alignment="CENTER" spacing="10.0">
+                            <children>
+                                <ImageView fx:id="ivLogo" fitHeight="120.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../static/siga.meLOGO.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
                         </VBox>
-                                  <Label text="Email" textFill="#374151">
-                                      <font>
-                                          <Font name="System Bold" size="13.0" />
-                                      </font>
-                                  </Label>
-                                  <TextField fx:id="txtEmail" promptText="seu@email.com" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 12;">
-                                      <font>
-                                          <Font size="14.0" />
-                                      </font>
-                                  </TextField>
-                                <VBox spacing="8.0">
+
+                        <VBox spacing="15.0" VBox.vgrow="ALWAYS">
+                            <children>
+
+                                <VBox spacing="6.0">
+                                    <children>
+                                        <Label text="Nome Completo" textFill="#374151">
+                                            <font>
+                                                <Font name="System Bold" size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtNome" promptText="Seu Nome Completo" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </VBox>
+
+                                <VBox spacing="6.0">
+                                    <children>
+                                        <Label text="Email" textFill="#374151">
+                                            <font>
+                                                <Font name="System Bold" size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtEmail" promptText="seu@email.com" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </VBox>
+
+                                <VBox spacing="6.0">
                                     <children>
                                         <Label text="Senha" textFill="#374151">
                                             <font>
                                                 <Font name="System Bold" size="13.0" />
                                             </font>
                                         </Label>
-                                        <PasswordField fx:id="txtSenha" promptText="••••••••" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 12;">
+                                        <PasswordField fx:id="txtSenha" promptText="••••••••" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
                                         </PasswordField>
-                              <VBox spacing="8.0">
-                                 <children>
-                                    <Label text="Confirmar Senha" textFill="#374151">
-                                       <font>
-                                          <Font name="System Bold" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <PasswordField fx:id="txtConfirmarSenha" promptText="••••••••" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 12;">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </PasswordField>
-                                 </children>
-                              </VBox>
                                     </children>
                                 </VBox>
-                              </children>
-                          </VBox>
-                          <HBox alignment="CENTER_LEFT" spacing="10.0">
-                              <children>
-                                  <HBox HBox.hgrow="ALWAYS" />
-                              </children>
-                          </HBox>
-                          <Button fx:id="btCadastroUsua" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cadastrarUsua" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Cadastrar Usuário">
-                              <font>
-                                  <Font name="System Bold" size="16.0" />
-                              </font>
-                          </Button>
-                          <HBox alignment="CENTER" spacing="10.0">
-                              <children>
-                                  <Separator prefWidth="100.0" HBox.hgrow="ALWAYS" />
-                                  <Text fill="#9CA3AF" strokeType="OUTSIDE" strokeWidth="0.0" text="ou">
-                                      <font>
-                                          <Font size="12.0" />
-                                      </font>
-                                  </Text>
-                                  <Separator prefWidth="100.0" HBox.hgrow="ALWAYS" />
-                              </children>
-                          </HBox>
-                          <HBox alignment="CENTER" spacing="5.0">
-                              <children>
-                                  <Hyperlink fx:id="linkLogin" onAction="#Login" text="Entrar" textFill="#2E5FBD">
-                                      <font>
-                                          <Font name="System Bold" size="13.0" />
-                                      </font>
-                                  </Hyperlink>
-                              </children>
-                          </HBox>
-                      </children>
-                  </VBox>
-              </children>
-          </VBox>
+
+                                <VBox spacing="6.0">
+                                    <children>
+                                        <Label text="Confirmar Senha" textFill="#374151">
+                                            <font>
+                                                <Font name="System Bold" size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <PasswordField fx:id="txtConfirmarSenha" promptText="••••••••" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </PasswordField>
+                                    </children>
+                                </VBox>
+
+                                <Button fx:id="btCadastroUsua" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cadastrarUsua" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Cadastrar Usuário">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <HBox alignment="CENTER" spacing="10.0">
+                                    <children>
+                                        <Separator HBox.hgrow="ALWAYS" />
+                                        <Text fill="#9CA3AF" strokeType="OUTSIDE" strokeWidth="0.0" text="ou">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Text>
+                                        <Separator HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
+
+                                <HBox alignment="CENTER" spacing="5.0">
+                                    <children>
+                                        <Hyperlink fx:id="linkLogin" onAction="#Login" text="Entrar" textFill="#2E5FBD">
+                                            <font>
+                                                <Font name="System Bold" size="13.0" />
+                                            </font>
+                                        </Hyperlink>
+                                    </children>
+                                </HBox>
+
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
     </children>
 </AnchorPane>

@@ -248,4 +248,35 @@ public class CadastrarAulaController {
     private void gerarPlanejamentoPlanilha(ActionEvent event) {
         adicionarTopicoLista();
     }
+
+    //botões recém cadastrados:
+
+    @FXML
+    private Label lbNomeUsuario;
+
+    @FXML
+    private ComboBox<?> cmbSelecionarMateria;
+
+    @FXML
+    private Label lbContadorCargaHoraria;
+
+    @FXML
+    private Label lbContadorHorasFaltantes;
+
+    @FXML
+    private Label lbContadorHorasPlanejadas;
+
+    @FXML
+    private Spinner<?> spnrMaxAulas;
+
+    @FXML
+    private Spinner<?> spnrMinAulas;
+
+    @FXML
+    private Button btBaixar;
+
+    @FXML
+    private Button btExcluir;
+
+
 }
