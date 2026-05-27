@@ -31,6 +31,8 @@ public class CadastrarAulaController {
     @FXML private Spinner<Integer> spnrMinAulas;
     @FXML private Spinner<Integer> spnrMaxAulas;
 
+    @FXML private ComboBox<MateriaModel> cmbSelecionarMateria;
+
     @FXML private Label lbNomeUsuario;
     @FXML private Label lbContadorCargaHoraria;
     @FXML private Label lbContadorHorasPlanejadas;
@@ -53,6 +55,7 @@ public class CadastrarAulaController {
     @FXML private TableView<AulaPlanejada> tblPlanejamentoAulas;
 
     private ObservableList<TopicoModel> obsListTopicos;
+    private MateriaModel materiaAtual;
     private ObservableList<AulaPlanejada> obsListAulasPlanejadas;
 
     private IDAO<AulaPlanejada> aulaPlanejadaDAO = new AulaPlanejadaDAO();
@@ -75,13 +78,10 @@ public class CadastrarAulaController {
             lbNomeUsuario.setText(profLogado.getNome());
 
             MateriaDAO materiaDAO = new MateriaDAO();
-            MateriaModel materia = materiaDAO.buscarPorEmailProfessor(profLogado.getEmail());
+            List<MateriaModel> materiasDoProfessor = materiaDAO.buscarTodasPorEmailProfessor(profLogado.getEmail());
 
-            if (materia != null) {
-                cargaHorariaMateria = materia.getCargaHoraria();
-                lbContadorCargaHoraria.setText(String.valueOf(cargaHorariaMateria));
-                lbContadorHorasFaltantes.setText(String.valueOf(cargaHorariaMateria));
-                lbContadorHorasPlanejadas.setText("0");
+            if (materiasDoProfessor != null && !materiasDoProfessor.isEmpty()) {
+                cmbSelecionarMateria.setItems(FXCollections.observableArrayList(materiasDoProfessor));
             }
         }
 
@@ -104,7 +104,23 @@ public class CadastrarAulaController {
                 spnrMaxAulas.getValueFactory().setValue(2);
             }
         });
+    }
 
+    @FXML
+    private void selecionarMateria(ActionEvent event) {
+        MateriaModel selecionada = cmbSelecionarMateria.getSelectionModel().getSelectedItem();
+
+        if (selecionada != null) {
+            this.materiaAtual = selecionada;
+            this.cargaHorariaMateria = selecionada.getCargaHoraria();
+
+            lbContadorCargaHoraria.setText(String.valueOf(cargaHorariaMateria));
+            lbContadorHorasFaltantes.setText(String.valueOf(cargaHorariaMateria));
+            lbContadorHorasPlanejadas.setText("0");
+
+            obsListTopicos.clear();
+            tblPlanejamentoAulas.getItems().clear();
+        }
     }
 
     private void configurarTabelaTopicos() {
@@ -122,10 +138,21 @@ public class CadastrarAulaController {
     @FXML
     private void cadastrarTopico() {
         String titulo = txtFldTituloTopico.getText();
-        if (titulo != null && !titulo.isEmpty()) {
-            TopicoModel novoTopico = topicoService.cadastrar(titulo, spnrMinAulas.getValue(), spnrMaxAulas.getValue(), chkProva.isSelected());
+
+        if (titulo != null && !titulo.isEmpty() && materiaAtual != null) {
+
+            TopicoModel novoTopico = topicoService.cadastrar(
+                    titulo,
+                    spnrMinAulas.getValue(),
+                    spnrMaxAulas.getValue(),
+                    chkProva.isSelected(),
+                    materiaAtual.getSigla()
+            );
+
             obsListTopicos.add(novoTopico);
             txtFldTituloTopico.clear();
+        } else if (materiaAtual == null) {
+            System.out.println("Por favor, selecione uma matéria primeiro!");
         }
     }
 
@@ -209,8 +236,4 @@ public class CadastrarAulaController {
         System.out.println("Botão de baixar arquivo acionado!");
     }
 
-    @FXML
-    private void selecionarMateria(ActionEvent event) {
-        System.out.println("Botão de baixar arquivo acionado!");
-    }
 }
