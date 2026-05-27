@@ -12,8 +12,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import org.datasphere.model.SessaoUsuario;
-import org.datasphere.service.LoginService;
+
+import java.io.IOException;
 
 import java.io.IOException;
 
@@ -37,15 +37,23 @@ public class LoginController {
     private final LoginService loginService = new LoginService();
 
     @FXML
-    private void entrar(ActionEvent event) {
-        String email = txtEmail.getText();
-        String senha = txtSenha.getText();
+    void criarConta(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/datasphere/cadastroUsua.fxml"));
 
-        boolean loginSucesso = loginService.realizarLogin(email, senha);
 
-        if (loginSucesso) {
-            String nomeProf = SessaoUsuario.getSessao().getProfessorLogado().getNome();
-            System.out.println("Login efetuado com sucesso! Bem-vindo, " + nomeProf);
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("SIGA.ME - Planejamento de Aulas");
+            stage.show();
+
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar a tela principal cadastro-aula.fxml!");
+            e.printStackTrace();
+        }
 
             irParaTelaPrincipal(event);
         } else {
@@ -54,8 +62,8 @@ public class LoginController {
     }
 
     @FXML
-    private void criarConta(ActionEvent event) {
-        System.out.println("Redirecionando para a tela de Cadastro de Usuário...");
+    void entrar(ActionEvent event) {
+
     }
 
     private void irParaTelaPrincipal(ActionEvent event) {
