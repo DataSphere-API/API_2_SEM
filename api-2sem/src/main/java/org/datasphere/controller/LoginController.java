@@ -15,25 +15,26 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import java.io.IOException;
+
 public class LoginController {
 
     @FXML
-    private Button btnLogin;
-
-    @FXML
     private ImageView ivLogo;
-
-    @FXML
-    private Hyperlink linkCriarConta;
-
-    @FXML
-    private Hyperlink linkEsqueciSenha;
 
     @FXML
     private TextField txtEmail;
 
     @FXML
     private PasswordField txtSenha;
+
+    @FXML
+    private Button btnLogin;
+
+    @FXML
+    private Hyperlink linkCriarConta;
+
+    private final LoginService loginService = new LoginService();
 
     @FXML
     void criarConta(ActionEvent event) {
@@ -54,6 +55,10 @@ public class LoginController {
             e.printStackTrace();
         }
 
+            irParaTelaPrincipal(event);
+        } else {
+            System.out.println("Erro: E-mail ou senha incorretos.");
+        }
     }
 
     @FXML
@@ -61,4 +66,22 @@ public class LoginController {
 
     }
 
+    private void irParaTelaPrincipal(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/datasphere/cadastro-aula.fxml"));
+
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("SIGA.ME - Planejamento de Aulas");
+            stage.show();
+
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar a tela principal cadastro-aula.fxml!");
+            e.printStackTrace();
+        }
+    }
 }
