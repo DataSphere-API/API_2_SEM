@@ -160,4 +160,20 @@ public class CoordenadorController {
     @FXML
     private ComboBox<?> cmbProfessor;
 
+
+    @FXML
+    private DatePicker dpDataInicialSprint;
+
+    @FXML
+    private DatePicker dpDataFinalSprint;
+
+
+    @FXML
+    private Button btAdicionarPeriodoSprint;
+
+    @FXML
+    void AdicionarDataSprint(ActionEvent event) {
+
+    }
+
 }
