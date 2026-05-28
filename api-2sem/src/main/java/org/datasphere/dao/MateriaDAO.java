@@ -12,9 +12,33 @@ import java.util.List;
 
 public class MateriaDAO {
 
-    public List<MateriaModel> buscarTodasPorEmailProfessor(String email) {
+    public MateriaModel buscarPorEmailProfessor(String email) {
         String sql = "SELECT * FROM materia WHERE email_professor = ?";
-        List<MateriaModel> listaMaterias = new ArrayList<>();
+        MateriaModel materia = null;
+
+        try (Connection conn = ConexaoDB.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                materia = mapearMateria(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return materia;
+    }
+
+    /**
+     * Lista todas as matérias vinculadas a um professor pelo e-mail.
+     * Um professor pode ter mais de uma matéria (ex.: professor substituto ou
+     * semestres distintos), por isso retorna uma lista.
+     */
+    public List<MateriaModel> listarPorEmailProfessor(String email) {
+        String sql = "SELECT * FROM materia WHERE email_professor = ?";
+        List<MateriaModel> materias = new ArrayList<>();
 
         try (Connection conn = ConexaoDB.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -23,17 +47,20 @@ public class MateriaDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                MateriaModel materia = new MateriaModel();
-                materia.setSigla(rs.getString("sigla"));
-                materia.setTitulo(rs.getString("titulo"));
-                materia.setCargaHoraria(rs.getInt("carga_horaria"));
-                materia.setEmailProfessor(rs.getString("email_professor"));
-
-                listaMaterias.add(materia);
+                materias.add(mapearMateria(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return listaMaterias;
+        return materias;
+    }
+
+    private MateriaModel mapearMateria(ResultSet rs) throws SQLException {
+        MateriaModel materia = new MateriaModel();
+        materia.setSigla(rs.getString("sigla"));
+        materia.setTitulo(rs.getString("titulo"));
+        materia.setCargaHoraria(rs.getInt("carga_horaria"));
+        materia.setEmailProfessor(rs.getString("email_professor"));
+        return materia;
     }
 }
