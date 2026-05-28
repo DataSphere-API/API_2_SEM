@@ -1,10 +1,19 @@
 package org.datasphere.service;
 
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.datasphere.dao.interfaces.IDAO;
 import org.datasphere.model.*;
 import org.datasphere.dao.AulaPlanejadaDAO;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -124,5 +133,42 @@ public class OrganizarAulaService {
             }
         }
         return planejamentoAulas;
+    }
+    public static void exportarPlanejamento (LinkedList<AulaPlanejada> planejamentoAulas, Stage stage){
+
+        FileChooser fileChooser = new FileChooser();
+
+        fileChooser.setTitle("Exportar Planejamento em CSV");
+
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Arquivos CSV (*.csv)", "*.csv")
+        );
+
+        fileChooser.setInitialFileName("aula_planejada.csv");
+
+        File arquivoSelecionado = fileChooser.showSaveDialog(stage);
+
+        if (arquivoSelecionado != null) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivoSelecionado))) {
+
+                writer.write("dia_da_semana;horario;data;id_topico");
+                writer.newLine();
+
+                for (AulaPlanejada aulaPlanejada : planejamentoAulas ) {
+
+                    String linha = String.format("%s;%tT;%tF;%d",
+                            aulaPlanejada.getAulaModel().getDiaDaSemana().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")),
+                            Time.valueOf(aulaPlanejada.getAulaModel().getHoraInicio()),
+                            Date.valueOf(aulaPlanejada.getDiaModel().getData()));
+                            aulaPlanejada.getTopicoModel().getId();
+
+                    writer.write(linha);
+                    writer.newLine();
+                }
+
+            } catch (IOException e) {
+                System.err.println("Erro ao salvar o arquivo CSV: " + e.getMessage());
+            }
+        }
     }
 }

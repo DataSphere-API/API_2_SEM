@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.datasphere.dao.AulaPlanejadaDAO;
 import org.datasphere.dao.MateriaDAO;
 import org.datasphere.dao.TopicoDAO;
@@ -232,8 +233,16 @@ public class CadastrarAulaController {
     }
 
     @FXML
-    private void baixarArquivo(ActionEvent event) {
-        System.out.println("Botão de baixar arquivo acionado!");
+    void baixarArquivo(ActionEvent event) {
+
+        ObservableList<AulaPlanejada> itensDaTabela = tblPlanejamentoAulas.getItems();
+
+        LinkedList<AulaPlanejada> listaParaExportar = new LinkedList<>(itensDaTabela);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+        OrganizarAulaService.exportarPlanejamento(listaParaExportar, stage);
+
     }
 
 }
