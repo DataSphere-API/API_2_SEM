@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.datasphere.model.ProfessorModel;
 import org.datasphere.model.SessaoUsuario;
 import org.datasphere.service.LoginService;
 
@@ -44,35 +45,37 @@ public class LoginController {
         boolean loginSucesso = loginService.realizarLogin(email, senha);
 
         if (loginSucesso) {
-            String nomeProf = SessaoUsuario.getSessao().getProfessorLogado().getNome();
-            System.out.println("Login efetuado com sucesso! Bem-vindo, " + nomeProf);
+            ProfessorModel profLogado = SessaoUsuario.getSessao().getProfessorLogado();
+             profLogado.getNome();
 
-            irParaTelaPrincipal(event);
+
+            if (profLogado.isCoordenador()) {
+                mudarTela(event, "/org/datasphere/home.fxml", "SIGA.ME - Home");
+            } else {
+                mudarTela(event, "/org/datasphere/cadastro-aula.fxml", "SIGA.ME - Planejamento de Aulas");
+            }
         } else {
-            System.out.println("Erro: E-mail ou senha incorretos.");
+            txtSenha.clear();
         }
     }
 
     @FXML
     private void criarConta(ActionEvent event) {
-        System.out.println("Redirecionando para a tela de Cadastro de Usuário...");
+
     }
 
-    private void irParaTelaPrincipal(ActionEvent event) {
+
+    private void mudarTela(ActionEvent event, String caminhoFxml, String titulo) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/datasphere/cadastro-aula.fxml"));
-
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(caminhoFxml));
             Parent root = loader.load();
-
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             stage.setScene(new Scene(root));
-            stage.setTitle("SIGA.ME - Planejamento de Aulas");
+            stage.setTitle(titulo);
             stage.show();
 
         } catch (IOException e) {
-            System.out.println("Erro ao carregar a tela principal cadastro-aula.fxml!");
             e.printStackTrace();
         }
     }
