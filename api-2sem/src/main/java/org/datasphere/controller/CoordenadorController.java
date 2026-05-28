@@ -151,4 +151,13 @@ public class CoordenadorController {
 
     }
 
+    @FXML
+    private ToggleGroup grupoHorario;
+
+    @FXML
+    private TextField txtIdDisciplina;
+
+    @FXML
+    private ComboBox<?> cmbProfessor;
+
 }
