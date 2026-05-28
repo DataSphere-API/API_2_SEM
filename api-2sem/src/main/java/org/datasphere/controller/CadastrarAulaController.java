@@ -4,8 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.datasphere.dao.AulaPlanejadaDAO;
 import org.datasphere.dao.MateriaDAO;
 import org.datasphere.dao.TopicoDAO;
@@ -16,6 +21,7 @@ import org.datasphere.service.OrganizarAulaService;
 import org.datasphere.service.SemestreService;
 import org.datasphere.service.TopicoService;
 
+import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -241,8 +247,22 @@ public class CadastrarAulaController {
 
     @FXML
     void handleLogout(ActionEvent event) {
+        SessaoUsuario.getSessao().limparSessao();
+        try {
+            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageAtual.close();
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/datasphere/login.fxml"));
+            Parent root = loader.load();
+
+            Stage loginStage = new Stage();
+            loginStage.setTitle("DataSphere - Login");
+            loginStage.setScene(new Scene(root));
+            loginStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-}
+    }
 
