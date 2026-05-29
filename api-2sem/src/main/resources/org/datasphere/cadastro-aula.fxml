@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -28,6 +27,12 @@
 
             <HBox fx:id="hbprincipal" alignment="CENTER_LEFT" spacing="15.0" style="-fx-padding: 0 20 0 20;">
                <children>
+
+                  <ImageView fx:id="ivLogo" fitHeight="67.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../static/siga.meLOGO.png" />
+                     </image>
+                  </ImageView>
                   <Label text="Bem vindo, ">
                      <font>
                         <Font name="System Bold" size="24.0" />
@@ -39,14 +44,11 @@
                      </font>
                   </Label>
                   <ComboBox fx:id="cmbSelecionarMateria" maxWidth="1.7976931348623157E308" onAction="#selecionarMateria" prefHeight="31.0" promptText="Selecione aqui sua matéria" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-font-size: 15;" HBox.hgrow="ALWAYS" />
-
-                  <Pane prefWidth="20.0" HBox.hgrow="SOMETIMES" />
-
-                  <ImageView fx:id="ivLogo" fitHeight="67.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../static/siga.meLOGO.png" />
-                     </image>
-                  </ImageView>
+                  <Button fx:id="btSair" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: transparent; -fx-cursor: hand;" text="⏻">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
                </children>
             </HBox>
 

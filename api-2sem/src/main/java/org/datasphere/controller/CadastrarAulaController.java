@@ -236,4 +236,13 @@ public class CadastrarAulaController {
         System.out.println("Botão de baixar arquivo acionado!");
     }
 
+    @FXML
+    private Button btSair;
+
+    @FXML
+    void handleLogout(ActionEvent event) {
+
+    }
+
 }
+

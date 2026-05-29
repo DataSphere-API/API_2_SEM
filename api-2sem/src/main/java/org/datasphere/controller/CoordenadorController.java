@@ -151,4 +151,29 @@ public class CoordenadorController {
 
     }
 
+    @FXML
+    private ToggleGroup grupoHorario;
+
+    @FXML
+    private TextField txtIdDisciplina;
+
+    @FXML
+    private ComboBox<?> cmbProfessor;
+
+
+    @FXML
+    private DatePicker dpDataInicialSprint;
+
+    @FXML
+    private DatePicker dpDataFinalSprint;
+
+
+    @FXML
+    private Button btAdicionarPeriodoSprint;
+
+    @FXML
+    void AdicionarDataSprint(ActionEvent event) {
+
+    }
+
 }
