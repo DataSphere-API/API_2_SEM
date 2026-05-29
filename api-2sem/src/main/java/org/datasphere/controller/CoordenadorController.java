@@ -8,6 +8,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import org.datasphere.model.SessaoUsuario;
 
 public class CoordenadorController {
 
@@ -143,6 +144,7 @@ public class CoordenadorController {
 
     @FXML
     void handleLogout(ActionEvent event) {
+        SessaoUsuario.getSessao().limparSessao();
 
     }
 
