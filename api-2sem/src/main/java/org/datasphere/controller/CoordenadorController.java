@@ -9,6 +9,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import org.datasphere.model.SessaoUsuario;
+import org.datasphere.service.SemestreService;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class CoordenadorController {
 
@@ -175,7 +179,38 @@ public class CoordenadorController {
 
     @FXML
     void AdicionarDataSprint(ActionEvent event) {
+        // 1. Captura os valores selecionados na tela
+        LocalDate dataInicial = dpDataInicialSprint.getValue();
+        LocalDate dataFinal = dpDataFinalSprint.getValue();
 
+        // 2. Validação: Verifica se o usuário preencheu ambos os campos
+        if (dataInicial == null || dataFinal == null) {
+            System.out.println("Erro: Preencha as datas de início e fim da Sprint!");
+            // Opcional: Adicione um Alert do JavaFX aqui para avisar o usuário visualmente
+            return;
+        }
+
+        // 3. Validação: Verifica se a data inicial não é maior que a final
+        if (dataInicial.isAfter(dataFinal)) {
+            System.out.println("Erro: A data inicial não pode ser depois da data final!");
+            return;
+        }
+
+        long diasDeSprint = ChronoUnit.DAYS.between(dataInicial, dataFinal);
+        if (diasDeSprint > 6) { // 6 dias de intervalo = 7 dias totais (ex: Segunda a Domingo)
+            System.out.println("Erro: O período de Sprint pode ter no máximo 7 dias!");
+            return;
+        }
+
+        // 4. Instancia ou chama o seu Service (Ajuste caso já tenha o Service injetado globalmente)
+        SemestreService semestreService = new SemestreService();
+
+        // 5. Executa a lógica de bloqueio
+        semestreService.criarSemanaSprint(dataInicial, dataFinal);
+        System.out.println("Período de Sprint adicionado e bloqueado para provas: " + dataInicial + " até " + dataFinal);
+
+        // 6. Limpa os campos da tela para um novo cadastro
+        dpDataInicialSprint.setValue(null);
+        dpDataFinalSprint.setValue(null);
     }
-
 }
