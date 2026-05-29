@@ -129,7 +129,12 @@ public class CoordenadorController {
 
     @FXML
     void cadastrarDisciplina(ActionEvent event) {
-
+        if (rb40hrs.isSelected()){
+            MateriaModel novaMateria = new MateriaModel(txtIdDisciplina.getText(), txtTituloDisciplina.getText(), 40, cmbProfessor.getSelectionModel().getSelectedItem().getEmail());
+        }
+        if (rb80hrs.isSelected()){
+            MateriaModel novaMateria = new MateriaModel(txtIdDisciplina.getText(), txtTituloDisciplina.getText(), 80, cmbProfessor.getSelectionModel().getSelectedItem().getEmail());
+        }
     }
 
     @FXML
