@@ -137,6 +137,22 @@ public class CoordenadorController {
         }
     }
 
+    private void carregarProfessores() {
+        List<ProfessorModel> professores = cadastroDAO.listarProfessores();
+
+        cmbProfessor.setConverter(new javafx.util.StringConverter<ProfessorModel>() {
+            @Override
+            public String toString(ProfessorModel p) {
+                if (p == null) return "";
+                return p.getNome();
+            }
+            @Override
+            public ProfessorModel fromString(String s) { return null; }
+        });
+
+        cmbProfessor.setItems(FXCollections.observableArrayList(professores));
+    }
+
     @FXML
     void handleCancelarNovaLegenda(ActionEvent event) {
 
