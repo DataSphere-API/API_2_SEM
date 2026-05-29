@@ -37,8 +37,6 @@ public class CadastrarAulaController {
     @FXML private Spinner<Integer> spnrMinAulas;
     @FXML private Spinner<Integer> spnrMaxAulas;
 
-    @FXML private ComboBox<MateriaModel> cmbSelecionarMateria;
-
     @FXML private Label lbNomeUsuario;
     @FXML private Label lbContadorCargaHoraria;
     @FXML private Label lbContadorHorasPlanejadas;
@@ -60,16 +58,22 @@ public class CadastrarAulaController {
     @FXML private TableColumn<AulaPlanejada, String> clnTopicoPlanejamento;
     @FXML private TableView<AulaPlanejada> tblPlanejamentoAulas;
 
+    // ComboBox para selecionar a matéria
+    @FXML private ComboBox<MateriaModel> cmbSelecionarMateria;
+
     private ObservableList<TopicoModel> obsListTopicos;
-    private MateriaModel materiaAtual;
     private ObservableList<AulaPlanejada> obsListAulasPlanejadas;
 
-    private IDAO<AulaPlanejada> aulaPlanejadaDAO = new AulaPlanejadaDAO();
+    private AulaPlanejadaDAO aulaPlanejadaDAO = new AulaPlanejadaDAO();
     private IDAO<TopicoModel> topicoDAO = new TopicoDAO();
+    private MateriaDAO materiaDAO = new MateriaDAO();
     private TopicoService topicoService = new TopicoService();
     private AulaService aulaService = new AulaService();
     private SemestreService semestreService = new SemestreService();
     private OrganizarAulaService organizarAulaService = new OrganizarAulaService();
+
+    // Matéria atualmente selecionada
+    private MateriaModel materiaSelecionada;
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -82,13 +86,7 @@ public class CadastrarAulaController {
         ProfessorModel profLogado = SessaoUsuario.getSessao().getProfessorLogado();
         if (profLogado != null) {
             lbNomeUsuario.setText(profLogado.getNome());
-
-            MateriaDAO materiaDAO = new MateriaDAO();
-            List<MateriaModel> materiasDoProfessor = materiaDAO.buscarTodasPorEmailProfessor(profLogado.getEmail());
-
-            if (materiasDoProfessor != null && !materiasDoProfessor.isEmpty()) {
-                cmbSelecionarMateria.setItems(FXCollections.observableArrayList(materiasDoProfessor));
-            }
+            carregarMateriasProfessor(profLogado.getEmail());
         }
 
         semestreService.criarSemestreComDias();
@@ -97,12 +95,16 @@ public class CadastrarAulaController {
         obsListTopicos = FXCollections.observableArrayList();
         tblTopicoAdicionado.setItems(obsListTopicos);
 
+        obsListAulasPlanejadas = FXCollections.observableArrayList();
+        tblPlanejamentoAulas.setItems(obsListAulasPlanejadas);
+
         configurarTabelaTopicos();
+        configurarTabelaPlanejamento();
 
         chkProva.selectedProperty().addListener((observable, oldValue, newValue) -> {
             spnrMinAulas.setDisable(newValue);
             spnrMaxAulas.setDisable(newValue);
-            if(newValue) {
+            if (newValue) {
                 spnrMinAulas.getValueFactory().setValue(0);
                 spnrMaxAulas.getValueFactory().setValue(0);
             } else {
@@ -112,21 +114,73 @@ public class CadastrarAulaController {
         });
     }
 
+    /**
+     * Carrega as matérias do professor logado no ComboBox.
+     * Exibe o formato "SIGLA - Título" para o usuário.
+     */
+    private void carregarMateriasProfessor(String emailProfessor) {
+        List<MateriaModel> materias = materiaDAO.listarPorEmailProfessor(emailProfessor);
+
+        // Define como o ComboBox exibe cada matéria
+        cmbSelecionarMateria.setConverter(new javafx.util.StringConverter<MateriaModel>() {
+            @Override
+            public String toString(MateriaModel m) {
+                if (m == null) return "";
+                return m.getSigla() + " - " + m.getTitulo();
+            }
+            @Override
+            public MateriaModel fromString(String s) { return null; }
+        });
+
+        cmbSelecionarMateria.setItems(FXCollections.observableArrayList(materias));
+
+        // Se só há uma matéria, seleciona automaticamente e já carrega o planejamento
+        if (materias.size() == 1) {
+            cmbSelecionarMateria.getSelectionModel().selectFirst();
+            aplicarSelecaoMateria(materias.get(0));
+        }
+    }
+
+    /**
+     * Chamado pelo FXML quando o usuário muda a seleção no ComboBox de matérias.
+     * Recarrega do banco os contadores e o Planejamento de Aulas da matéria escolhida.
+     */
     @FXML
     private void selecionarMateria(ActionEvent event) {
-        MateriaModel selecionada = cmbSelecionarMateria.getSelectionModel().getSelectedItem();
-
-        if (selecionada != null) {
-            this.materiaAtual = selecionada;
-            this.cargaHorariaMateria = selecionada.getCargaHoraria();
-
-            lbContadorCargaHoraria.setText(String.valueOf(cargaHorariaMateria));
-            lbContadorHorasFaltantes.setText(String.valueOf(cargaHorariaMateria));
-            lbContadorHorasPlanejadas.setText("0");
-
-            obsListTopicos.clear();
-            tblPlanejamentoAulas.getItems().clear();
+        MateriaModel materiaSelecionada = cmbSelecionarMateria.getSelectionModel().getSelectedItem();
+        if (materiaSelecionada != null) {
+            aplicarSelecaoMateria(materiaSelecionada);
         }
+    }
+
+    /**
+     * Aplica a seleção de uma matéria: atualiza contadores e recarrega
+     * as aulas planejadas persistidas no banco para essa matéria.
+     */
+    private void aplicarSelecaoMateria(MateriaModel materia) {
+        this.materiaSelecionada = materia;
+        cargaHorariaMateria = materia.getCargaHoraria();
+        lbContadorCargaHoraria.setText(cargaHorariaMateria + "h");
+
+        // Recarrega as aulas planejadas do banco para esta matéria
+        carregarAulasPlanejadas(materia.getSigla());
+    }
+
+    /**
+     * Busca as aulas planejadas do banco para a matéria informada e
+     * popula a tabela de Planejamento de Aulas + atualiza os contadores.
+     */
+    private void carregarAulasPlanejadas(String siglaMateria) {
+        List<AulaPlanejada> aulas = aulaPlanejadaDAO.listarPorSiglaMateria(siglaMateria);
+
+        obsListAulasPlanejadas.clear();
+        obsListAulasPlanejadas.addAll(aulas);
+
+        int horasAgendadas = aulas.size();
+        int horasFaltantes = Math.max(0, cargaHorariaMateria - horasAgendadas);
+
+        lbContadorHorasPlanejadas.setText(horasAgendadas + "h");
+        lbContadorHorasFaltantes.setText(horasFaltantes + "h");
     }
 
     private void configurarTabelaTopicos() {
@@ -141,24 +195,33 @@ public class CadastrarAulaController {
         });
     }
 
+    private void configurarTabelaPlanejamento() {
+        clnAulasPlanejamento.setCellValueFactory(cellData -> {
+            AulaPlanejada ap = cellData.getValue();
+            String dia = ap.getAulaModel().getDiaDaSemana()
+                    .getDisplayName(TextStyle.SHORT, new Locale("pt", "BR"));
+            String hora = ap.getAulaModel().getHoraInicio() + " - " + ap.getAulaModel().getHoraFim();
+            return new javafx.beans.property.SimpleStringProperty(dia + " " + hora);
+        });
+
+        clnTopicoPlanejamento.setCellValueFactory(cellData ->
+                new javafx.beans.property.SimpleStringProperty(
+                        cellData.getValue().getTopicoModel().getTitulo())
+        );
+
+        clnDataPlanejamento.setCellValueFactory(cellData ->
+                new javafx.beans.property.SimpleStringProperty(
+                        cellData.getValue().getDiaModel().getData().format(fmt))
+        );
+    }
+
     @FXML
     private void cadastrarTopico() {
         String titulo = txtFldTituloTopico.getText();
-
-        if (titulo != null && !titulo.isEmpty() && materiaAtual != null) {
-
-            TopicoModel novoTopico = topicoService.cadastrar(
-                    titulo,
-                    spnrMinAulas.getValue(),
-                    spnrMaxAulas.getValue(),
-                    chkProva.isSelected(),
-                    materiaAtual.getSigla()
-            );
-
+        if (titulo != null && !titulo.isEmpty()) {
+            TopicoModel novoTopico = topicoService.cadastrar(titulo, spnrMinAulas.getValue(), spnrMaxAulas.getValue(), chkProva.isSelected(),  materiaSelecionada.getSigla());
             obsListTopicos.add(novoTopico);
             txtFldTituloTopico.clear();
-        } else if (materiaAtual == null) {
-            System.out.println("Por favor, selecione uma matéria primeiro!");
         }
     }
 
@@ -183,14 +246,14 @@ public class CadastrarAulaController {
         List<AulaModel> diasDeAula = new LinkedList<>();
         List<LocalTime> tempos = List.of(
                 LocalTime.of(18, 45), LocalTime.of(19, 35), LocalTime.of(20, 25),
-                LocalTime.of(21, 15), LocalTime.of(22, 05), LocalTime.of(23, 05));
+                LocalTime.of(21, 15), LocalTime.of(22, 5), LocalTime.of(23, 5));
 
         Map<DayOfWeek, List<CheckBox>> horariosPorDia = new LinkedHashMap<>();
-        horariosPorDia.put(DayOfWeek.MONDAY, List.of(chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205));
+        horariosPorDia.put(DayOfWeek.MONDAY,    List.of(chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205));
         horariosPorDia.put(DayOfWeek.TUESDAY,   List.of(chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205));
-        horariosPorDia.put(DayOfWeek.WEDNESDAY,  List.of(chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205));
+        horariosPorDia.put(DayOfWeek.WEDNESDAY, List.of(chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205));
         horariosPorDia.put(DayOfWeek.THURSDAY,  List.of(chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205));
-        horariosPorDia.put(DayOfWeek.FRIDAY,   List.of(chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205));
+        horariosPorDia.put(DayOfWeek.FRIDAY,    List.of(chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205));
 
         for (Map.Entry<DayOfWeek, List<CheckBox>> entrada : horariosPorDia.entrySet()) {
             DayOfWeek diaDaSemana = entrada.getKey();
@@ -207,29 +270,17 @@ public class CadastrarAulaController {
     }
 
     private void adicionarTopicoLista() {
-        List<AulaPlanejada> aulasPlanejadas = organizarAulaService.organizarAulas(obsListTopicos, lerDiaHorarioAula(), semestreService.getSemestre(), cargaHorariaMateria);
+        List<AulaPlanejada> aulasPlanejadas = organizarAulaService.organizarAulas(
+                obsListTopicos, lerDiaHorarioAula(), semestreService.getSemestre(), cargaHorariaMateria);
 
-        clnAulasPlanejamento.setCellValueFactory(cellData ->
-                new javafx.beans.property.SimpleStringProperty((cellData.getValue().getAulaModel().getDiaDaSemana().getDisplayName(TextStyle.SHORT, new Locale("pt", "BR")) + " "
-                        + (cellData.getValue().getAulaModel().getHoraInicio() + " - "))
-                        + (cellData.getValue().getAulaModel().getHoraFim()))
-        );
-
-        clnTopicoPlanejamento.setCellValueFactory(cellData ->
-                new javafx.beans.property.SimpleStringProperty(cellData.getValue().getTopicoModel().getTitulo())
-        );
-
-        clnDataPlanejamento.setCellValueFactory(cellData ->
-                new javafx.beans.property.SimpleStringProperty((cellData.getValue().getDiaModel().getData().format(fmt)))
-        );
-
-        tblPlanejamentoAulas.setItems(FXCollections.observableArrayList(aulasPlanejadas));
+        obsListAulasPlanejadas.clear();
+        obsListAulasPlanejadas.addAll(aulasPlanejadas);
 
         int horasAgendadas = aulasPlanejadas.size();
         int horasFaltantes = Math.max(0, cargaHorariaMateria - horasAgendadas);
 
-        lbContadorHorasPlanejadas.setText(String.valueOf(horasAgendadas));
-        lbContadorHorasFaltantes.setText(String.valueOf(horasFaltantes));
+        lbContadorHorasPlanejadas.setText(horasAgendadas + "h");
+        lbContadorHorasFaltantes.setText(horasFaltantes + "h");
     }
 
     @FXML
@@ -241,28 +292,4 @@ public class CadastrarAulaController {
     private void baixarArquivo(ActionEvent event) {
         System.out.println("Botão de baixar arquivo acionado!");
     }
-
-    @FXML
-    private Button btSair;
-
-    @FXML
-    void handleLogout(ActionEvent event) {
-        SessaoUsuario.getSessao().limparSessao();
-        try {
-            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stageAtual.close();
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/datasphere/login.fxml"));
-            Parent root = loader.load();
-
-            Stage loginStage = new Stage();
-            loginStage.setTitle("DataSphere - Login");
-            loginStage.setScene(new Scene(root));
-            loginStage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    }
-
+}
