@@ -8,6 +8,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import org.datasphere.model.SessaoUsuario;
 
 public class CoordenadorController {
 
@@ -143,11 +144,37 @@ public class CoordenadorController {
 
     @FXML
     void handleLogout(ActionEvent event) {
+        SessaoUsuario.getSessao().limparSessao();
 
     }
 
     @FXML
     void handleSalvarNovaLegenda(ActionEvent event) {
+
+    }
+
+    @FXML
+    private ToggleGroup grupoHorario;
+
+    @FXML
+    private TextField txtIdDisciplina;
+
+    @FXML
+    private ComboBox<?> cmbProfessor;
+
+
+    @FXML
+    private DatePicker dpDataInicialSprint;
+
+    @FXML
+    private DatePicker dpDataFinalSprint;
+
+
+    @FXML
+    private Button btAdicionarPeriodoSprint;
+
+    @FXML
+    void AdicionarDataSprint(ActionEvent event) {
 
     }
 
