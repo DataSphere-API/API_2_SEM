@@ -1,5 +1,6 @@
 package org.datasphere.controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -8,7 +9,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import org.datasphere.dao.CadastroDAO;
+import org.datasphere.model.MateriaModel;
+import org.datasphere.model.ProfessorModel;
 import org.datasphere.model.SessaoUsuario;
+
+import java.util.List;
 
 public class CoordenadorController {
 
@@ -117,6 +123,12 @@ public class CoordenadorController {
     @FXML
     private VBox vbNovaLegenda;
 
+    private CadastroDAO cadastroDAO;
+
+    public void initialize() {
+        carregarProfessores();
+    }
+
     @FXML
     void adicionarDataFeriado(ActionEvent event) {
 
@@ -181,7 +193,7 @@ public class CoordenadorController {
     private TextField txtIdDisciplina;
 
     @FXML
-    private ComboBox<?> cmbProfessor;
+    private ComboBox<ProfessorModel> cmbProfessor;
 
 
     @FXML
