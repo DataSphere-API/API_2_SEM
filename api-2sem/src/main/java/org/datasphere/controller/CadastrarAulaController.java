@@ -289,7 +289,15 @@ public class CadastrarAulaController {
     }
 
     @FXML
-    private void baixarArquivo(ActionEvent event) {
-        System.out.println("Botão de baixar arquivo acionado!");
+    void baixarArquivo(ActionEvent event) {
+
+        ObservableList<AulaPlanejada> itensDaTabela = tblPlanejamentoAulas.getItems();
+
+        LinkedList<AulaPlanejada> listaParaExportar = new LinkedList<>(itensDaTabela);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+        OrganizarAulaService.exportarPlanejamento(listaParaExportar, stage);
+
     }
 }
