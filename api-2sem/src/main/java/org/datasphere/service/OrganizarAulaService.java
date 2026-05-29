@@ -156,11 +156,11 @@ public class OrganizarAulaService {
 
                 for (AulaPlanejada aulaPlanejada : planejamentoAulas ) {
 
-                    String linha = String.format("%s;%tT;%tF;%d",
+                    String linha = String.format("%s;%tT;%tF;%s",
                             aulaPlanejada.getAulaModel().getDiaDaSemana().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")),
                             Time.valueOf(aulaPlanejada.getAulaModel().getHoraInicio()),
-                            Date.valueOf(aulaPlanejada.getDiaModel().getData()));
-                            aulaPlanejada.getTopicoModel().getId();
+                            Date.valueOf(aulaPlanejada.getDiaModel().getData()),
+                            aulaPlanejada.getTopicoModel().getTitulo());
 
                     writer.write(linha);
                     writer.newLine();
