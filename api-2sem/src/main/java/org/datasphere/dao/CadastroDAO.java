@@ -1,11 +1,15 @@
 package org.datasphere.dao;
 
 import org.datasphere.database.ConexaoDB;
+import org.datasphere.model.DiaModel;
 import org.datasphere.model.ProfessorModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CadastroDAO {
 
@@ -25,6 +29,28 @@ public class CadastroDAO {
             e.printStackTrace();
         }
 
+    }
+
+    public List<ProfessorModel> listarProfessores(){
+        String sql = "SELECT * FROM professor";
+        List<ProfessorModel> professorModelList = new ArrayList<>();
+        try(Connection conn = ConexaoDB.getConexao()){
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                ProfessorModel professorModel = new ProfessorModel();
+
+                professorModel.setEmail(rs.getString("email"));
+                professorModel.setNome(rs.getString("nome"));
+
+                professorModelList.add(professorModel);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return professorModelList;
     }
 
 }
