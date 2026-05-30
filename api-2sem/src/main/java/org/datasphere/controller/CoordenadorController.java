@@ -1,5 +1,6 @@
 package org.datasphere.controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -8,7 +9,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import org.datasphere.dao.CadastroDAO;
+import org.datasphere.dao.MateriaDAO;
+import org.datasphere.model.MateriaModel;
+import org.datasphere.model.ProfessorModel;
 import org.datasphere.model.SessaoUsuario;
+
+import java.util.List;
 
 public class CoordenadorController {
 
@@ -117,6 +124,14 @@ public class CoordenadorController {
     @FXML
     private VBox vbNovaLegenda;
 
+    private CadastroDAO cadastroDAO = new CadastroDAO();
+
+    private MateriaDAO materiaDAO = new MateriaDAO();
+
+    public void initialize() {
+        carregarProfessores();
+    }
+
     @FXML
     void adicionarDataFeriado(ActionEvent event) {
 
@@ -129,7 +144,46 @@ public class CoordenadorController {
 
     @FXML
     void cadastrarDisciplina(ActionEvent event) {
+        if (txtIdDisciplina.getText().isEmpty() || txtNomeDisciplina.getText().isEmpty()) {
+            txtInfo.setText("Preencha todos os campos.");
+            return;
+        }
+        if (!rb40hrs.isSelected() && !rb80hrs.isSelected()) {
+            txtInfo.setText("Selecione a carga horária.");
+            return;
+        }
+        if (cmbProfessor.getSelectionModel().getSelectedItem() == null) {
+            txtInfo.setText("Selecione um professor.");
+            return;
+        }
 
+        int cargaHoraria = rb40hrs.isSelected() ? 40 : 80;
+
+        MateriaModel novaMateria = new MateriaModel(
+                txtIdDisciplina.getText(),
+                txtNomeDisciplina.getText(),
+                cargaHoraria,
+                cmbProfessor.getSelectionModel().getSelectedItem().getEmail()
+        );
+
+        materiaDAO.salvar(novaMateria);
+        txtInfo.setText("Disciplina cadastrada com sucesso!");
+    }
+
+    private void carregarProfessores() {
+        List<ProfessorModel> professores = cadastroDAO.listarProfessores();
+
+        cmbProfessor.setConverter(new javafx.util.StringConverter<ProfessorModel>() {
+            @Override
+            public String toString(ProfessorModel p) {
+                if (p == null) return "";
+                return p.getNome();
+            }
+            @Override
+            public ProfessorModel fromString(String s) { return null; }
+        });
+
+        cmbProfessor.setItems(FXCollections.observableArrayList(professores));
     }
 
     @FXML
@@ -160,7 +214,7 @@ public class CoordenadorController {
     private TextField txtIdDisciplina;
 
     @FXML
-    private ComboBox<?> cmbProfessor;
+    private ComboBox<ProfessorModel> cmbProfessor;
 
 
     @FXML

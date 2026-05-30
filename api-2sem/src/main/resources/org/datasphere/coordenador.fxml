@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="904.0" prefWidth="1200.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CoordenadorController">
+<AnchorPane prefHeight="904.0" prefWidth="1200.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CoordenadorController">
     <children>
 
         <HBox alignment="CENTER_LEFT" prefHeight="80.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -301,7 +316,7 @@
 
                                         <VBox spacing="8.0">
                                             <children>
-                                                <Label prefHeight="26.0" prefWidth="58.0" text="Professor" textFill="#374151">
+                                                <Label prefHeight="26.0" prefWidth="87.0" text="Professor" textFill="#374151">
                                                     <font>
                                                         <Font name="System Bold" size="13.0" />
                                                     </font>
@@ -310,7 +325,7 @@
                                             </children>
                                         </VBox>
 
-                                        <Button fx:id="btnCadastrarDisciplina" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#CadastrarDisciplina" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Cadastrar Disciplina" />
+                                        <Button fx:id="btnCadastrarDisciplina" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cadastrarDisciplina" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Cadastrar Disciplina" />
                               <VBox layoutX="30.0" layoutY="74.0" spacing="8.0" />
                                     </children>
                                 </VBox>
