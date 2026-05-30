@@ -72,10 +72,10 @@ public class CoordenadorController {
     private ImageView ivLogo;
 
     @FXML
-    private RadioButton rb40hrs;
+    private RadioButton rb40Horas;
 
     @FXML
-    private RadioButton rb80hrs;
+    private RadioButton rb80Horas;
 
     @FXML
     private Tab tabCalendario;
@@ -149,19 +149,21 @@ public class CoordenadorController {
     @FXML
     void cadastrarDisciplina(ActionEvent event) {
         if (txtIdDisciplina.getText().isEmpty() || txtNomeDisciplina.getText().isEmpty()) {
-            txtInfo.setText("Preencha todos os campos.");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Preencha todos os campos.", ButtonType.OK);
+            alert.show();
             return;
         }
-        if (!rb40hrs.isSelected() && !rb80hrs.isSelected()) {
+        if (!rb40Horas.isSelected() && !rb80Horas.isSelected()) {
             txtInfo.setText("Selecione a carga horária.");
             return;
         }
         if (cmbProfessor.getSelectionModel().getSelectedItem() == null) {
-            txtInfo.setText("Selecione um professor.");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Selecione um professor.", ButtonType.OK);
+            alert.show();
             return;
         }
 
-        int cargaHoraria = rb40hrs.isSelected() ? 40 : 80;
+        int cargaHoraria = rb40Horas.isSelected() ? 40 : 80;
 
         MateriaModel novaMateria = new MateriaModel(
                 txtIdDisciplina.getText(),
@@ -171,7 +173,10 @@ public class CoordenadorController {
         );
 
         materiaDAO.salvar(novaMateria);
-        txtInfo.setText("Disciplina cadastrada com sucesso!");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Disciplina cadastrada com sucesso!", ButtonType.OK);
+        alert.show();
+        txtIdDisciplina.clear();
+        txtNomeDisciplina.clear();
     }
 
     private void carregarProfessores() {
@@ -238,25 +243,29 @@ public class CoordenadorController {
         LocalDate dataFinal = dpDataFinalSprint.getValue();
 
         if (dataInicial == null || dataFinal == null) {
-            System.out.println("Erro: Preencha as datas de início e fim da Sprint!");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Erro: Preencha as datas de início e fim da Sprint!", ButtonType.OK);
+            alert.show();
             return;
         }
 
         if (dataInicial.isAfter(dataFinal)) {
-            System.out.println("Erro: A data inicial não pode ser depois da data final!");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Erro: A data inicial não pode ser depois da data final!", ButtonType.OK);
+            alert.show();
             return;
         }
 
         long diasDeSprint = ChronoUnit.DAYS.between(dataInicial, dataFinal);
         if (diasDeSprint > 6) {
-            System.out.println("Erro: O período de Sprint pode ter no máximo 7 dias!");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Erro: O período de Sprint pode ter no máximo 7 dias!", ButtonType.OK);
+            alert.show();
             return;
         }
 
         SemestreService semestreService = new SemestreService();
 
         semestreService.criarSemanaSprint(dataInicial, dataFinal);
-        System.out.println("Período de Sprint adicionado e bloqueado para provas: " + dataInicial + " até " + dataFinal);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Período de Sprint adicionado e bloqueado para provas: " + dataInicial + " até " + dataFinal, ButtonType.OK);
+        alert.show();
 
         dpDataInicialSprint.setValue(null);
         dpDataFinalSprint.setValue(null);
