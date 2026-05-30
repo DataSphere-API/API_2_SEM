@@ -100,7 +100,7 @@
                                                         <DatePicker fx:id="dpDataFinal" maxWidth="1.7976931348623157E308" style="-fx-background-radius: 8; -fx-border-radius: 8;" HBox.hgrow="ALWAYS" />
                                                     </children>
                                                 </HBox>
-                                                <Button fx:id="btAdicionarPeriodo" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AdicionarData" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Adicionar Período Letivo">
+                                                <Button fx:id="btAdicionarPeriodo" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adicionarPeriodo" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Adicionar Período Letivo">
                                                     <font>
                                                         <Font name="System Bold" size="15.0" />
                                                     </font>
@@ -133,7 +133,7 @@
                                           <DatePicker fx:id="dpDataFinalSprint" maxWidth="1.7976931348623157E308" style="-fx-background-radius: 8; -fx-border-radius: 8;" HBox.hgrow="ALWAYS" />
                                        </children>
                                     </HBox>
-                                    <Button fx:id="btAdicionarPeriodoSprint" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AdicionarData" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Adicionar Período Sprint">
+                                    <Button fx:id="btAdicionarPeriodoSprint" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adicionarDataSprint" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Adicionar Período Sprint">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
@@ -185,7 +185,7 @@
                                                         </TextArea>
                                                     </children>
                                                 </VBox>
-                                                <Button fx:id="btAdicionarData" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AdicionarData" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Salvar Data">
+                                                <Button fx:id="btAdicionarData" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adicionarDataFeriado" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Salvar Data">
                                                     <font>
                                                         <Font name="System Bold" size="15.0" />
                                                     </font>

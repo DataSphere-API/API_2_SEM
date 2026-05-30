@@ -29,9 +29,13 @@ public class SemestreService {
         }
     }
 
-    public void criarSemanaSprint() {
-        for (int i = 6; i < 14; i++) {
-            getSemestre().getDiasList().get(i).setDisponivelParaProva(false);
+    public void criarSemanaSprint(LocalDate dataInicial, LocalDate dataFinal) {
+        for (DiaModel dia : getSemestre().getDiasList()) {
+            LocalDate dataAtual = dia.getData();
+
+            if (!dataAtual.isBefore(dataInicial) && !dataAtual.isAfter(dataFinal)) {
+                dia.setDisponivelParaProva(false);
+            }
         }
     }
 }

@@ -14,6 +14,10 @@ import org.datasphere.dao.MateriaDAO;
 import org.datasphere.model.MateriaModel;
 import org.datasphere.model.ProfessorModel;
 import org.datasphere.model.SessaoUsuario;
+import org.datasphere.service.SemestreService;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import java.util.List;
 
@@ -228,8 +232,33 @@ public class CoordenadorController {
     private Button btAdicionarPeriodoSprint;
 
     @FXML
-    void AdicionarDataSprint(ActionEvent event) {
+    void adicionarDataSprint(ActionEvent event) {
 
+        LocalDate dataInicial = dpDataInicialSprint.getValue();
+        LocalDate dataFinal = dpDataFinalSprint.getValue();
+
+        if (dataInicial == null || dataFinal == null) {
+            System.out.println("Erro: Preencha as datas de início e fim da Sprint!");
+            return;
+        }
+
+        if (dataInicial.isAfter(dataFinal)) {
+            System.out.println("Erro: A data inicial não pode ser depois da data final!");
+            return;
+        }
+
+        long diasDeSprint = ChronoUnit.DAYS.between(dataInicial, dataFinal);
+        if (diasDeSprint > 6) {
+            System.out.println("Erro: O período de Sprint pode ter no máximo 7 dias!");
+            return;
+        }
+
+        SemestreService semestreService = new SemestreService();
+
+        semestreService.criarSemanaSprint(dataInicial, dataFinal);
+        System.out.println("Período de Sprint adicionado e bloqueado para provas: " + dataInicial + " até " + dataFinal);
+
+        dpDataInicialSprint.setValue(null);
+        dpDataFinalSprint.setValue(null);
     }
-
 }
