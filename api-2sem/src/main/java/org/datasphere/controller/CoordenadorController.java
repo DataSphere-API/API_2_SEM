@@ -178,7 +178,7 @@ public class CoordenadorController {
     private Button btAdicionarPeriodoSprint;
 
     @FXML
-    void AdicionarDataSprint(ActionEvent event) {
+    void adicionarDataSprint(ActionEvent event) {
 
         LocalDate dataInicial = dpDataInicialSprint.getValue();
         LocalDate dataFinal = dpDataFinalSprint.getValue();
