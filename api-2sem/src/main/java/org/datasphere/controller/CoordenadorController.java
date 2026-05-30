@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import org.datasphere.dao.CadastroDAO;
+import org.datasphere.dao.MateriaDAO;
 import org.datasphere.model.MateriaModel;
 import org.datasphere.model.ProfessorModel;
 import org.datasphere.model.SessaoUsuario;
@@ -123,7 +124,9 @@ public class CoordenadorController {
     @FXML
     private VBox vbNovaLegenda;
 
-    private CadastroDAO cadastroDAO;
+    private CadastroDAO cadastroDAO = new CadastroDAO();
+
+    private MateriaDAO materiaDAO = new MateriaDAO();
 
     public void initialize() {
         carregarProfessores();
