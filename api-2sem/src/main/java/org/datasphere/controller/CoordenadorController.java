@@ -141,12 +141,30 @@ public class CoordenadorController {
 
     @FXML
     void cadastrarDisciplina(ActionEvent event) {
-        if (rb40hrs.isSelected()){
-            MateriaModel novaMateria = new MateriaModel(txtIdDisciplina.getText(), txtTituloDisciplina.getText(), 40, cmbProfessor.getSelectionModel().getSelectedItem().getEmail());
+        if (txtIdDisciplina.getText().isEmpty() || txtNomeDisciplina.getText().isEmpty()) {
+            txtInfo.setText("Preencha todos os campos.");
+            return;
         }
-        if (rb80hrs.isSelected()){
-            MateriaModel novaMateria = new MateriaModel(txtIdDisciplina.getText(), txtTituloDisciplina.getText(), 80, cmbProfessor.getSelectionModel().getSelectedItem().getEmail());
+        if (!rb40hrs.isSelected() && !rb80hrs.isSelected()) {
+            txtInfo.setText("Selecione a carga horária.");
+            return;
         }
+        if (cmbProfessor.getSelectionModel().getSelectedItem() == null) {
+            txtInfo.setText("Selecione um professor.");
+            return;
+        }
+
+        int cargaHoraria = rb40hrs.isSelected() ? 40 : 80;
+
+        MateriaModel novaMateria = new MateriaModel(
+                txtIdDisciplina.getText(),
+                txtNomeDisciplina.getText(),
+                cargaHoraria,
+                cmbProfessor.getSelectionModel().getSelectedItem().getEmail()
+        );
+
+        materiaDAO.salvar(novaMateria);
+        txtInfo.setText("Disciplina cadastrada com sucesso!");
     }
 
     private void carregarProfessores() {
