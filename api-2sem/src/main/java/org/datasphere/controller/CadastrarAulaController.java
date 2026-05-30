@@ -197,7 +197,8 @@ public class CadastrarAulaController {
     @FXML
     private void cadastrarTopico() {
         if (materiaSelecionada == null) {
-            System.out.println("Por favor, selecione uma matéria primeiro!");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Por favor, selecione uma matéria primeiro!", ButtonType.OK);
+            alert.show();
             return;
         }
 
@@ -261,7 +262,8 @@ public class CadastrarAulaController {
 
     private void adicionarTopicoLista() {
         if (materiaSelecionada == null) {
-            System.out.println("Por favor, selecione uma matéria primeiro!");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Por favor, selecione uma matéria primeiro!", ButtonType.OK);
+            alert.show();
             return;
         }
 

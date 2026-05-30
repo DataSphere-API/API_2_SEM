@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.datasphere.model.ProfessorModel;
@@ -55,6 +52,8 @@ public class LoginController {
                 mudarTela(event, "/org/datasphere/cadastro-aula.fxml", "SIGA.ME - Planejamento de Aulas");
             }
         } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Nome de usuário ou senha incorretos, tente novamente!", ButtonType.OK);
+            alert.show();
             txtSenha.clear();
         }
     }
