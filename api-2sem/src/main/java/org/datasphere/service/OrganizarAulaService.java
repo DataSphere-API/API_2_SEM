@@ -151,7 +151,7 @@ public class OrganizarAulaService {
         if (arquivoSelecionado != null) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivoSelecionado))) {
 
-                writer.write("dia_da_semana;horario;data;id_topico");
+                writer.write("DIA DA SEMANA;HORÁRIO;DATA;TÓPICO");
                 writer.newLine();
 
                 for (AulaPlanejada aulaPlanejada : planejamentoAulas ) {
