@@ -13,6 +13,7 @@ import org.datasphere.dao.CadastroDAO;
 import org.datasphere.dao.MateriaDAO;
 import org.datasphere.model.MateriaModel;
 import org.datasphere.model.ProfessorModel;
+import org.datasphere.model.SemestreModel;
 import org.datasphere.model.SessaoUsuario;
 import org.datasphere.service.SemestreService;
 
@@ -132,6 +133,8 @@ public class CoordenadorController {
 
     private MateriaDAO materiaDAO = new MateriaDAO();
 
+    private SemestreService semestreService = new SemestreService();
+
     public void initialize() {
         carregarProfessores();
     }
@@ -143,7 +146,27 @@ public class CoordenadorController {
 
     @FXML
     void adicionarPeriodo(ActionEvent event) {
+        LocalDate dataInicial = dpDataInicial.getValue();
+        LocalDate dataFinal = dpDataFinal.getValue();
 
+        if (dataInicial == null || dataFinal == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Erro: Preencha as datas de início e fim do Semestre!", ButtonType.OK);
+            alert.show();
+            return;
+        }
+
+        if (dataInicial.isAfter(dataFinal)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Erro: A data inicial não pode ser depois da data final!", ButtonType.OK);
+            alert.show();
+            return;
+        }
+
+        SemestreModel novoSemestre = new SemestreModel(dataInicial, dataFinal);
+        semestreService.setSemestre(novoSemestre);
+        semestreService.criarSemestreComDias();
+
+        dpDataInicial.setValue(null);
+        dpDataFinal.setValue(null);
     }
 
     @FXML
@@ -261,7 +284,11 @@ public class CoordenadorController {
             return;
         }
 
-        SemestreService semestreService = new SemestreService();
+        if (semestreService.getSemestre().getDiasList().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Erro: Cadastre o período do Semestre primeiro!", ButtonType.OK);
+            alert.show();
+            return;
+        }
 
         semestreService.criarSemanaSprint(dataInicial, dataFinal);
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Período de Sprint adicionado e bloqueado para provas: " + dataInicial + " até " + dataFinal, ButtonType.OK);

@@ -17,7 +17,7 @@ public class DiaDAO implements IDAO<DiaModel> {
 
     @Override
     public void salvar(DiaModel diaModel){
-        String sql = "INSERT INTO dia (data, disponivel_prova) VALUES (?,?)";
+        String sql = "INSERT INTO dia (data, disponivel_prova) VALUES (?,?) ON CONFLICT (data) DO NOTHING";
         try(Connection conn = ConexaoDB.getConexao()){
 
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -53,6 +53,18 @@ public class DiaDAO implements IDAO<DiaModel> {
             e.printStackTrace();
         }
         return diaModelList;
+    }
+
+    public void atualizarDisponibilidade(DiaModel diaModel) {
+        String sql = "UPDATE dia SET disponivel_prova = ? WHERE data = ?";
+        try (Connection conn = ConexaoDB.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setBoolean(1, diaModel.getDisponivelParaProva());
+            ps.setDate(2, Date.valueOf(diaModel.getData()));
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
