@@ -41,38 +41,4 @@ public class CadastroDAO {
         return professorModelList;
     }
 
-    public void salvarDia(DiaModel dia) {
-        String sql = "INSERT INTO dia (data, disponivel_prova, titulo, descricao) VALUES (?,?,?,?) " +
-                "ON CONFLICT (data) DO UPDATE SET titulo = EXCLUDED.titulo, descricao = EXCLUDED.descricao";
-        try (Connection conn = ConexaoDB.getConexao()) {
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setDate(1, Date.valueOf(dia.getData()));
-            ps.setBoolean(2, dia.isDisponivelParaProva());
-            ps.setString(3, dia.getTitulo());
-            ps.setString(4, dia.getDescricao());
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public List<DiaModel> listarDatas() {
-        String sql = "SELECT data, disponivel_prova, titulo, descricao FROM dia WHERE titulo IS NOT NULL ORDER BY data";
-        List<DiaModel> dias = new ArrayList<>();
-        try (Connection conn = ConexaoDB.getConexao()) {
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                DiaModel dia = new DiaModel();
-                dia.setData(rs.getDate("data").toLocalDate());
-                dia.setDisponivelParaProva(rs.getBoolean("disponivel_prova"));
-                dia.setTitulo(rs.getString("titulo"));
-                dia.setDescricao(rs.getString("descricao"));
-                dias.add(dia);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return dias;
-    }
 }
