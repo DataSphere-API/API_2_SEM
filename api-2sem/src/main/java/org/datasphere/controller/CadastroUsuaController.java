@@ -2,8 +2,18 @@ package org.datasphere.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import org.datasphere.dao.CadastroDAO;
+import org.datasphere.dao.interfaces.IDAO;
+import org.datasphere.model.ProfessorModel;
+
+import java.io.IOException;
 
 
 public class CadastroUsuaController {
@@ -53,6 +63,23 @@ public class CadastroUsuaController {
 
     @FXML
     void cadastrarUsua(ActionEvent event) {
+        ProfessorModel professorCadastrado = new ProfessorModel();
+
+        if (!txtSenha.getText().equals(txtConfirmarSenha.getText())){
+            new Alert(Alert.AlertType.ERROR, "As senhas não são iguais", ButtonType.OK).show();
+            txtSenha.clear();
+            txtConfirmarSenha.clear();
+        }
+        if (txtSenha.getText().equals(txtConfirmarSenha.getText())){
+            professorCadastrado.setNome(txtNome.getText());
+            professorCadastrado.setEmail(txtEmail.getText());
+            professorCadastrado.setSenha(txtSenha.getText());
+
+            cadastroDAO.cadastrar(professorCadastrado);
+            new Alert(Alert.AlertType.CONFIRMATION, "Cadastro concluído com sucesso", ButtonType.OK).show();
+
+            mudarTela(event,"/org/datasphere/login.fxml", "SIGA.ME");
+        }
 
     }
 
