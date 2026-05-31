@@ -8,6 +8,10 @@ public class DiaModel {
     private boolean disponivelParaProva;
     private String titulo;
     private String descricao;
+    private boolean letivo = true;
+
+    public boolean isLetivo() { return letivo; }
+    public void setLetivo(boolean letivo) { this.letivo = letivo; }
 
     public DiaModel() {}
 
