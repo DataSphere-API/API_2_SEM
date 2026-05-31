@@ -5,13 +5,19 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.datasphere.dao.CadastroDAO;
+import org.datasphere.dao.DiaDAO;
 import org.datasphere.dao.MateriaDAO;
 import org.datasphere.model.DiaModel;
 import org.datasphere.model.MateriaModel;
@@ -20,9 +26,11 @@ import org.datasphere.model.SemestreModel;
 import org.datasphere.model.SessaoUsuario;
 import org.datasphere.service.SemestreService;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoordenadorController {
@@ -81,6 +89,7 @@ public class CoordenadorController {
 
     private CadastroDAO cadastroDAO = new CadastroDAO();
     private MateriaDAO materiaDAO = new MateriaDAO();
+    private DiaDAO diaDAO = new DiaDAO();
 
     private ObservableList<DiaModel> obsDatas = FXCollections.observableArrayList();
     private ObservableList<MateriaModel> obsDisciplinas = FXCollections.observableArrayList();
@@ -172,7 +181,8 @@ public class CoordenadorController {
         }
 
         DiaModel dia = new DiaModel(data, false, titulo, descricao);
-        cadastroDAO.salvarDia(dia);
+        dia.setLetivo(false);
+        diaDAO.salvarOuAtualizar(dia);
 
         dpFeriados.setValue(null);
         txtTituloData.clear();
