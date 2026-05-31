@@ -150,7 +150,7 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
       <td align="center"> <a href="/Documentos/Sprint3/"> Sprint 3 </a> </td>
       <td align="center"> 11/05 a 31/05 </td>
       <td align="center"> ✅ </td>
-      <td> <a href=""> 3° ENTREGA </td>
+      <td> <a href="https://youtu.be/05vuANx6WSo?si=gOC2c2OXcDMp_cj8"> 3° ENTREGA </td>
     </tr>
   </table>
 </div>
