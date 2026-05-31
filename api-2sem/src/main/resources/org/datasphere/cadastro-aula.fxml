@@ -355,6 +355,11 @@
                               <Button fx:id="btnGerarPlanejamento" mnemonicParsing="false" onAction="#gerarPlanejamentoPlanilha" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Gerar Planejamento">
                                  <font><Font size="18.0" /></font>
                               </Button>
+                              <Button fx:id="btnCompletarPlan" mnemonicParsing="false" onAction="#completarHoras" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Completar Horas">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
                               <Button fx:id="btBaixar" mnemonicParsing="false" onAction="#baixarArquivo" prefHeight="45.0" prefWidth="50.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="📥">
                                  <font><Font size="18.0" /></font>
                               </Button>
