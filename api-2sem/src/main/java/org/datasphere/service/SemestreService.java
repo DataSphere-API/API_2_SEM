@@ -1,6 +1,5 @@
 package org.datasphere.service;
 
-import org.datasphere.dao.DiaDAO;
 import org.datasphere.dao.interfaces.IDAO;
 import org.datasphere.model.*;
 import org.datasphere.dao.AulaPlanejadaDAO;
@@ -12,31 +11,27 @@ import java.util.List;
 
 public class SemestreService {
 
-    private SemestreModel semestre;
+    private SemestreModel semestre = new SemestreModel(LocalDate.now(), LocalDate.now().plusMonths(6));
 
-    public SemestreModel getSemestre() { return semestre; }
-    public void setSemestre(SemestreModel semestre) { this.semestre = semestre; }
+    public void setSemestre(SemestreModel semestre) {
+        this.semestre = semestre;
+    }
 
-    private DiaDAO diaDAO = new DiaDAO();
+    public SemestreModel getSemestre() {
+        return semestre;
+    }
 
-    public void criarSemestreComDias() {
-        for (LocalDate dia = semestre.getDiaInicio(); !dia.isAfter(semestre.getDiaFim()); dia = dia.plusDays(1)) {
-            if (!dia.getDayOfWeek().equals(DayOfWeek.SATURDAY) && !dia.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
-                DiaModel novoDia = new DiaModel(dia, true);
-                semestre.adicionarDias(novoDia);
-                diaDAO.salvar(novoDia);
+    public void criarSemestreComDias(){
+        for (LocalDate dia = semestre.getDiaInicio(); !dia.isAfter(semestre.getDiaFim()); dia = dia.plusDays(1)){
+            if (!dia.getDayOfWeek().equals(DayOfWeek.SATURDAY) && !dia.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
+                semestre.adicionarDias(new DiaModel(LocalDate.of(dia.getYear(),dia.getMonth(),dia.getDayOfMonth()), true));
             }
         }
     }
 
-    public void criarSemanaSprint(LocalDate dataInicial, LocalDate dataFinal) {
-        for (DiaModel dia : semestre.getDiasList()) {
-            LocalDate dataAtual = dia.getData();
-            if (!dataAtual.isBefore(dataInicial) && !dataAtual.isAfter(dataFinal)) {
-                dia.setDisponivelParaProva(false);
-                diaDAO.atualizarDisponibilidade(dia.getData());
-            }
+    public void criarSemanaSprint() {
+        for (int i = 6; i < 14; i++) {
+            getSemestre().getDiasList().get(i).setDisponivelParaProva(false);
         }
     }
-
 }

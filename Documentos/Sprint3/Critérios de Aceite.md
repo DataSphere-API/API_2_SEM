@@ -48,27 +48,22 @@
 
 <br>
 
-#### Como professor, quero poder exportar o planejamento como CSV, para que eu tenha uma visão geral clara de todas as aulas, avaliações e eventos do semestre.
+#### Como professor, quero visualizar o planejamento em formato de calendário mensal, para que eu tenha uma visão temporal clara de todas as aulas, avaliações e eventos do semestre.
 
 <table>
     <tr>
     <td>
-        Considerando que o professor gerou o planejamento, o sistema deve disponibilizar um botão de exportação que, ao ser clicado, abre o seletor de arquivo para que o professor escolha onde salvar o CSV.
+        Considerando que o professor acessa a visualização do planejamento, o sistema deve exibir um calendário mensal contendo todas as aulas, avaliações e eventos agendados no semestre, diferenciados visualmente por tipo.
     </td>
     </tr>
     <tr>
     <td>
-        Considerando que o professor confirma o local de salvamento, o sistema deve gerar um arquivo CSV contendo as colunas: DIA DA SEMANA, HORÁRIO, DATA e TÓPICO, com uma linha para cada aula planejada em ordem cronológica.
+        Considerando que o professor navega entre os meses do semestre no calendário, o sistema deve atualizar a exibição mostrando corretamente os eventos correspondentes ao mês selecionado.
     </td>
     </tr>
     <tr>
     <td>
-        Considerando que o planejamento contém aulas de FECHAMENTO geradas automaticamente, o sistema deve incluí-las no CSV normalmente, identificadas com o título "FECHAMENTO".
-    </td>
-    </tr>
-    <tr>
-    <td>
-        Considerando que o professor tenta exportar sem ter gerado o planejamento, o sistema deve exportar apenas as aulas que estiverem visíveis na tabela no momento do clique, sem gerar erros.
+        Considerando que o professor seleciona um dia específico no calendário, o sistema deve exibir os detalhes do evento ou aula correspondente àquela data, como título do tópico, tipo de atividade e duração.
     </td>
     </tr>
 </table>

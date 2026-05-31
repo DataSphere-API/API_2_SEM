@@ -21,6 +21,9 @@ feature/[nome da task] -> branch para desenvolvimento de uma nova funcionalidade
 fix -> branch para correção de bugs e problemas encontrados no código.
 ```
 ```
+refactor -> branch para reestruturar o código interno sem alterar seu comportamento funcional.
+```
+```
 refactor -> branch para aprimorar a estrutura interna do código existente, sem alterar seu comportamento funcional.
 ```
 

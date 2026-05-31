@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<<<<<<< HEAD
-<AnchorPane prefHeight="750.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastroUsuaController">
-=======
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CadastroUsuaController">
->>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
     <children>
 
           <VBox alignment="TOP_CENTER" layoutX="300.0" layoutY="39.0" maxWidth="1.7976931348623157E308" prefHeight="663.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 5);">
@@ -93,61 +80,6 @@
                               </VBox>
                                     </children>
                                 </VBox>
-<<<<<<< HEAD
-
-                                <VBox spacing="6.0">
-                                    <children>
-                                        <Label text="Confirmar Senha" textFill="#374151">
-                                            <font>
-                                                <Font name="System Bold" size="13.0" />
-                                            </font>
-                                        </Label>
-                                        <PasswordField fx:id="txtConfirmarSenha" promptText="••••••••" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </PasswordField>
-                                    </children>
-                                </VBox>
-
-                                <Button fx:id="btCadastroUsua" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cadastrarUsua" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Cadastrar Usuário">
-                                    <font>
-                                        <Font name="System Bold" size="16.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-
-                                <HBox alignment="CENTER" spacing="10.0">
-                                    <children>
-                                        <Separator HBox.hgrow="ALWAYS" />
-                                        <Text fill="#9CA3AF" strokeType="OUTSIDE" strokeWidth="0.0" text="ou">
-                                            <font>
-                                                <Font size="12.0" />
-                                            </font>
-                                        </Text>
-                                        <Separator HBox.hgrow="ALWAYS" />
-                                    </children>
-                                </HBox>
-
-                                <HBox alignment="CENTER" spacing="5.0">
-                                    <children>
-                                        <Hyperlink fx:id="linkLogin" onAction="#voltarLogin" text="Entrar" textFill="#2E5FBD">
-                                            <font>
-                                                <Font name="System Bold" size="13.0" />
-                                            </font>
-                                        </Hyperlink>
-                                    </children>
-                                </HBox>
-
-                            </children>
-                        </VBox>
-                    </children>
-                </VBox>
-            </children>
-        </VBox>
-=======
                               </children>
                           </VBox>
                           <HBox alignment="CENTER_LEFT" spacing="10.0">
@@ -184,6 +116,5 @@
                   </VBox>
               </children>
           </VBox>
->>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
     </children>
 </AnchorPane>
