@@ -165,7 +165,7 @@ public class CadastrarAulaController {
         this.materiaSelecionada = materia;
         this.cargaHorariaMateria = materia.getCargaHoraria();
 
-        lbContadorCargaHoraria.setText(cargaHorariaMateria + "h");
+        lbContadorCargaHoraria.setText(String.valueOf(cargaHorariaMateria));
 
         obsListTopicos.clear();
         carregarAulasPlanejadas(materia.getSigla());
@@ -179,8 +179,8 @@ public class CadastrarAulaController {
         int horasAgendadas = aulas.size();
         int horasFaltantes = Math.max(0, cargaHorariaMateria - horasAgendadas);
 
-        lbContadorHorasPlanejadas.setText(horasAgendadas + "h");
-        lbContadorHorasFaltantes.setText(horasFaltantes + "h");
+        lbContadorHorasPlanejadas.setText(horasAgendadas + "");
+        lbContadorHorasFaltantes.setText(horasFaltantes + "");
     }
 
     private void configurarTabelaTopicos() {
@@ -248,12 +248,6 @@ public class CadastrarAulaController {
         }
     }
 
-    public void criarSemanaSprint() {
-        for (int i = 6; i < 14; i++) {
-            semestreService.getSemestre().getDiasList().get(i).setDisponivelParaProva(false);
-        }
-    }
-
     public List<AulaModel> lerDiaHorarioAula() {
         List<AulaModel> diasDeAula = new LinkedList<>();
         List<LocalTime> tempos = List.of(
@@ -296,8 +290,8 @@ public class CadastrarAulaController {
         int horasAgendadas = aulasPlanejadas.size();
         int horasFaltantes = Math.max(0, cargaHorariaMateria - horasAgendadas);
 
-        lbContadorHorasPlanejadas.setText(horasAgendadas + "h");
-        lbContadorHorasFaltantes.setText(horasFaltantes + "h");
+        lbContadorHorasPlanejadas.setText(horasAgendadas + "");
+        lbContadorHorasFaltantes.setText(horasFaltantes + "");
     }
 
     @FXML
@@ -325,6 +319,7 @@ public class CadastrarAulaController {
             Stage loginStage = new Stage();
             loginStage.setTitle("DataSphere - Login");
             loginStage.setScene(new Scene(root));
+            loginStage.setMaximized(true);
             loginStage.show();
         } catch (IOException e) {
             e.printStackTrace();
