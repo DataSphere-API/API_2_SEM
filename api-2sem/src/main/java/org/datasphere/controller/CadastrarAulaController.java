@@ -325,4 +325,32 @@ public class CadastrarAulaController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void completarHoras(ActionEvent event) {
+        if (materiaSelecionada == null) {
+            new Alert(Alert.AlertType.WARNING, "Selecione uma matéria primeiro!", ButtonType.OK).show();
+            return;
+        }
+        if (obsListAulasPlanejadas.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Gere o planejamento primeiro!", ButtonType.OK).show();
+            return;
+        }
+
+        List<AulaPlanejada> novas = organizarAulaService.completarHoras(
+                obsListAulasPlanejadas,
+                lerDiaHorarioAula(),
+                semestreService.getSemestre(),
+                cargaHorariaMateria
+        );
+
+        obsListAulasPlanejadas.addAll(novas);
+
+        int horasAgendadas = obsListAulasPlanejadas.size();
+        int horasFaltantes = Math.max(0, cargaHorariaMateria - horasAgendadas);
+
+        lbContadorHorasPlanejadas.setText(horasAgendadas + "");
+        lbContadorHorasFaltantes.setText(horasFaltantes + "");
+    }
+
 }
