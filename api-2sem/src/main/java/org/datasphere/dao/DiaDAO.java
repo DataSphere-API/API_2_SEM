@@ -16,38 +16,34 @@ import java.util.Locale;
 public class DiaDAO implements IDAO<DiaModel> {
 
     @Override
-    public void salvar(DiaModel diaModel){
-        String sql = "INSERT INTO dia (data, disponivel_prova) VALUES (?,?) ON CONFLICT (data) DO NOTHING";
-        try(Connection conn = ConexaoDB.getConexao()){
-
-            PreparedStatement ps = conn.prepareStatement(sql);
-
+    public void salvar(DiaModel diaModel) {
+        String sql = "INSERT INTO dia (data, disponivel_prova, letivo) VALUES (?,?,?) ON CONFLICT (data) DO NOTHING";
+        try (Connection conn = ConexaoDB.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setDate(1, Date.valueOf(diaModel.getData()));
             ps.setBoolean(2, diaModel.getDisponivelParaProva());
-
+            ps.setBoolean(3, diaModel.isLetivo());
             ps.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public List<DiaModel> listar(){
-        String sql = "SELECT * FROM dia";
+    public List<DiaModel> listar() {
+        String sql = "SELECT * FROM dia ORDER BY data";
         List<DiaModel> diaModelList = new ArrayList<>();
-        try(Connection conn = ConexaoDB.getConexao()){
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next()){
+        try (Connection conn = ConexaoDB.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
                 DiaModel diaModel = new DiaModel();
-
                 diaModel.setData(rs.getDate("data").toLocalDate());
+                diaModel.setTitulo(rs.getString("titulo"));
+                diaModel.setDescricao(rs.getString("descricao"));
                 diaModel.setDisponivelParaProva(rs.getBoolean("disponivel_prova"));
-
+                diaModel.setLetivo(rs.getBoolean("letivo"));
                 diaModelList.add(diaModel);
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -80,8 +76,8 @@ public class DiaDAO implements IDAO<DiaModel> {
         String sql = "UPDATE dia SET disponivel_prova = ? WHERE data = ?";
         try (Connection conn = ConexaoDB.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setBoolean(1, diaModel.getDisponivelParaProva());
-            ps.setDate(2, Date.valueOf(diaModel.getData()));
+            ps.setBoolean(1, false);
+            ps.setDate(2, Date.valueOf(data));
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
