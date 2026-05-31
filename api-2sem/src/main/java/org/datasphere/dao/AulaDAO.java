@@ -17,7 +17,7 @@ public class AulaDAO implements IDAO<AulaModel> {
 
     @Override
     public void salvar(AulaModel aulaModel){
-        String sql = "INSERT INTO aula (dia_da_semana, horario) VALUES (?,?)";
+        String sql = "INSERT INTO aula (dia_da_semana, horario) VALUES (?,?) ON CONFLICT DO NOTHING";
         try(Connection conn = ConexaoDB.getConexao()){
 
             PreparedStatement ps = conn.prepareStatement(sql);
