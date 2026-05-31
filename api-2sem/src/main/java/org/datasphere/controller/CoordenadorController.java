@@ -189,8 +189,8 @@ public class CoordenadorController {
         }
 
         SemestreService semestreService = new SemestreService();
-        semestreService.getSemestre().setDiaInicio(dataInicial);
-        semestreService.getSemestre().setDiaFim(dataFinal);
+        SemestreModel novoSemestre = new SemestreModel(dataInicial, dataFinal);
+        semestreService.setSemestre(novoSemestre);
         semestreService.criarSemestreComDias();
 
         dpDataInicial.setValue(null);
@@ -221,7 +221,6 @@ public class CoordenadorController {
             cadastroDAO.salvarDia(dia);
         }
 
-        new SemestreService().criarSemanaSprint(dataInicial, dataFinal);
         dpDataInicialSprint.setValue(null);
         dpDataFinalSprint.setValue(null);
         carregarDatas();
