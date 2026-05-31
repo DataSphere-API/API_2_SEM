@@ -55,7 +55,28 @@ public class DiaDAO implements IDAO<DiaModel> {
         return diaModelList;
     }
 
-    public void atualizarDisponibilidade(DiaModel diaModel) {
+    public void salvarOuAtualizar(DiaModel diaModel) {
+        String sql = "INSERT INTO dia (data, disponivel_prova, titulo, descricao, letivo) " +
+                "VALUES (?, ?, ?, ?, ?) " +
+                "ON CONFLICT (data) DO UPDATE SET " +
+                "disponivel_prova = EXCLUDED.disponivel_prova, " +
+                "titulo = EXCLUDED.titulo, " +
+                "descricao = EXCLUDED.descricao, " +
+                "letivo = EXCLUDED.letivo";
+        try (Connection conn = ConexaoDB.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setDate(1, Date.valueOf(diaModel.getData()));
+            ps.setBoolean(2, diaModel.getDisponivelParaProva());
+            ps.setString(3, diaModel.getTitulo());
+            ps.setString(4, diaModel.getDescricao());
+            ps.setBoolean(5, diaModel.isLetivo());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void atualizarDisponibilidade(LocalDate data) {
         String sql = "UPDATE dia SET disponivel_prova = ? WHERE data = ?";
         try (Connection conn = ConexaoDB.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql)) {
