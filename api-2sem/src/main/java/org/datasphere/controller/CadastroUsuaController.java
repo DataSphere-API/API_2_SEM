@@ -29,9 +29,26 @@ public class CadastroUsuaController {
     @FXML
     private PasswordField txtSenha;
 
-    @FXML
-    void Login(ActionEvent event) {
+    private CadastroDAO cadastroDAO = new CadastroDAO();
 
+    @FXML
+    void voltarLogin(ActionEvent event) {
+        mudarTela(event,"/org/datasphere/login.fxml", "SIGA.ME");
+    }
+
+    private void mudarTela(ActionEvent event, String caminhoFxml, String titulo) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(caminhoFxml));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle(titulo);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
