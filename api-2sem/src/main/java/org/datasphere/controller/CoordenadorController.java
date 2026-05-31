@@ -230,13 +230,15 @@ public class CoordenadorController {
             return;
         }
         if (ChronoUnit.DAYS.between(dataInicial, dataFinal) > 6) {
-            new Alert(Alert.AlertType.WARNING, "O período de Sprint pode ter no máximo 7 dias.", ButtonType.OK).show();
+            new Alert(Alert.AlertType.WARNING, "A 3° Semana de Sprint pode ter no máximo 7 dias.", ButtonType.OK).show();
             return;
         }
 
         for (LocalDate d = dataInicial; !d.isAfter(dataFinal); d = d.plusDays(1)) {
-            DiaModel dia = new DiaModel(d, false, "Período de Sprint", dataInicial.format(fmt) + " a " + dataFinal.format(fmt));
-            cadastroDAO.salvarDia(dia);
+            DiaModel dia = new DiaModel(d, false, "Período de Sprint",
+                    dataInicial.format(fmt) + " a " + dataFinal.format(fmt));
+            dia.setLetivo(true);
+            diaDAO.salvarOuAtualizar(dia);
         }
 
         dpDataInicialSprint.setValue(null);
