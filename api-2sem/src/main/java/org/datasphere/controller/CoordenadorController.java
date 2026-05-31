@@ -125,8 +125,16 @@ public class CoordenadorController {
     }
 
     private void carregarDatas() {
-        List<DiaModel> dias = cadastroDAO.listarDatas();
-        obsDatas.setAll(dias);
+        List<DiaModel> dias = diaDAO.listar();
+        List<DiaModel> diasComTitulo = new ArrayList<>();
+
+        for(DiaModel dia: dias){
+            if (dia.getTitulo() != null){
+                diasComTitulo.add(dia);
+            }
+        }
+
+        obsDatas.setAll(diasComTitulo);
         atualizarContadorDatas();
     }
 
