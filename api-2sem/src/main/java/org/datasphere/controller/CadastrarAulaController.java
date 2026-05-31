@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.datasphere.dao.AulaPlanejadaDAO;
+import org.datasphere.dao.DiaDAO;
 import org.datasphere.dao.MateriaDAO;
 import org.datasphere.dao.TopicoDAO;
 import org.datasphere.dao.interfaces.IDAO;
@@ -70,6 +71,7 @@ public class CadastrarAulaController {
     private AulaService aulaService = new AulaService();
     private SemestreService semestreService = new SemestreService();
     private OrganizarAulaService organizarAulaService = new OrganizarAulaService();
+    private DiaDAO diaDAO = new DiaDAO();
 
     private MateriaModel materiaSelecionada;
 
@@ -96,8 +98,26 @@ public class CadastrarAulaController {
             carregarMateriasProfessor(profLogado.getEmail());
         }
 
-        semestreService.criarSemestreComDias();
-        criarSemanaSprint();
+        List<DiaModel> diasExistentes = diaDAO.listar();
+
+        if (!diasExistentes.isEmpty()) {
+            List<DiaModel> diasLetivos = diasExistentes.stream()
+                    .filter(d -> d.getTitulo() == null
+                            || d.getTitulo().isBlank()
+                            || d.getTitulo().equals("Período de Sprint"))
+                    .collect(java.util.stream.Collectors.toList());
+
+            if (!diasLetivos.isEmpty()) {
+                SemestreModel semestreExistente = new SemestreModel(
+                        diasLetivos.get(0).getData(),
+                        diasLetivos.get(diasLetivos.size() - 1).getData()
+                );
+                diasLetivos.forEach(semestreExistente::adicionarDias);
+                semestreService.setSemestre(semestreExistente);
+            }
+        } else {
+            new Alert(Alert.AlertType.WARNING, "O período letivo não foi configurado pelo coordenador ainda", ButtonType.OK).show();
+        }
 
         chkProva.selectedProperty().addListener((observable, oldValue, newValue) -> {
             spnrMinAulas.setDisable(newValue);
