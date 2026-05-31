@@ -60,7 +60,7 @@ public class LoginController {
 
     @FXML
     private void criarConta(ActionEvent event) {
-
+        mudarTela(event,"/org/datasphere/cadastroUsua.fxml", "SIGA.ME - Cadastro");
     }
 
 
@@ -72,6 +72,7 @@ public class LoginController {
 
             stage.setScene(new Scene(root));
             stage.setTitle(titulo);
+            stage.setMaximized(true);
             stage.show();
 
         } catch (IOException e) {
