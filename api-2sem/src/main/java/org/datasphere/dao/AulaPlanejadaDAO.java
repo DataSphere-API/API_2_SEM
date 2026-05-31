@@ -35,6 +35,7 @@ public class AulaPlanejadaDAO implements IDAO<AulaPlanejada> {
     }
 
     @Override
+<<<<<<< HEAD
     public List<AulaPlanejada> listar() {
         String sql = "SELECT ap.dia_da_semana, ap.horario, ap.data, " +
                 "t.id, t.titulo, t.aulas_minimas, t.aulas_maximas, t.prova " +
@@ -55,6 +56,10 @@ public class AulaPlanejadaDAO implements IDAO<AulaPlanejada> {
     }
 
     private List<AulaPlanejada> executarConsulta(String sql, String parametro) {
+=======
+    public List<AulaPlanejada> listar(){
+        String sql = "SELECT * FROM aulaPlanejada ORDER BY data";
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
         List<AulaPlanejada> aulaPlanejadaList = new ArrayList<>();
         try (Connection conn = ConexaoDB.getConexao()) {
             PreparedStatement ps = conn.prepareStatement(sql);

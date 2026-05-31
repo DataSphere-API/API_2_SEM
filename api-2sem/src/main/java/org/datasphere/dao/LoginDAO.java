@@ -12,7 +12,8 @@ import java.sql.SQLException;
 public class LoginDAO {
 
     public ProfessorModel checarLogin(String email, String senha) {
-        String sql = "SELECT nome, email, coordenador FROM professor WHERE EMAIL = ? AND SENHA = ?";
+        String sql = "SELECT nome, email FROM professor WHERE EMAIL = ? AND SENHA = ?";
+
         ProfessorModel professorLogado = null;
 
         try (Connection conn = ConexaoDB.getConexao()) {
@@ -26,7 +27,6 @@ public class LoginDAO {
 
                 professorLogado.setNome(rs.getString("nome"));
                 professorLogado.setEmail(rs.getString("email"));
-                professorLogado.setCoordenador(rs.getBoolean("coordenador"));
             }
 
         } catch (SQLException e) {

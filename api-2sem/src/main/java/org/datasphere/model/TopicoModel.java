@@ -4,20 +4,16 @@ public class TopicoModel {
 
     private Long id;
     private String titulo;
-    private int aulasMinimas;
-    private int aulasMaximas;
-    private boolean prova;
-    private String siglaMateria;
+    private Integer aulasNecessarias;
+    private Boolean prova;
 
     public TopicoModel() {
     }
 
-    public TopicoModel(String titulo, int aulasMinimas, int aulasMaximas, boolean prova, String siglaMateria) {
+    public TopicoModel(String titulo, Integer aulasNecessarias, Boolean prova) {
         this.titulo = titulo;
-        this.aulasMinimas = aulasMinimas;
-        this.aulasMaximas = aulasMaximas;
+        this.aulasNecessarias = aulasNecessarias;
         this.prova = prova;
-        this.siglaMateria = siglaMateria;
     }
 
     public Long getId() {
@@ -36,35 +32,19 @@ public class TopicoModel {
         this.titulo = titulo;
     }
 
-    public int getAulasMinimas() {
-        return aulasMinimas;
+    public Integer getAulasNecessarias() {
+        return aulasNecessarias;
     }
 
-    public void setAulasMinimas(int aulasMinimas) {
-        this.aulasMinimas = aulasMinimas;
+    public void setAulasNecessarias(Integer aulasNecessarias) {
+        this.aulasNecessarias = aulasNecessarias;
     }
 
-    public int getAulasMaximas() {
-        return aulasMaximas;
-    }
-
-    public void setAulasMaximas(int aulasMaximas) {
-        this.aulasMaximas = aulasMaximas;
-    }
-
-    public boolean isProva() {
+    public Boolean getProva() {
         return prova;
     }
 
-    public void setProva(boolean prova) {
+    public void setProva(Boolean prova) {
         this.prova = prova;
-    }
-
-    public String getSiglaMateria() {
-        return siglaMateria;
-    }
-
-    public void setSiglaMateria(String siglaMateria) {
-        this.siglaMateria = siglaMateria;
     }
 }

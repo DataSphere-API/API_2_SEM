@@ -31,35 +31,56 @@ import java.util.*;
 
 public class CadastrarAulaController {
 
-    @FXML private TableColumn<TopicoModel, String> clnTopico;
-    @FXML private TableColumn<TopicoModel, String> clnAulasTopico;
+    @FXML
+    private TableColumn<TopicoModel, Long> clnIdTopico;
 
-    @FXML private CheckBox chkProva;
-    @FXML private Spinner<Integer> spnrMinAulas;
-    @FXML private Spinner<Integer> spnrMaxAulas;
+    @FXML
+    private CheckBox chkProva;
 
-    @FXML private ComboBox<MateriaModel> cmbSelecionarMateria;
+    @FXML
+    private TableColumn<TopicoModel, String> clnTopico;
 
-    @FXML private Label lbNomeUsuario;
-    @FXML private Label lbContadorCargaHoraria;
-    @FXML private Label lbContadorHorasPlanejadas;
-    @FXML private Label lbContadorHorasFaltantes;
+    @FXML
+    private TableColumn<TopicoModel, Integer> clnAulasTopico;
 
-    @FXML private TableView<TopicoModel> tblTopicoAdicionado;
-    @FXML private TextField txtFldTituloTopico;
+    @FXML
+    private Spinner<Integer> spnrQtdAulasTopico;
 
-    @FXML private Button btExcluir;
+    @FXML
+    private TableView<TopicoModel> tblTopicoAdicionado;
 
-    @FXML private CheckBox chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205;
-    @FXML private CheckBox chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205;
-    @FXML private CheckBox chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205;
-    @FXML private CheckBox chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205;
-    @FXML private CheckBox chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205;
+    @FXML
+    private TextField txtFldTituloTopico;
 
-    @FXML private TableColumn<AulaPlanejada, String> clnAulasPlanejamento;
-    @FXML private TableColumn<AulaPlanejada, String> clnDataPlanejamento;
-    @FXML private TableColumn<AulaPlanejada, String> clnTopicoPlanejamento;
-    @FXML private TableView<AulaPlanejada> tblPlanejamentoAulas;
+    @FXML
+    private CheckBox chkSegunda, chkTerca, chkQuarta, chkQuinta, chkSexta;
+
+    @FXML
+    private CheckBox chkSeg1845, chkSeg1935, chkSeg2025, chkSeg2115, chkSeg2205;
+
+    @FXML
+    private CheckBox chkTer1845, chkTer1935, chkTer2025, chkTer2115, chkTer2205;
+
+    @FXML
+    private CheckBox chkQua1845, chkQua1935, chkQua2025, chkQua2115, chkQua2205;
+
+    @FXML
+    private CheckBox chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205;
+
+    @FXML
+    private CheckBox chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205;
+
+    @FXML
+    private TableColumn<AulaPlanejada, String> clnAulasPlanejamento;
+
+    @FXML
+    private TableColumn<AulaPlanejada, String> clnDataPlanejamento;
+
+    @FXML
+    private TableColumn<AulaPlanejada, String> clnTopicoPlanejamento;
+
+    @FXML
+    private TableView<AulaPlanejada> tblPlanejamentoAulas;
 
     private ObservableList<TopicoModel> obsListTopicos;
     private ObservableList<AulaPlanejada> obsListAulasPlanejadas;
@@ -68,16 +89,17 @@ public class CadastrarAulaController {
     private IDAO<TopicoModel> topicoDAO = new TopicoDAO();
     private MateriaDAO materiaDAO = new MateriaDAO();
     private TopicoService topicoService = new TopicoService();
+
     private AulaService aulaService = new AulaService();
+
     private SemestreService semestreService = new SemestreService();
+
     private OrganizarAulaService organizarAulaService = new OrganizarAulaService();
     private DiaDAO diaDAO = new DiaDAO();
 
     private MateriaModel materiaSelecionada;
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-    private int cargaHorariaMateria = 0;
 
     public void initialize() {
         spnrMinAulas.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1));
@@ -184,6 +206,10 @@ public class CadastrarAulaController {
     }
 
     private void configurarTabelaTopicos() {
+        clnIdTopico.setCellValueFactory(cellData ->
+                new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getId())
+        );
+
         clnTopico.setCellValueFactory(cellData ->
                 new javafx.beans.property.SimpleStringProperty(cellData.getValue().getTitulo())
         );
@@ -250,6 +276,7 @@ public class CadastrarAulaController {
 
     public List<AulaModel> lerDiaHorarioAula() {
         List<AulaModel> diasDeAula = new LinkedList<>();
+
         List<LocalTime> tempos = List.of(
                 LocalTime.of(18, 45), LocalTime.of(19, 35), LocalTime.of(20, 25),
                 LocalTime.of(21, 15), LocalTime.of(22, 5), LocalTime.of(23, 5));
@@ -261,17 +288,22 @@ public class CadastrarAulaController {
         horariosPorDia.put(DayOfWeek.THURSDAY,  List.of(chkQui1845, chkQui1935, chkQui2025, chkQui2115, chkQui2205));
         horariosPorDia.put(DayOfWeek.FRIDAY,    List.of(chkSex1845, chkSex1935, chkSex2025, chkSex2115, chkSex2205));
 
-        for (Map.Entry<DayOfWeek, List<CheckBox>> entrada : horariosPorDia.entrySet()) {
-            DayOfWeek diaDaSemana = entrada.getKey();
-            List<CheckBox> horarios = entrada.getValue();
+        for (Map.Entry<CheckBox, DayOfWeek> entrada : diasDaSemana.entrySet()) {
+            CheckBox chkDia = entrada.getKey();
+            DayOfWeek diaDaSemana = entrada.getValue();
 
+            if (!chkDia.isSelected()) continue;
+
+            List<CheckBox> horarios = horariosDosDias.get(chkDia);
             for (int i = 0; i < horarios.size(); i++) {
                 if (horarios.get(i).isSelected()) {
                     diasDeAula.add(new AulaModel(diaDaSemana, tempos.get(i), tempos.get(i + 1)));
                 }
             }
         }
+
         aulaService.salvarAulas(diasDeAula);
+
         return diasDeAula;
     }
 
