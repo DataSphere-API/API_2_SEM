@@ -292,13 +292,22 @@ public class CoordenadorController {
     @FXML
     void handleLogout(ActionEvent event) {
         SessaoUsuario.getSessao().limparSessao();
+        try {
+            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageAtual.close();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/datasphere/login.fxml"));
+            Parent root = loader.load();
+
+            Stage loginStage = new Stage();
+            loginStage.setTitle("DataSphere - Login");
+            loginStage.setScene(new Scene(root));
+            loginStage.setMaximized(true);
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-    @FXML
-    void handleCancelarNovaLegenda(ActionEvent event) {}
-
-    @FXML
-    void handleSalvarNovaLegenda(ActionEvent event) {}
 
     private void carregarProfessores() {
         List<ProfessorModel> professores = cadastroDAO.listarProfessores();
