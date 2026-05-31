@@ -112,7 +112,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </padding>
                                  <children>
-                                    <Text fill="#2e5fbd" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Período Sprint">
+                                    <Text fill="#2e5fbd" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar 3° Semana de Sprint">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -133,7 +133,7 @@
                                           <DatePicker fx:id="dpDataFinalSprint" maxWidth="1.7976931348623157E308" style="-fx-background-radius: 8; -fx-border-radius: 8;" HBox.hgrow="ALWAYS" />
                                        </children>
                                     </HBox>
-                                    <Button fx:id="btAdicionarPeriodoSprint" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adicionarDataSprint" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Adicionar Período Sprint">
+                                    <Button fx:id="btAdicionarPeriodoSprint" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adicionarDataSprint" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Adicionar 3° Semana de Sprint">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
@@ -168,7 +168,7 @@
                                                                 <Font name="System Bold" size="13.0" />
                                                             </font>
                                                         </Label>
-                                                        <TextField fx:id="txtTituloData" promptText="Feriado, Sprint, Recesso... " style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8;" />
+                                                        <TextField fx:id="txtTituloData" promptText="Feriado, Recesso, Emenda" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8;" />
                                                     </children>
                                                 </VBox>
                                                 <VBox prefHeight="46.0" prefWidth="657.0" spacing="8.0" VBox.vgrow="ALWAYS">
@@ -178,7 +178,7 @@
                                                                 <Font name="System Bold" size="13.0" />
                                                             </font>
                                                         </Label>
-                                                        <TextArea fx:id="txtDescricaoData" prefHeight="50.0" prefWidth="659.0" promptText="Ex: Início do 1º Semestre" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8;" wrapText="true" VBox.vgrow="ALWAYS">
+                                                        <TextArea fx:id="txtDescricaoData" prefHeight="50.0" prefWidth="659.0" promptText="Ex: Recesso de Carnaval" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8;" wrapText="true" VBox.vgrow="ALWAYS">
                                                             <font>
                                                                 <Font size="13.0" />
                                                             </font>
@@ -252,11 +252,11 @@
 
                                         <VBox prefHeight="73.0" prefWidth="339.0" spacing="8.0">
                                             <children>
-                                    <HBox prefHeight="75.0" prefWidth="339.0">
+                                    <HBox prefHeight="75.0" prefWidth="339.0" spacing="10.0">
                                        <children>
                                           <VBox prefHeight="77.0" prefWidth="258.0">
                                              <children>
-                                                            <Label prefHeight="43.0" prefWidth="119.0" text="Nome da Disciplina" textFill="#374151">
+                                                            <Label prefHeight="33.0" prefWidth="163.0" text="Nome da Disciplina" textFill="#374151">
                                                                 <font>
                                                                     <Font name="System Bold" size="13.0" />
                                                                 </font>
@@ -270,12 +270,12 @@
                                           </VBox>
                                           <VBox layoutX="10.0" layoutY="10.0" prefHeight="73.0" prefWidth="79.0">
                                              <children>
-                                                <Label prefHeight="43.0" prefWidth="119.0" text="ID Disciplina" textFill="#374151">
+                                                <Label prefHeight="43.0" prefWidth="119.0" text="Sigla" textFill="#374151">
                                                    <font>
                                                       <Font name="System Bold" size="13.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="txtIdDisciplina" prefHeight="41.0" prefWidth="239.0" promptText="ID" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
+                                                <TextField fx:id="txtIdDisciplina" prefHeight="41.0" prefWidth="239.0" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
