@@ -11,14 +11,15 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class
+App extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("cadastro-aula"), 1200, 650);
-        stage.setMaximized(false);
+        scene = new Scene(loadFXML("login"), 1200, 650);
+        stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
     }
