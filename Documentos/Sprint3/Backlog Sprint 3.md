@@ -22,7 +22,7 @@
       <td align="center"> 13 </td>
     </tr>
     <tr>
-      <td>Como professor, quero visualizar o planejamento em formato de calendário mensal, para que eu tenha uma visão temporal clara de todas as aulas, avaliações e eventos do semestre.</td>
+      <td>Como professor, quero poder exportar o planejamento como CSV, para que eu tenha uma visão geral clara de todas as aulas, avaliações e eventos do semestre.</td>
       <td align="center">  BAIXA </td>
       <td align="center"> 8 </td>
     </table>
