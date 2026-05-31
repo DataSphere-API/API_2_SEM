@@ -16,6 +16,7 @@ import org.datasphere.dao.MateriaDAO;
 import org.datasphere.model.DiaModel;
 import org.datasphere.model.MateriaModel;
 import org.datasphere.model.ProfessorModel;
+import org.datasphere.model.SemestreModel;
 import org.datasphere.model.SessaoUsuario;
 import org.datasphere.service.SemestreService;
 
