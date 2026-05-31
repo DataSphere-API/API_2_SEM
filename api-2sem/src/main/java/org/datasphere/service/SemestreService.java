@@ -14,9 +14,7 @@ public class SemestreService {
 
     private SemestreModel semestre;
 
-    public void setSemestre(SemestreModel semestre) {
-        this.semestre = semestre;
-    }
+    public SemestreModel getSemestre() { return semestre; }
     public void setSemestre(SemestreModel semestre) { this.semestre = semestre; }
 
     private DiaDAO diaDAO = new DiaDAO();
@@ -32,11 +30,11 @@ public class SemestreService {
     }
 
     public void criarSemanaSprint(LocalDate dataInicial, LocalDate dataFinal) {
-        for (DiaModel dia : getSemestre().getDiasList()) {
+        for (DiaModel dia : semestre.getDiasList()) {
             LocalDate dataAtual = dia.getData();
-
             if (!dataAtual.isBefore(dataInicial) && !dataAtual.isAfter(dataFinal)) {
                 dia.setDisponivelParaProva(false);
+                diaDAO.atualizarDisponibilidade(dia);
             }
         }
     }
