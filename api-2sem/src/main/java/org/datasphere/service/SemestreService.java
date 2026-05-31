@@ -34,7 +34,7 @@ public class SemestreService {
             LocalDate dataAtual = dia.getData();
             if (!dataAtual.isBefore(dataInicial) && !dataAtual.isAfter(dataFinal)) {
                 dia.setDisponivelParaProva(false);
-                diaDAO.atualizarDisponibilidade(dia);
+                diaDAO.atualizarDisponibilidade(dia.getData());
             }
         }
     }
