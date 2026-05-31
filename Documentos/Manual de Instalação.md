@@ -11,7 +11,7 @@ Este documento descreve como compilar e executar o SIGA\.ME a partir do código-
 ## ⚙️ Pré-requisitos
 - Java 11+
 - Maven 3.6+
-- PostgreSQL 13+
+- Conta no [Supabase](https://supabase.com) (gratuita)
 
 ## 📥 1. Clone o repositório
 ```bash
@@ -19,51 +19,30 @@ git clone https://github.com/DataSphere-API/API_2_SEM.git
 cd API_2_SEM/
 ```
 
-## 🗄️ 2. Crie o banco de dados
-No PostgreSQL, crie um banco chamado `sigame_db` e execute nele o script `script_sigame.sql`.
+## 🗄️ 2. Configure o banco de dados no Supabase
 
-Você pode fazer isso pelo **pgAdmin** (Query Tool → cole o conteúdo do script → Executar) ou pela linha de comando, conforme seu sistema operacional.
+O SIGA.ME utiliza o **Supabase** como banco de dados em nuvem. Não é necessário instalar o PostgreSQL localmente.
 
-### Windows
-Abra o psql:
-```bash
-psql -U postgres
-```
-Dentro do prompt, crie o banco e saia:
-```sql
-CREATE DATABASE sigame_db;
-\q
-```
-Execute o script:
-```bash
-psql -U postgres -d sigame_db -f script_sigame.sql
-```
+1. Acesse [supabase.com](https://supabase.com) e crie um projeto;
+2. No painel do projeto, vá em **SQL Editor**;
+3. Cole o conteúdo do arquivo `script-sigame.sql` (na raiz do repositório) e execute.
 
-### Linux
-Abra o psql:
-```bash
-sudo -u postgres psql
-```
-Dentro do prompt, crie o banco e saia:
-```sql
-CREATE DATABASE sigame_db;
-\q
-```
-Execute o script (envie o conteúdo via pipe para evitar problemas de permissão):
-```bash
-sudo -u postgres psql -d sigame_db -f script-sigame.sql
-```
+As tabelas serão criadas automaticamente no banco.
 
 ## 🔐 3. Configure as variáveis de ambiente
+
 Na pasta `api-2sem/`, crie um arquivo `.env` com base no `.env.example`:
+
 ```env
-DB_URL=jdbc:postgresql://localhost:5432/sigame_db
+DB_URL=jdbc:postgresql://db.<PROJECT_REF>.supabase.co:5432/postgres?sslmode=require
 DB_USER=postgres
-DB_PASSWORD=sua_senha
+DB_PASSWORD=sua_senha_do_supabase
 DB_DRIVER=org.postgresql.Driver
 ```
 
-> O arquivo `.env` já está no `.gitignore` e não deve ser versionado.
+Substitua `<PROJECT_REF>` pelo código do seu projeto, encontrado em **Project Settings → General** no painel do Supabase. A senha pode ser redefinida em **Project Settings → Database → Reset database password**.
+
+> O arquivo `.env` já está no `.gitignore` e **não deve ser versionado**. Compartilhe as credenciais apenas com membros autorizados da equipe.
 
 ## 📦 4. Baixe as dependências
 ```bash

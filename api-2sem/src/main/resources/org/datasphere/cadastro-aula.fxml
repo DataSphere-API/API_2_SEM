@@ -15,7 +15,10 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<<<<<<< HEAD
+=======
 <?import javafx.scene.layout.Region?>
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -27,7 +30,17 @@
          <children>
             <HBox fx:id="hbprincipal" alignment="CENTER" prefHeight="60.0" prefWidth="1199.0">
                <children>
+<<<<<<< HEAD
+
+                  <ImageView fx:id="ivLogo" fitHeight="67.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../static/siga.meLOGO.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Bem vindo, ">
+=======
                   <Label prefHeight="67.0" prefWidth="140.0" text="Bem vindo, ">
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -37,6 +50,14 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
+<<<<<<< HEAD
+                  <ComboBox fx:id="cmbSelecionarMateria" maxWidth="1.7976931348623157E308" onAction="#selecionarMateria" prefHeight="31.0" promptText="Selecione aqui sua matéria" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-font-size: 15;" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btSair" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: transparent; -fx-cursor: hand;" text="⏻">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+=======
                   <ComboBox fx:id="cmbSelecionarMateria" prefHeight="31.0" prefWidth="515.0" promptText="Selecione aqui sua matéria" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-font-size: 15;" />
                   <Region prefHeight="67.0" prefWidth="87.0" />
       
@@ -45,6 +66,7 @@
                         <Image url="@../../static/siga.meLOGO.png" />
                      </image>
                   </ImageView>
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
                </children>
             </HBox>
             <HBox fx:id="fpDiasAulaEconteudoProgram" maxWidth="1.7976931348623157E308" prefHeight="693.0" prefWidth="1159.0" spacing="30.0">
@@ -613,11 +635,21 @@
                                     <Font size="20.0" />
                                  </font>
                               </Button>
+<<<<<<< HEAD
+                              <Button fx:id="btnCompletarPlan" mnemonicParsing="false" onAction="#completarHoras" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="Completar Horas">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btBaixar" mnemonicParsing="false" onAction="#baixarArquivo" prefHeight="45.0" prefWidth="50.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="📥">
+                                 <font><Font size="18.0" /></font>
+=======
                               <Region prefHeight="49.0" prefWidth="109.0" />
                               <Button fx:id="btBaixar" mnemonicParsing="false" onAction="#baixarArquivo" prefHeight="47.0" prefWidth="50.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 3);" text="📥">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
                               </Button>
                            </children>
                         </HBox>

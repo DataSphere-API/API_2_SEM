@@ -2,28 +2,46 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<<<<<<< HEAD
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+=======
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<<<<<<< HEAD
+<?import javafx.scene.control.ToggleGroup?>
+=======
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<<<<<<< HEAD
+=======
 <?import javafx.scene.layout.Region?>
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<<<<<<< HEAD
+<AnchorPane prefHeight="904.0" prefWidth="1200.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CoordenadorController">
+=======
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="882.0" prefWidth="1211.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.datasphere.controller.CoordenadorController">
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1400.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -95,6 +113,132 @@
                                  </Text>
                                  <HBox prefHeight="33.0" prefWidth="738.0" style="-fx-effect: #D1D5DB; -fx-background-radius: 16;">
                                     <children>
+<<<<<<< HEAD
+                                        <Text fill="#2E5FBD" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendário Acadêmico">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                        </Text>
+
+                                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                                            <padding>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                            </padding>
+                                            <children>
+                                                <Text fill="#E91E8C" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Período Letivo">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Text>
+                                                <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                                    <children>
+                                                        <Label text="Data Inicial:">
+                                                            <font>
+                                                                <Font name="System Bold" size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <DatePicker fx:id="dpDataInicial" maxWidth="1.7976931348623157E308" style="-fx-border-radius: 8; -fx-background-radius: 8;" HBox.hgrow="ALWAYS" />
+                                                        <Label text="Data Final:">
+                                                            <font>
+                                                                <Font name="System Bold" size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <DatePicker fx:id="dpDataFinal" maxWidth="1.7976931348623157E308" style="-fx-background-radius: 8; -fx-border-radius: 8;" HBox.hgrow="ALWAYS" />
+                                                    </children>
+                                                </HBox>
+                                                <Button fx:id="btAdicionarPeriodo" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adicionarPeriodo" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Adicionar Período Letivo">
+                                                    <font>
+                                                        <Font name="System Bold" size="15.0" />
+                                                    </font>
+                                                </Button>
+                                            </children>
+                                        </VBox>
+                              <VBox layoutX="30.0" layoutY="72.0" prefHeight="128.0" prefWidth="700.0" spacing="15.0" style="-fx-background-color: linear-gradient(to bottom right, #E3F2FD, #BBDEFB); -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                                 <children>
+                                    <Text fill="#2e5fbd" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar 3° Semana de Sprint">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Text>
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                       <children>
+                                          <Label text="Data Inicial:">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <DatePicker fx:id="dpDataInicialSprint" maxWidth="1.7976931348623157E308" style="-fx-border-radius: 8; -fx-background-radius: 8;" HBox.hgrow="ALWAYS" />
+                                          <Label text="Data Final:">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <DatePicker fx:id="dpDataFinalSprint" maxWidth="1.7976931348623157E308" style="-fx-background-radius: 8; -fx-border-radius: 8;" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="btAdicionarPeriodoSprint" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adicionarDataSprint" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Adicionar 3° Semana de Sprint">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+
+                                        <VBox prefHeight="338.0" prefWidth="699.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);" VBox.vgrow="ALWAYS">
+                                            <padding>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                            </padding>
+                                            <children>
+                                                <Text fill="#E91E8C" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Data Específica">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Text>
+                                                <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                                    <children>
+                                                        <Label text="Data / Feriado:">
+                                                            <font>
+                                                                <Font name="System Bold" size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <DatePicker fx:id="dpFeriados" maxWidth="1.7976931348623157E308" prefHeight="35.0" style="-fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8;" HBox.hgrow="ALWAYS" />
+                                                    </children>
+                                                </HBox>
+                                                <VBox spacing="8.0">
+                                                    <children>
+                                                        <Label text="Título" textFill="#374151">
+                                                            <font>
+                                                                <Font name="System Bold" size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="txtTituloData" promptText="Feriado, Recesso, Emenda" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8;" />
+                                                    </children>
+                                                </VBox>
+                                                <VBox prefHeight="46.0" prefWidth="657.0" spacing="8.0" VBox.vgrow="ALWAYS">
+                                                    <children>
+                                                        <Label text="Descrição" textFill="#374151">
+                                                            <font>
+                                                                <Font name="System Bold" size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextArea fx:id="txtDescricaoData" prefHeight="50.0" prefWidth="659.0" promptText="Ex: Recesso de Carnaval" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8;" wrapText="true" VBox.vgrow="ALWAYS">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </TextArea>
+                                                    </children>
+                                                </VBox>
+                                                <Button fx:id="btAdicionarData" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adicionarDataFeriado" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Salvar Data">
+                                                    <font>
+                                                        <Font name="System Bold" size="15.0" />
+                                                    </font>
+                                                </Button>
+                                            </children>
+                                        </VBox>
+=======
                                        <Label prefHeight="47.0" prefWidth="107.0" text="Data Inicial ">
                                           <font>
                                              <Font name="System Bold" size="13.0" />
@@ -109,6 +253,7 @@
                                        </Label>
                                        <DatePicker fx:id="dpDataFinal" maxHeight="1.7976931348623157E308" style="-fx-background-radius: 8; -fx-border-radius: 8;" />
                                        <Region prefHeight="100.0" prefWidth="85.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8;" />
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
                                     </children>
                                  </HBox>
                                  <VBox spacing="8.0" />
@@ -328,6 +473,91 @@
                                             </Label>
                                  <HBox prefHeight="34.0" prefWidth="380.0">
                                     <children>
+<<<<<<< HEAD
+                                        <Text fx:id="txtTituloDisciplina" fill="#E91E8C" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Disciplina">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Text>
+
+                                        <VBox prefHeight="73.0" prefWidth="339.0" spacing="8.0">
+                                            <children>
+                                    <HBox prefHeight="75.0" prefWidth="339.0" spacing="10.0">
+                                       <children>
+                                          <VBox prefHeight="77.0" prefWidth="258.0">
+                                             <children>
+                                                            <Label prefHeight="33.0" prefWidth="163.0" text="Nome da Disciplina" textFill="#374151">
+                                                                <font>
+                                                                    <Font name="System Bold" size="13.0" />
+                                                                </font>
+                                                            </Label>
+                                                            <TextField fx:id="txtNomeDisciplina" prefHeight="41.0" prefWidth="239.0" promptText="Ex: Estrutura de Dados" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
+                                                                <font>
+                                                                    <Font size="13.0" />
+                                                                </font>
+                                                            </TextField>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="73.0" prefWidth="79.0">
+                                             <children>
+                                                <Label prefHeight="43.0" prefWidth="119.0" text="Sigla" textFill="#374151">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="txtIdDisciplina" prefHeight="41.0" prefWidth="239.0" style="-fx-background-color: white; -fx-border-color: #D1D5DB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                            </children>
+                                        </VBox>
+
+                                        <VBox spacing="8.0">
+                                            <children>
+                                                <Label text="Carga Horária" textFill="#374151">
+                                                    <font>
+                                                        <Font name="System Bold" size="13.0" />
+                                                    </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" spacing="30.0" style="-fx-padding: 5;">
+                                                    <children>
+                                                        <RadioButton fx:id="rb40Horas" mnemonicParsing="false" text="40 Horas" textFill="#2e5fbd">
+                                                            <font>
+                                                                <Font name="System Bold" size="13.0" />
+                                                            </font>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoHorario" />
+                                             </toggleGroup>
+                                                        </RadioButton>
+                                                        <RadioButton fx:id="rb80Horas" mnemonicParsing="false" text="80 Horas" textFill="#2e5fbd" toggleGroup="$grupoHorario">
+                                                            <font>
+                                                                <Font name="System Bold" size="13.0" />
+                                                            </font>
+                                                        </RadioButton>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+
+                                        <VBox spacing="8.0">
+                                            <children>
+                                                <Label prefHeight="26.0" prefWidth="87.0" text="Professor" textFill="#374151">
+                                                    <font>
+                                                        <Font name="System Bold" size="13.0" />
+                                                    </font>
+                                                </Label>
+                                    <ComboBox fx:id="cmbProfessor" prefHeight="31.0" prefWidth="339.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-background-color: white; -fx-font-size: 15; -fx-border-color: #D1D5DB; -fx-border-radius: 8;" />
+                                            </children>
+                                        </VBox>
+
+                                        <Button fx:id="btnCadastrarDisciplina" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cadastrarDisciplina" prefHeight="45.0" style="-fx-background-color: linear-gradient(to right, #2E5FBD, #E91E8C); -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold;" text="Cadastrar Disciplina" />
+                              <VBox layoutX="30.0" layoutY="74.0" spacing="8.0" />
+=======
                                        <Region prefHeight="34.0" prefWidth="52.0" />
                                        <RadioButton fx:id="rb40hrs" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="40 Horas " textFill="#2e5fbd">
                                           <font>
@@ -340,6 +570,7 @@
                                              <Font name="System Bold" size="13.0" />
                                           </font>
                                        </RadioButton>
+>>>>>>> cf428fd39198417f8ce644a231c8e41200afcdac
                                     </children>
                                  </HBox>
                                         </children>
