@@ -22,7 +22,7 @@ SIGA\.ME é um sistema desenvolvido por alunos do 2° semestre do curso de Banco
 
 ---
 
-> Status do projeto: Em Desenvolvimento
+> Status do projeto: Concluído
 
 
 ### 🎯 Desafio  <a id="desafio"></a>
@@ -62,8 +62,6 @@ O SIGA\.ME é um sistema que gera o planejamento de aulas de forma automatizada,
 A partir do conteúdo cadastrado pelo professor e da quantidade de aulas exigida por cada tópico, o sistema distribui as aulas ao longo do semestre respeitando a carga horária mínima da disciplina, evita o agendamento de avaliações em datas restritas (como a 3ª semana de Sprint, a Feira de Soluções e a apresentação de TG) e sinaliza eventuais lacunas no planejamento, como tópicos sem data ou dias de aula sem conteúdo atribuído. 
 
 Dessa forma, o professor passa a contar com um planejamento consistente, validado e pronto para ser lançado no SIGA.
-
-##### CLIQUE <a href="https://youtu.be/DfhsHqrduig"> AQUI </a> PARA VER O FUNCIONAMENTO DA FERRAMENTA
 
 ---
 ### 📋 Backlog do Produto <a id="backlog"></a>
@@ -119,7 +117,7 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
     </tr>
     <tr>
       <td align="center"> <b> US08 </b> </td>
-      <td>Como professor, quero visualizar o planejamento em formato de calendário mensal, para que eu tenha uma visão temporal clara de todas as aulas, avaliações e eventos do semestre.</td>
+      <td>Como professor, quero poder exportar o planejamento como CSV, para que eu tenha uma visão geral clara de todas as aulas, avaliações e eventos do semestre.</td>
       <td align="center">  BAIXA </td>
       <td align="center"> 8 </td>
     </tr>
@@ -135,34 +133,39 @@ Dessa forma, o professor passa a contar com um planejamento consistente, validad
     <th> Sprint </th>
     <th> Período </th>
     <th> Status </th>
+    <th> Vídeo </th>
     <tr>
       <td align="center"> <a href="/Documentos/Sprint1/"> Sprint 1 </a> </td>
       <td align="center"> 16/03 a 05/04 </td>
       <td align="center"> ✅ </td>
+       <td> <a href=""> 1° ENTREGA </td>
     </tr>
     <tr>
       <td align="center"> <a href="/Documentos/Sprint2/"> Sprint 2 </a> </td>
       <td align="center"> 13/04 a 03/05 </td>
       <td align="center"> ✅ </td>
+      <td> <a href="https://youtu.be/DfhsHqrduig"> 2° ENTREGA </td>
     </tr>
     <tr>
       <td align="center"> <a href="/Documentos/Sprint3/"> Sprint 3 </a> </td>
       <td align="center"> 11/05 a 31/05 </td>
-      <td align="center"> </td>
+      <td align="center"> ✅ </td>
+      <td> <a href="https://youtu.be/05vuANx6WSo?si=gOC2c2OXcDMp_cj8"> 3° ENTREGA </td>
     </tr>
   </table>
 </div>
 
 ---
 
-## 📁 Estrutura do Projeto <a id = "estrutura"></a>
+## 📁 Estrutura do Projeto <a id="estrutura"></a>
 
 ```
 API_2_SEM/
 ├── Documentos/                          # Documentação do projeto
 │   ├── Sprint1/                         # Backlog, critérios de aceite e rascunhos
 │   ├── Sprint2/                         # Backlog, critérios de aceite e rascunhos
-|   ├── DER-API.png
+│   ├── Sprint3/                         # Backlog, critérios de aceite e rascunhos
+│   ├── DER-API.png
 │   ├── Definition of Done.md
 │   ├── Definition of Ready.md
 │   ├── Diretrizes de Permanência.md
@@ -176,29 +179,46 @@ API_2_SEM/
 │   ├── src/main/java/org/datasphere/
 │   │   ├── App.java                     # Ponto de entrada (main)
 │   │   ├── controller/                  # Controllers do JavaFX
-│   │   │   └── CadastrarAulaController.java
+│   │   │   ├── CadastrarAulaController.java   # Tela do professor
+│   │   │   ├── CoordenadorController.java     # Tela do coordenador
+│   │   │   ├── CadastroUsuaController.java    # Tela de cadastro de usuário
+│   │   │   ├── HomeController.java            # Tela de seleção de perfil
+│   │   │   └── LoginController.java           # Tela de login
 │   │   ├── service/                     # Regras de negócio
+│   │   │   ├── AulaService.java
+│   │   │   ├── LoginService.java
 │   │   │   ├── OrganizarAulaService.java
-│   │   │   └── SemestreService.java
+│   │   │   ├── SemestreService.java
+│   │   │   ├── SenhaHashService.java
+│   │   │   ├── SessaoUsuarioService.java
+│   │   │   └── TopicoService.java
 │   │   ├── dao/                         # Acesso ao banco de dados
 │   │   │   ├── interfaces/
 │   │   │   │   └── IDAO.java
 │   │   │   ├── AulaDAO.java
 │   │   │   ├── AulaPlanejadaDAO.java
+│   │   │   ├── CadastroDAO.java
 │   │   │   ├── DiaDAO.java
+│   │   │   ├── LoginDAO.java
+│   │   │   ├── MateriaDAO.java
 │   │   │   └── TopicoDAO.java
 │   │   ├── model/                       # Entidades
 │   │   │   ├── AulaModel.java
 │   │   │   ├── AulaPlanejada.java
 │   │   │   ├── DiaModel.java
+│   │   │   ├── MateriaModel.java
+│   │   │   ├── ProfessorModel.java
 │   │   │   ├── SemestreModel.java
+│   │   │   ├── SessaoUsuario.java
 │   │   │   └── TopicoModel.java
-│   │   └── database/                    # Configuração de conexão com banco de dados
-│   │       └── ConexaoDB.java
-│   ├── src/main/resources/
-│   │   ├── org/datasphere/
-│   │   │   └── cadastro-aula.fxml       # Definição da tela principal
-│   │   └── static/                      # Imagens e recursos visuais
+│   │   └── database/
+│   │       └── ConexaoDB.java           # Conexão com o banco via .env
+│   ├── src/main/resources/org/datasphere/
+│   │   ├── cadastro-aula.fxml           # Tela do professor
+│   │   ├── cadastroUsua.fxml            # Tela de cadastro de usuário
+│   │   ├── coordenador.fxml             # Tela do coordenador
+│   │   ├── home.fxml                    # Tela de seleção de perfil
+│   │   └── login.fxml                   # Tela de login
 │   ├── .env.example                     # Modelo do arquivo de ambiente
 │   ├── pom.xml                          # Dependências e configuração Maven
 │   └── script_sigame.sql                # Script de criação das tabelas
@@ -279,14 +299,14 @@ A documentação está disponível na pasta  <a href="/Documentos/"> Documentos<
      <tr>
       <th> <img src="/Documentos/assets/team_pics/daiane.png" height=120px> </th>
       <td>Daiane Moura</td>
-      <td>Desenvolvedor</td>
+      <td>Desenvolvedora</td>
       <td><a href="https://github.com/mouradaiane"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/daiane-moura-189987106/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
    <tr>
       <th> <img src="/Documentos/assets/team_pics/ieda.png" height=120px> </th>
       <td>Ieda Moretini</td>
-      <td>Desenvolvedor</td>
+      <td>Desenvolvedora</td>
       <td><a href="https://github.com/imoretini"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/iedamoretini"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
